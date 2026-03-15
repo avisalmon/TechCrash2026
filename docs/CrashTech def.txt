@@ -1,0 +1,229 @@
+Below is a clean **copy-paste text** you can place directly into your Cloud/Claude project. I wrote it in a **clear definition style**, so it can serve both as documentation and as instructions for organizing the event.
+
+---
+
+# CrashTech Hackathon – Concept and Operating Model
+
+## What is CrashTech
+
+CrashTech is a fast-paced engineering hackathon designed to **crash together multiple disciplines** in order to create practical technological prototypes in a very short time.
+
+The core idea behind CrashTech is that real innovation happens when **different worlds collide**. Instead of separating hardware, software, AI, and systems engineering into different tracks, CrashTech intentionally mixes them. Participants are challenged to combine technologies, ideas, and tools that normally belong to different domains.
+
+CrashTech focuses on **building**, not presenting. Teams are expected to produce working prototypes, experiments, or proof-of-concept systems rather than theoretical proposals.
+
+Typical characteristics of CrashTech:
+
+• Short, intense development cycle
+• Hands-on engineering and prototyping
+• Cross-disciplinary collaboration
+• AI-assisted development
+• Emphasis on experimentation and learning
+• Focus on real technical artifacts
+
+The goal is not only to create interesting prototypes, but also to train engineers and students to think in **systems**, move fast, and leverage modern AI tools to accelerate development.
+
+CrashTech events are especially suitable for environments where **engineering, research, and creativity intersect**, such as universities, innovation centers, and industry labs.
+
+---
+
+# Objectives of CrashTech
+
+CrashTech events aim to achieve several goals:
+
+**1. Encourage interdisciplinary engineering**
+
+Participants combine skills from areas such as:
+
+• Artificial Intelligence
+• Embedded systems
+• Hardware design
+• Software engineering
+• Data science
+• Sensors and edge devices
+
+**2. Promote rapid experimentation**
+
+Participants are encouraged to try ideas quickly and learn through building.
+
+**3. Develop AI-augmented engineering skills**
+
+Modern engineers increasingly work together with AI tools such as code assistants, design assistants, and data analysis tools. CrashTech encourages participants to use these tools effectively.
+
+**4. Strengthen collaboration between academia and industry**
+
+CrashTech events provide a natural platform for collaboration between students, researchers, and engineers.
+
+---
+
+# CrashTech Format
+
+A typical CrashTech event follows a simple and efficient structure.
+
+## 1. Challenge Announcement
+
+At the beginning of the event, participants receive a set of **technical challenges or themes**.
+
+Examples may include:
+
+• AI at the edge
+• Sensor intelligence
+• FPGA acceleration
+• Hardware-software co-design
+• AI-powered embedded systems
+• Novel human-machine interfaces
+
+The challenge should be **open enough to allow creativity**, but specific enough to encourage practical engineering work.
+
+---
+
+## 2. Team Formation
+
+Participants organize themselves into small teams.
+
+Typical team size:
+
+**2–4 participants**
+
+Teams are encouraged to include people with **different technical backgrounds** to increase the diversity of ideas and skills.
+
+---
+
+## 3. Development Phase
+
+Teams work intensively for a limited time period.
+
+Typical durations:
+
+• 24 hours
+• 36 hours
+• 48 hours
+• or a short multi-day sprint
+
+During this time teams:
+
+• design their concept
+• build a prototype
+• test their idea
+• prepare a short demo
+
+The focus is on **functional prototypes**, even if they are rough.
+
+---
+
+## 4. Mentoring
+
+During the event, mentors from academia and industry may assist the teams.
+
+Mentors typically help with:
+
+• technical guidance
+• architecture suggestions
+• debugging assistance
+• domain expertise
+
+Mentors should **guide but not build** the project themselves.
+
+---
+
+## 5. Final Demonstration
+
+At the end of the event, each team presents their work.
+
+Typical demo structure:
+
+• 3–5 minute presentation
+• live demonstration if possible
+• explanation of the technical idea
+• explanation of the impact or future potential
+
+The emphasis is on **showing what was built**, not on slides.
+
+---
+
+## 6. Judging
+
+Projects are evaluated by a panel of judges.
+
+Evaluation criteria typically include:
+
+**Innovation**
+How original and creative is the idea.
+
+**Technical depth**
+How strong is the engineering behind the solution.
+
+**Execution**
+Did the team succeed in building a working prototype.
+
+**Impact**
+Could the idea lead to real applications or further research.
+
+---
+
+# What We Did in the Previous CrashTech
+
+In the previous CrashTech event we ran, the focus was on **rapid prototyping of AI-enabled engineering ideas**.
+
+Participants were encouraged to combine:
+
+• AI tools
+• embedded systems
+• hardware experimentation
+• software engineering
+
+Teams worked in a short and intense development cycle and produced **functional prototypes or technical experiments**.
+
+Key characteristics of that CrashTech included:
+
+**Fast development cycle**
+
+Teams had a limited time window to go from idea to prototype.
+
+**AI-assisted development**
+
+Participants were encouraged to use modern AI coding tools and assistants to accelerate development.
+
+**Real engineering artifacts**
+
+Instead of theoretical ideas, teams were asked to produce:
+
+• working prototypes
+• hardware experiments
+• software systems
+• engineering demonstrations
+
+**Interdisciplinary collaboration**
+
+Many teams included a mix of:
+
+• computer science students
+• hardware engineers
+• software developers
+• AI practitioners
+
+This combination proved extremely powerful, as teams were able to rapidly build systems that combined multiple technologies.
+
+---
+
+# Why CrashTech Works
+
+CrashTech works because it creates an environment where:
+
+• engineers move **from idea to prototype very quickly**
+• disciplines are intentionally **mixed together**
+• experimentation is encouraged
+• AI tools accelerate development
+
+This produces a highly creative engineering atmosphere where participants learn new skills, discover unexpected solutions, and often generate ideas that can evolve into real research projects or products.
+
+CrashTech is therefore not only a hackathon, but also a **training ground for modern engineering practice**.
+
+---
+
+If you want, I can also write you **two additional useful sections** that usually make these documents much stronger:
+
+1. **A concrete CrashTech agenda (hour-by-hour schedule)**
+2. **Example challenges for the Technion CrashTech**
+
+Those will make the proposal much easier for the Technion to approve.
