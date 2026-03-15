@@ -1,5 +1,5 @@
 /* ======================================
-   CrashTech VLSI 2026 — Stylesheet
+   CrashTech VLSI-2026 -- Stylesheet
    ====================================== */
 
 :root {
@@ -306,8 +306,23 @@ a:hover { text-decoration: underline; }
 }
 
 .card-icon {
-    font-size: 2rem;
+    font-size: 0.85rem;
+    font-weight: 800;
+    color: var(--accent);
+    background: rgba(0, 199, 183, 0.1);
+    width: 48px;
+    height: 48px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     margin-bottom: 0.75rem;
+    letter-spacing: 0.02em;
+    font-family: 'Inter', monospace;
+}
+
+.card-icon::before {
+    content: attr(data-icon);
 }
 
 .card h3 {
@@ -589,10 +604,22 @@ a:hover { text-decoration: underline; }
 }
 
 .scoring-icon {
-    font-size: 1.5rem;
+    font-size: 0.75rem;
+    font-weight: 800;
+    color: var(--accent);
+    background: rgba(0, 199, 183, 0.1);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     flex-shrink: 0;
-    line-height: 1;
-    margin-top: 0.1rem;
+    font-family: 'Inter', monospace;
+}
+
+.scoring-icon::before {
+    content: attr(data-icon);
 }
 
 .scoring-item strong {
@@ -630,8 +657,22 @@ a:hover { text-decoration: underline; }
 }
 
 .ai-why-icon {
-    font-size: 1.8rem;
+    font-size: 0.85rem;
+    font-weight: 800;
+    color: var(--accent);
+    background: rgba(0, 199, 183, 0.1);
+    width: 44px;
+    height: 44px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     margin-bottom: 0.5rem;
+    font-family: 'Inter', monospace;
+}
+
+.ai-why-icon::before {
+    content: attr(data-icon);
 }
 
 .ai-why-card h4 {
@@ -667,9 +708,22 @@ a:hover { text-decoration: underline; }
 }
 
 .ai-feature-icon {
-    font-size: 1.4rem;
+    font-size: 0.75rem;
+    font-weight: 800;
+    color: var(--accent);
+    background: rgba(0, 199, 183, 0.1);
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     flex-shrink: 0;
-    margin-top: 0.1rem;
+    font-family: 'Inter', monospace;
+}
+
+.ai-feature-icon::before {
+    content: attr(data-icon);
 }
 
 .ai-feature strong {
@@ -776,7 +830,7 @@ a:hover { text-decoration: underline; }
 }
 
 .ai-pro-tips li::before {
-    content: '💡';
+    content: '>';
     position: absolute;
     left: 0;
     font-size: 0.85rem;
@@ -982,7 +1036,23 @@ a:hover { text-decoration: underline; }
     text-decoration: none;
 }
 
-.quick-link-icon { font-size: 1.5rem; }
+.quick-link-icon {
+    font-size: 0.85rem;
+    font-weight: 800;
+    color: var(--accent);
+    background: rgba(0, 199, 183, 0.1);
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Inter', monospace;
+}
+
+.quick-link-icon::before {
+    content: attr(data-icon);
+}
 .quick-link-label { font-weight: 600; font-size: 0.95rem; }
 
 /* ---- Placeholder Page ---- */
@@ -998,9 +1068,23 @@ a:hover { text-decoration: underline; }
 }
 
 .placeholder-icon {
-    font-size: 4rem;
+    font-size: 1.2rem;
+    font-weight: 800;
+    color: var(--accent);
+    background: rgba(0, 199, 183, 0.1);
+    width: 64px;
+    height: 64px;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     margin-bottom: 1rem;
-    opacity: 0.5;
+    opacity: 0.6;
+    font-family: 'Inter', monospace;
+}
+
+.placeholder-icon::before {
+    content: attr(data-icon);
 }
 
 .placeholder h2 {
