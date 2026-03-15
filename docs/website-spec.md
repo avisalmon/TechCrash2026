@@ -144,17 +144,88 @@ How to prepare for the event. The self-guided training hub.
 
 ### 4.5 Practice Challenges
 
-Open practice challenges available before the event.
+Open practice challenges available before the event. These are **not secret** — they are meant for training. Solutions are not provided — self-discovery applies here too.
 
-**Content:**
-- List of practice challenges (revealed 2 weeks before the event)
-- Each challenge card shows:
-  - Title
-  - Difficulty indicator
-  - Scoring model (completion or performance)
-  - Description and requirements
-- These are **not secret** — they are meant for training
-- Solutions are not provided — self-discovery applies here too
+Each challenge card on the website shows: title, difficulty, scoring model, description, requirements, and hints about what skills/tools are involved.
+
+---
+
+#### Practice Challenge 1: Real-Time Clock (FPGA + ESP32 + Web)
+
+**Title:** Internet Clock  
+**Difficulty:** Medium  
+**Scoring model:** Completion + Time  
+**Skills involved:** FPGA ↔ ESP32 communication, WiFi, web API, seven-segment display
+
+**Description:**
+
+Build a real-time clock powered by the internet. The ESP32 connects to a public time API over WiFi, retrieves the current time, and continuously transmits it to the DE10-Lite FPGA. The FPGA displays the live hours, minutes, and seconds on its six seven-segment displays.
+
+**Requirements:**
+- ESP32 fetches the current time from a web API (e.g., WorldTimeAPI, NTP server)
+- ESP32 transmits time data to the FPGA over a wired interface (UART, SPI, or I2C via GPIO/Arduino header)
+- FPGA displays the time on HEX5–HEX0 in `HH.MM.SS` format
+- Clock updates in real time (at least once per second)
+- The system must work autonomously after power-on (no PC required after programming)
+
+**What you'll learn:**
+- Wiring and protocol between ESP32 and DE10-Lite
+- WiFi and HTTP/NTP on ESP32
+- Receiving serial data on FPGA
+- Seven-segment display driving
+
+---
+
+#### Practice Challenge 2: Retro Game (ESP32 Screen + FPGA Controls)
+
+**Title:** Retro Arcade  
+**Difficulty:** Hard  
+**Scoring model:** Completion + Time  
+**Skills involved:** FPGA button/switch input, FPGA → ESP32 communication, ESP32 graphics/game engine
+
+**Description:**
+
+Create a playable retro-style game that runs on the ESP32 kit's screen, where the game controls (movement, actions) come from the DE10-Lite FPGA's buttons and switches. The FPGA reads the physical inputs and sends control commands to the ESP32, which renders the game.
+
+**Requirements:**
+- Game runs on the ESP32 kit's LCD screen (any retro game: Pong, Snake, Breakout, Space Invaders, etc.)
+- Player controls are physically on the FPGA: buttons (KEY[0], KEY[1]), switches, or addon joystick
+- FPGA reads inputs and transmits control commands to ESP32 over a wired interface
+- Game must be playable — responsive controls, visible graphics, win/lose condition
+- Bonus points for creativity, polish, and fun factor
+
+**What you'll learn:**
+- Bidirectional or unidirectional FPGA → ESP32 communication
+- Reading buttons/switches on the FPGA
+- Game loop and graphics rendering on ESP32
+- Real-time input handling across two devices
+
+---
+
+#### Practice Challenge 3: Digital Volt Meter (FPGA ADC + ESP32 Display)
+
+**Title:** Volt Meter  
+**Difficulty:** Medium  
+**Scoring model:** Completion + Time  
+**Skills involved:** FPGA ADC, analog measurement, FPGA → ESP32 communication, ESP32 display
+
+**Description:**
+
+Turn your hardware kit into a digital volt meter. The DE10-Lite FPGA uses its onboard ADC to probe an external voltage source (e.g., a battery, a potentiometer divider, or a power supply output). It measures the voltage and sends the reading to the ESP32, which displays the voltage value on its screen in a clear, formatted display.
+
+**Requirements:**
+- FPGA reads voltage through its onboard ADC (MAX 10 ADC, channels available via GPIO/Arduino header)
+- Measured voltage is transmitted from FPGA to ESP32 over a wired interface
+- ESP32 displays the voltage on its LCD screen (e.g., "3.27 V") with at least 2 decimal places
+- Display updates in real time (at least 2 updates per second)
+- Measurement range: 0–3.3V (the ADC reference voltage)
+- Safety: do NOT connect voltages above 3.3V to the ADC input
+
+**What you'll learn:**
+- Using the MAX 10 onboard ADC (Qsys IP, Avalon-MM interface)
+- Analog signal conditioning and measurement
+- FPGA → ESP32 data transmission
+- Formatted numeric display on ESP32 screen
 
 ---
 
