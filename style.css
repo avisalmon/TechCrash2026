@@ -315,6 +315,292 @@ a:hover { text-decoration: underline; }
     font-size: 0.92rem;
 }
 
+.card-link {
+    display: inline-block;
+    margin-top: 0.75rem;
+    color: var(--accent);
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+.card-link:hover {
+    text-decoration: underline;
+}
+
+/* ---- Section Headings ---- */
+
+.section-heading {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: var(--text-bright);
+    margin-bottom: 0.25rem;
+}
+
+/* ---- Step Cards (Get Started) ---- */
+
+.steps-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.step-card {
+    display: flex;
+    gap: 1.25rem;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1.5rem;
+    transition: border-color 0.2s;
+}
+
+.step-card:hover {
+    border-color: rgba(0, 199, 183, 0.3);
+}
+
+.step-number {
+    flex-shrink: 0;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: rgba(0, 199, 183, 0.12);
+    color: var(--accent);
+    font-weight: 800;
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.step-content h4 {
+    color: var(--text-bright);
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 0.35rem;
+}
+
+.step-content > p {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    margin-bottom: 0.75rem;
+}
+
+.step-details {
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    padding: 1rem 1.25rem;
+    margin-top: 0.5rem;
+}
+
+.step-details ul {
+    list-style: none;
+    padding: 0;
+}
+
+.step-details li {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    padding: 0.2rem 0;
+    padding-left: 1.25rem;
+    position: relative;
+}
+
+.step-details li::before {
+    content: '▸';
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+}
+
+.step-details code {
+    background: rgba(0, 199, 183, 0.1);
+    color: var(--accent);
+    padding: 0.1rem 0.4rem;
+    border-radius: 4px;
+    font-size: 0.85rem;
+}
+
+.step-tip {
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    margin-top: 0.5rem;
+    margin-bottom: 0;
+}
+
+/* ---- Challenge Cards (Practice Challenges) ---- */
+
+.challenge-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    overflow: hidden;
+    transition: border-color 0.2s;
+}
+
+.challenge-card:hover {
+    border-color: rgba(0, 199, 183, 0.3);
+}
+
+.challenge-header {
+    padding: 1.5rem 2rem 1.25rem;
+    border-bottom: 1px solid var(--border);
+}
+
+.challenge-badge {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    padding: 0.2rem 0.75rem;
+    border-radius: 100px;
+    margin-bottom: 0.75rem;
+}
+
+.badge-medium {
+    background: rgba(255, 193, 7, 0.15);
+    color: #ffc107;
+}
+
+.badge-hard {
+    background: rgba(244, 67, 54, 0.15);
+    color: #f44336;
+}
+
+.challenge-title {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: var(--text-bright);
+    margin-bottom: 0.25rem;
+}
+
+.challenge-subtitle {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+}
+
+.challenge-body {
+    padding: 1.5rem 2rem 2rem;
+}
+
+.challenge-body > p {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    line-height: 1.7;
+    margin-bottom: 1.25rem;
+}
+
+.challenge-requirements,
+.challenge-skills,
+.challenge-safety {
+    margin-top: 1.25rem;
+}
+
+.challenge-requirements h4,
+.challenge-skills h4,
+.challenge-safety h4 {
+    color: var(--text-bright);
+    font-size: 0.95rem;
+    font-weight: 700;
+    margin-bottom: 0.6rem;
+}
+
+.challenge-requirements ul {
+    list-style: none;
+    padding: 0;
+}
+
+.challenge-requirements li {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    padding: 0.35rem 0 0.35rem 1.5rem;
+    position: relative;
+    line-height: 1.6;
+}
+
+.challenge-requirements li::before {
+    content: '☐';
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+}
+
+.challenge-requirements code {
+    background: rgba(0, 199, 183, 0.1);
+    color: var(--accent);
+    padding: 0.1rem 0.4rem;
+    border-radius: 4px;
+    font-size: 0.85rem;
+}
+
+.challenge-safety {
+    background: rgba(244, 67, 54, 0.08);
+    border: 1px solid rgba(244, 67, 54, 0.2);
+    border-radius: 8px;
+    padding: 1rem 1.25rem;
+}
+
+.challenge-safety p {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    margin: 0;
+}
+
+.skill-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.skill-tag {
+    background: rgba(0, 113, 197, 0.12);
+    color: var(--primary);
+    font-size: 0.8rem;
+    font-weight: 600;
+    padding: 0.3rem 0.75rem;
+    border-radius: 100px;
+    border: 1px solid rgba(0, 113, 197, 0.2);
+}
+
+/* Scoring Breakdown */
+
+.scoring-breakdown {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    margin-top: 1rem;
+}
+
+.scoring-item {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1.25rem 1.5rem;
+}
+
+.scoring-icon {
+    font-size: 1.5rem;
+    flex-shrink: 0;
+    line-height: 1;
+    margin-top: 0.1rem;
+}
+
+.scoring-item strong {
+    color: var(--text-bright);
+    font-size: 0.95rem;
+    display: block;
+    margin-bottom: 0.15rem;
+}
+
+.scoring-item p {
+    color: var(--text-muted);
+    font-size: 0.88rem;
+    margin: 0;
+}
+
 /* ---- Event Flow Timeline ---- */
 
 .flow-steps {
@@ -624,4 +910,7 @@ a:hover { text-decoration: underline; }
         padding: 1rem;
     }
     .nav-toggle { display: block; }
+    .step-card { flex-direction: column; gap: 0.75rem; }
+    .challenge-header, .challenge-body { padding-left: 1.25rem; padding-right: 1.25rem; }
+    .scoring-item { flex-direction: column; gap: 0.5rem; }
 }
