@@ -601,6 +601,252 @@ a:hover { text-decoration: underline; }
     margin: 0;
 }
 
+/* ---- AI Tools ---- */
+
+.ai-why-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.ai-why-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1.5rem;
+    transition: border-color 0.2s;
+}
+
+.ai-why-card:hover {
+    border-color: rgba(0, 199, 183, 0.3);
+}
+
+.ai-why-icon {
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+}
+
+.ai-why-card h4 {
+    color: var(--text-bright);
+    font-size: 1rem;
+    font-weight: 700;
+    margin-bottom: 0.35rem;
+}
+
+.ai-why-card p {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    line-height: 1.6;
+}
+
+/* Feature list (VS Code) */
+
+.ai-feature-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    margin-top: 1rem;
+}
+
+.ai-feature {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1.25rem 1.5rem;
+}
+
+.ai-feature-icon {
+    font-size: 1.4rem;
+    flex-shrink: 0;
+    margin-top: 0.1rem;
+}
+
+.ai-feature strong {
+    color: var(--text-bright);
+    font-size: 0.95rem;
+    display: block;
+    margin-bottom: 0.15rem;
+}
+
+.ai-feature p {
+    color: var(--text-muted);
+    font-size: 0.88rem;
+    margin: 0;
+}
+
+.ai-install-box {
+    margin-top: 1rem;
+    background: rgba(0, 199, 183, 0.06);
+    border: 1px solid rgba(0, 199, 183, 0.15);
+    border-radius: var(--radius);
+    padding: 1rem 1.5rem;
+    font-size: 0.92rem;
+    color: var(--text-muted);
+}
+
+.ai-install-box strong {
+    color: var(--text-bright);
+}
+
+.ai-install-box a {
+    color: var(--accent);
+}
+
+/* Copilot modes */
+
+.ai-copilot-modes {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.ai-mode-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1.5rem;
+    transition: border-color 0.2s;
+}
+
+.ai-mode-card:hover {
+    border-color: rgba(0, 113, 197, 0.3);
+}
+
+.ai-mode-card h4 {
+    color: var(--text-bright);
+    font-size: 1rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.ai-mode-card p {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    line-height: 1.6;
+}
+
+.ai-mode-card code {
+    background: rgba(0, 199, 183, 0.1);
+    color: var(--accent);
+    padding: 0.1rem 0.4rem;
+    border-radius: 4px;
+    font-size: 0.85rem;
+}
+
+/* Pro tips */
+
+.ai-pro-tips {
+    margin-top: 1.5rem;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1.5rem 2rem;
+}
+
+.ai-pro-tips h4 {
+    color: var(--text-bright);
+    font-size: 1rem;
+    font-weight: 700;
+    margin-bottom: 0.75rem;
+}
+
+.ai-pro-tips ul {
+    list-style: none;
+    padding: 0;
+}
+
+.ai-pro-tips li {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    padding: 0.4rem 0 0.4rem 1.5rem;
+    position: relative;
+    line-height: 1.6;
+}
+
+.ai-pro-tips li::before {
+    content: '💡';
+    position: absolute;
+    left: 0;
+    font-size: 0.85rem;
+}
+
+.ai-pro-tips li strong {
+    color: var(--text-bright);
+}
+
+.ai-pro-tips code {
+    background: rgba(0, 199, 183, 0.1);
+    color: var(--accent);
+    padding: 0.1rem 0.4rem;
+    border-radius: 4px;
+    font-size: 0.85rem;
+}
+
+/* Skills explain */
+
+.ai-skills-explain {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+}
+
+.ai-skills-what,
+.ai-skills-how {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1.5rem;
+}
+
+.ai-skills-what h4,
+.ai-skills-how h4 {
+    color: var(--text-bright);
+    font-size: 1rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.ai-skills-what p,
+.ai-skills-how p {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    line-height: 1.6;
+}
+
+.ai-skills-what code,
+.ai-skills-how code {
+    background: rgba(0, 199, 183, 0.1);
+    color: var(--accent);
+    padding: 0.1rem 0.4rem;
+    border-radius: 4px;
+    font-size: 0.85rem;
+}
+
+.ai-skills-how ol {
+    padding-left: 1.25rem;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+}
+
+.ai-skills-how li {
+    padding: 0.2rem 0;
+    line-height: 1.6;
+}
+
+.ai-skills-available-title {
+    color: var(--text-bright);
+    font-size: 1rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
 /* ---- Event Flow Timeline ---- */
 
 .flow-steps {
@@ -913,4 +1159,6 @@ a:hover { text-decoration: underline; }
     .step-card { flex-direction: column; gap: 0.75rem; }
     .challenge-header, .challenge-body { padding-left: 1.25rem; padding-right: 1.25rem; }
     .scoring-item { flex-direction: column; gap: 0.5rem; }
+    .ai-skills-explain { grid-template-columns: 1fr; }
+    .ai-feature { flex-direction: column; gap: 0.5rem; }
 }

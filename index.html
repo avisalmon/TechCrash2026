@@ -678,11 +678,221 @@
 
 <!-- ============ AI TOOLS ============ -->
 <section class="page-section" id="aitools">
-    <div class="placeholder">
-        <div class="placeholder-icon">🤖</div>
+
+    <!-- Header -->
+    <div class="section-block">
         <h2>AI Tools</h2>
-        <p>VS Code, GitHub Copilot, and downloadable skills — your AI-powered engineering toolkit.</p>
+        <p class="subtitle">In CrashTech, AI isn't a shortcut — it's a core tool. You're expected to use it. The best teams will be the ones who learn to work <em>with</em> AI the fastest. Here's your toolkit.</p>
     </div>
+
+    <!-- Why AI -->
+    <div class="section-block">
+        <h3 class="section-heading">Why AI in a Hardware Hackathon?</h3>
+        <div class="ai-why-grid">
+            <div class="ai-why-card">
+                <div class="ai-why-icon">⚡</div>
+                <h4>Speed</h4>
+                <p>Generate boilerplate SystemVerilog modules, pin assignments, and C firmware in seconds instead of hours. More time building, less time typing.</p>
+            </div>
+            <div class="ai-why-card">
+                <div class="ai-why-icon">🧭</div>
+                <h4>Exploration</h4>
+                <p>Don't know how UART works? Ask Copilot to explain it and generate an example. AI lets you explore unfamiliar territory fast.</p>
+            </div>
+            <div class="ai-why-card">
+                <div class="ai-why-icon">🔍</div>
+                <h4>Debugging</h4>
+                <p>Paste a compile error or a timing waveform description — Copilot can help you reason through it and suggest fixes.</p>
+            </div>
+            <div class="ai-why-card">
+                <div class="ai-why-icon">📚</div>
+                <h4>Learning</h4>
+                <p>No tutorials, no instructors. AI is your on-demand teacher. Ask it anything — from Quartus project setup to SPI protocol details.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- VS Code -->
+    <div class="section-block">
+        <h3 class="section-heading">Visual Studio Code</h3>
+        <p class="subtitle">Your main development environment for both FPGA and ESP32 work.</p>
+
+        <div class="ai-feature-list">
+            <div class="ai-feature">
+                <div class="ai-feature-icon">📝</div>
+                <div>
+                    <strong>Multi-Language Editor</strong>
+                    <p>SystemVerilog for FPGA, C/C++ for ESP32, Python for scripts — all in one editor with syntax highlighting and IntelliSense.</p>
+                </div>
+            </div>
+            <div class="ai-feature">
+                <div class="ai-feature-icon">🔌</div>
+                <div>
+                    <strong>PlatformIO Extension</strong>
+                    <p>Build, flash, and monitor your ESP32 directly from VS Code. No command line needed.</p>
+                </div>
+            </div>
+            <div class="ai-feature">
+                <div class="ai-feature-icon">📁</div>
+                <div>
+                    <strong>Integrated Terminal</strong>
+                    <p>Run Quartus commands, serial monitors, and git — all without leaving the editor.</p>
+                </div>
+            </div>
+            <div class="ai-feature">
+                <div class="ai-feature-icon">🔗</div>
+                <div>
+                    <strong>Git Built-In</strong>
+                    <p>Version control your project from day one. Commit often, branch freely, never lose work.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="ai-install-box">
+            <strong>Install:</strong> <a href="https://code.visualstudio.com/download" target="_blank" rel="noopener">code.visualstudio.com</a> — free, all platforms.
+        </div>
+    </div>
+
+    <!-- GitHub Copilot -->
+    <div class="section-block">
+        <h3 class="section-heading">GitHub Copilot</h3>
+        <p class="subtitle">Your AI pair programmer, built into VS Code.</p>
+
+        <div class="ai-copilot-hero">
+            <div class="ai-copilot-modes">
+                <div class="ai-mode-card">
+                    <h4>💬 Copilot Chat</h4>
+                    <p>Open the chat panel (<code>Ctrl+Shift+I</code>) and ask anything: "How do I create a UART receiver in SystemVerilog?", "Explain this error", "Generate a PlatformIO project for ESP32 with OLED".</p>
+                </div>
+                <div class="ai-mode-card">
+                    <h4>✨ Inline Completions</h4>
+                    <p>Start typing code and Copilot suggests the rest. Write a comment describing what you want, press Tab, and watch it appear. Works with SystemVerilog, C, C++, and more.</p>
+                </div>
+                <div class="ai-mode-card">
+                    <h4>🔧 Copilot Edits</h4>
+                    <p>Select code, press <code>Ctrl+I</code>, and tell Copilot what to change: "Add a reset signal", "Convert this to a state machine", "Fix the timing". It edits your code in-place.</p>
+                </div>
+                <div class="ai-mode-card">
+                    <h4>🤖 Agent Mode</h4>
+                    <p>Give Copilot a high-level goal and let it work autonomously — it can read files, run terminal commands, search your codebase, and iterate until the task is done.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="ai-pro-tips">
+            <h4>Pro Tips for Effective Use</h4>
+            <ul>
+                <li><strong>Be specific:</strong> "Generate a SystemVerilog module that receives UART at 115200 baud on GPIO pin 12 and outputs 8-bit data" → better results than "make a UART".</li>
+                <li><strong>Provide context:</strong> Open relevant files in your editor. Copilot reads your open tabs to understand your project.</li>
+                <li><strong>Iterate:</strong> First answer not perfect? Say "make it synchronous" or "add error handling". Copilot refines.</li>
+                <li><strong>Attach files:</strong> In Chat, use <code>@workspace</code> to let Copilot search your entire project, or drag files into the chat.</li>
+                <li><strong>Ask it to explain:</strong> Don't just generate — ask "explain this code line by line" to actually learn.</li>
+            </ul>
+        </div>
+
+        <div class="ai-install-box">
+            <strong>Install:</strong> Search "GitHub Copilot" in VS Code Extensions → Install → Sign in with GitHub.
+        </div>
+    </div>
+
+    <!-- Copilot Skills -->
+    <div class="section-block">
+        <h3 class="section-heading">Copilot Skills</h3>
+        <p class="subtitle">Skills are downloadable knowledge packs that supercharge Copilot for specific hardware tasks. They teach Copilot about your exact boards, pinouts, and workflows.</p>
+
+        <div class="ai-skills-explain">
+            <div class="ai-skills-what">
+                <h4>What Are Skills?</h4>
+                <p>A Copilot Skill is a Markdown file (<code>SKILL.md</code>) containing structured domain knowledge — pin mappings, code patterns, build commands, and design recipes. When placed in your workspace, Copilot reads it and becomes an expert on that topic.</p>
+            </div>
+            <div class="ai-skills-how">
+                <h4>How to Use Them</h4>
+                <ol>
+                    <li>Download the <code>SKILL.md</code> file from the links below</li>
+                    <li>Place it in your VS Code workspace (e.g., in a <code>skills/</code> folder or <code>.github/copilot/</code>)</li>
+                    <li>Open Copilot Chat and ask questions — Copilot automatically uses the skill as context</li>
+                    <li>Example: "Using the de10lite-board-and-build skill, create a new Quartus project with LED output"</li>
+                </ol>
+            </div>
+        </div>
+
+        <h4 class="ai-skills-available-title">Available Skills for CrashTech</h4>
+        <div class="card-grid">
+            <div class="card">
+                <div class="card-icon">🔧</div>
+                <h3>DE10-Lite Board &amp; Build</h3>
+                <p>Board overview, pin mapping, Quartus build flow, programming, simulation, design patterns, IP blocks.</p>
+                <a href="skills/de10lite-board-and-build/SKILL.md" target="_blank" class="card-link">Download Skill →</a>
+            </div>
+            <div class="card">
+                <div class="card-icon">🎮</div>
+                <h3>DE10-Lite VGA Graphics</h3>
+                <p>VGA 640×480 display, sprite engine, text screen, priority compositing, frame sync.</p>
+                <a href="skills/de10lite-vga-graphics/SKILL.md" target="_blank" class="card-link">Download Skill →</a>
+            </div>
+            <div class="card">
+                <div class="card-icon">🕹️</div>
+                <h3>DE10-Lite Addon Peripherals</h3>
+                <p>ADC joystick, buttons, wheel potentiometer, LCD screen via Arduino header.</p>
+                <a href="skills/de10lite-addon-peripherals/SKILL.md" target="_blank" class="card-link">Download Skill →</a>
+            </div>
+            <div class="card">
+                <div class="card-icon">📡</div>
+                <h3>ESP32 Firmware</h3>
+                <p>PlatformIO setup, OLED display, button input, buzzer, WiFi, I2C, build &amp; flash workflow.</p>
+                <a href="skills/esp32-firmware/SKILL.md" target="_blank" class="card-link">Download Skill →</a>
+            </div>
+            <div class="card">
+                <div class="card-icon">🖨️</div>
+                <h3>KiCad Board Design</h3>
+                <p>PCB design from schematic to Gerber production files. Bonus skill for custom hardware.</p>
+                <a href="skills/kicad-board-design/SKILL.md" target="_blank" class="card-link">Download Skill →</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Free Access for Students -->
+    <div class="section-block">
+        <h3 class="section-heading">Free Access for Students</h3>
+        <p class="subtitle">GitHub Copilot is free for verified students. Here's how to get it.</p>
+
+        <div class="steps-list">
+            <div class="step-card">
+                <div class="step-number">1</div>
+                <div class="step-content">
+                    <h4>GitHub Student Developer Pack</h4>
+                    <p>Apply at <a href="https://education.github.com/pack" target="_blank" rel="noopener">education.github.com/pack</a> using your university email. You'll get GitHub Copilot, GitHub Pro, and 50+ other developer tools — all free.</p>
+                </div>
+            </div>
+            <div class="step-card">
+                <div class="step-number">2</div>
+                <div class="step-content">
+                    <h4>Technion Students — Check for Credits</h4>
+                    <p>The Technion may offer GitHub or cloud credits through academic programs. Check with your faculty, the CS department, or the Technion IT services for any available student benefits or Azure/GitHub credits.</p>
+                </div>
+            </div>
+            <div class="step-card">
+                <div class="step-number">3</div>
+                <div class="step-content">
+                    <h4>Sign In to VS Code</h4>
+                    <p>Once approved, open VS Code → click the Accounts icon (bottom-left) → Sign in with GitHub. Copilot activates automatically.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- AI is Expected -->
+    <div class="section-block" style="text-align: center; padding-bottom: 4rem;">
+        <div style="max-width: 640px; margin: 0 auto; background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); padding: 2rem;">
+            <div style="font-size: 3rem; margin-bottom: 0.5rem;">🤖</div>
+            <h3 style="color: var(--accent); margin-bottom: 0.5rem;">AI Is Expected, Not Optional</h3>
+            <p style="color: var(--text-muted);">Using AI tools is not just allowed in CrashTech — it's encouraged and expected. The challenges are designed to be solved faster with AI assistance. The teams that learn to collaborate with Copilot effectively will have a serious edge. Embrace it.</p>
+        </div>
+    </div>
+
+    <footer class="site-footer">
+        CrashTech VLSI 2026 &mdash; Technion, Israel Institute of Technology
+    </footer>
 </section>
 
 <!-- ============ EVENT DAY ============ -->
