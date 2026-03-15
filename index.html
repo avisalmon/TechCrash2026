@@ -170,11 +170,136 @@
 
 <!-- ============ HARDWARE ============ -->
 <section class="page-section" id="hardware">
-    <div class="placeholder">
-        <div class="placeholder-icon">🖥️</div>
-        <h2>Hardware</h2>
-        <p>DE10-Lite FPGA and ESP32 controller kit — specs, photos, and what you'll receive.</p>
+
+    <!-- Header -->
+    <div class="section-block">
+        <h2>Your Hardware Kit</h2>
+        <p class="subtitle">Every team receives a DE10-Lite FPGA board and an ESP32 controller kit — two weeks before the event. Real silicon, real engineering.</p>
     </div>
+
+    <!-- DE10-Lite -->
+    <div class="section-block hw-section">
+        <div class="hw-layout">
+            <div class="hw-image">
+                <img src="images/de10-lite.svg" alt="DE10-Lite FPGA Board">
+            </div>
+            <div class="hw-info">
+                <div class="hw-badge">FPGA Board</div>
+                <h3>Intel DE10-Lite</h3>
+                <p class="hw-desc">A powerful yet accessible FPGA development board built around the Intel MAX 10 device. Perfect for digital design — from simple LED control to complete CPUs.</p>
+
+                <table class="spec-table">
+                    <tr><td class="spec-label">FPGA</td><td>Intel MAX 10 (10M50DAF484C7G) — 50K logic elements</td></tr>
+                    <tr><td class="spec-label">Clock</td><td>50 MHz onboard oscillator</td></tr>
+                    <tr><td class="spec-label">Switches</td><td>10× slide switches (active-high)</td></tr>
+                    <tr><td class="spec-label">Buttons</td><td>2× push-buttons (active-low, Schmitt trigger)</td></tr>
+                    <tr><td class="spec-label">LEDs</td><td>10× red LEDs</td></tr>
+                    <tr><td class="spec-label">7-Segment</td><td>6× displays (active-low, includes decimal point)</td></tr>
+                    <tr><td class="spec-label">VGA</td><td>4-bit per channel (R, G, B) — 640×480 @ 60Hz</td></tr>
+                    <tr><td class="spec-label">Arduino Header</td><td>16 I/O pins — connects to ESP32 and addon peripherals</td></tr>
+                    <tr><td class="spec-label">GPIO</td><td>36 general-purpose I/O pins</td></tr>
+                    <tr><td class="spec-label">ADC</td><td>6 analog channels (12-bit, onboard MAX 10 ADC)</td></tr>
+                    <tr><td class="spec-label">SDRAM</td><td>64 MB (16-bit bus)</td></tr>
+                    <tr><td class="spec-label">Accelerometer</td><td>Onboard ADXL345 via SPI</td></tr>
+                    <tr><td class="spec-label">Programming</td><td>USB-Blaster via USB cable (JTAG)</td></tr>
+                </table>
+
+                <div class="hw-tools">
+                    <h4>Development Tools</h4>
+                    <ul>
+                        <li><strong>Intel Quartus Prime Lite 17.1</strong> — FPGA design, compilation, and programming</li>
+                        <li><strong>ModelSim-Altera</strong> — simulation and waveform analysis</li>
+                        <li><strong>SystemVerilog / Verilog</strong> — hardware description language</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Divider -->
+    <div class="section-block"><hr class="hw-divider"></div>
+
+    <!-- ESP32 -->
+    <div class="section-block hw-section">
+        <div class="hw-layout hw-layout-reverse">
+            <div class="hw-image">
+                <img src="images/esp32-kit.svg" alt="ESP32 Controller Kit">
+            </div>
+            <div class="hw-info">
+                <div class="hw-badge">Controller Kit</div>
+                <h3>ESP32 Controller Kit</h3>
+                <p class="hw-desc">A WiFi- and Bluetooth-enabled microcontroller with a color LCD, touch screen, and rich peripheral set. The brains for embedded firmware, UI, and connectivity.</p>
+
+                <table class="spec-table">
+                    <tr><td class="spec-label">MCU</td><td>ESP32 (dual-core Xtensa LX6, 240 MHz) or ESP32-S3</td></tr>
+                    <tr><td class="spec-label">Flash</td><td>4–16 MB</td></tr>
+                    <tr><td class="spec-label">WiFi</td><td>802.11 b/g/n (2.4 GHz)</td></tr>
+                    <tr><td class="spec-label">Bluetooth</td><td>BLE 4.2 / 5.0</td></tr>
+                    <tr><td class="spec-label">Display</td><td>Color LCD with touch (SPI interface)</td></tr>
+                    <tr><td class="spec-label">GPIO</td><td>Multiple general-purpose I/O, ADC, DAC, I2C, SPI, UART</td></tr>
+                    <tr><td class="spec-label">Sensors</td><td>IMU, temperature (varies by kit)</td></tr>
+                    <tr><td class="spec-label">Storage</td><td>MicroSD card slot</td></tr>
+                    <tr><td class="spec-label">Camera</td><td>Camera connector (varies by kit)</td></tr>
+                    <tr><td class="spec-label">USB</td><td>USB-C for programming and power</td></tr>
+                </table>
+
+                <div class="hw-tools">
+                    <h4>Development Tools</h4>
+                    <ul>
+                        <li><strong>VS Code + PlatformIO</strong> — build, flash, and debug</li>
+                        <li><strong>Arduino framework</strong> — familiar C/C++ programming model</li>
+                        <li><strong>GitHub Copilot</strong> — AI-assisted firmware development</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- How They Connect -->
+    <div class="section-block">
+        <h2>How They Connect</h2>
+        <p class="subtitle">The two boards communicate through wired interfaces — this is the core engineering challenge.</p>
+        <div class="card-grid">
+            <div class="card">
+                <div class="card-icon">🔌</div>
+                <h3>UART (Serial)</h3>
+                <p>TX/RX serial communication. Simple, proven, bidirectional. Connect FPGA GPIO pins to ESP32 UART pins.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon">⚡</div>
+                <h3>SPI</h3>
+                <p>High-speed synchronous bus. FPGA as master or slave, ESP32 on the other end. Great for fast data transfer.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon">🔗</div>
+                <h3>I2C</h3>
+                <p>Two-wire bus with addressing. Good for multi-device setups and sensor-like data exchange.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon">📡</div>
+                <h3>GPIO Direct</h3>
+                <p>Simple parallel wires — bit-bang your own protocol. Maximum flexibility, minimum abstraction.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- What You Receive -->
+    <div class="section-block">
+        <h2>What You Receive</h2>
+        <p class="subtitle">Each team gets the following kit, 2 weeks before the event.</p>
+        <div class="kit-checklist">
+            <div class="kit-item">✅ DE10-Lite FPGA board</div>
+            <div class="kit-item">✅ ESP32 controller kit with LCD</div>
+            <div class="kit-item">✅ USB cables for both boards</div>
+            <div class="kit-item">✅ Jumper wires for FPGA ↔ ESP32 connection</div>
+            <div class="kit-item">✅ Breadboard</div>
+            <div class="kit-item">⚠️ VGA monitor and cable — bring your own or use lab equipment</div>
+        </div>
+    </div>
+
+    <footer class="site-footer">
+        CrashTech VLSI 2026 &mdash; Technion, Israel Institute of Technology
+    </footer>
 </section>
 
 <!-- ============ GET STARTED ============ -->
