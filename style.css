@@ -216,6 +216,13 @@ a:hover { text-decoration: underline; }
     margin-top: 0.25rem;
 }
 
+.countdown-tba {
+    color: var(--accent);
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin: 1rem 0;
+}
+
 /* CTA Buttons */
 .cta-group {
     display: flex;

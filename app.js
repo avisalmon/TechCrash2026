@@ -44,11 +44,25 @@
     });
 
     // ---- Countdown Timer ----
-    // Set your event date here (YYYY, month-1, day, hour, minute)
-    // Using a placeholder date — update when event date is confirmed
-    const EVENT_DATE = new Date(2026, 5, 15, 9, 0, 0); // June 15, 2026, 09:00
+    // Set EVENT_DATE to null when date is TBA; set to a Date when confirmed
+    // Example: new Date(2026, 5, 15, 9, 0, 0) for June 15, 2026, 09:00
+    const EVENT_DATE = null; // TBA — set date here when confirmed
 
     function updateCountdown() {
+        const countdownEl = document.getElementById('countdown');
+        const tbaEl = document.getElementById('countdown-tba');
+
+        if (!EVENT_DATE) {
+            // Date not set — show TBA message, hide countdown
+            if (countdownEl) countdownEl.style.display = 'none';
+            if (tbaEl) tbaEl.style.display = '';
+            return;
+        }
+
+        // Date is set — show countdown, hide TBA
+        if (countdownEl) countdownEl.style.display = '';
+        if (tbaEl) tbaEl.style.display = 'none';
+
         const now = new Date();
         const diff = EVENT_DATE - now;
 
