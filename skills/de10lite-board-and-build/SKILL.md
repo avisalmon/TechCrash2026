@@ -12,6 +12,164 @@ description: >
 
 # De10Lite Board And Build
 
+## Quartus Prime Lite 17.1 — Complete Installation Guide
+
+Everything you need to design, compile, simulate, and program the DE10-Lite FPGA. Follow these steps exactly.
+
+---
+
+### Step 1: Download Quartus Prime Lite 17.1
+
+1. Go to: **https://www.intel.com/content/www/us/en/software-kit/669444/intel-quartus-prime-lite-edition-design-software-version-17-1-for-windows.html**
+2. If the direct link doesn't work, go to https://www.intel.com/content/www/us/en/products/details/fpga/development-tools/quartus-prime/resource.html and select **Version 17.1** under "Quartus Prime Lite"
+3. Download the **Combined Files** tab option (single ~5 GB installer that includes Quartus + ModelSim + device support), OR download individually:
+   - **Quartus Prime Lite Edition** (main IDE)
+   - **ModelSim-Intel FPGA Edition** (simulation)
+   - **MAX 10 device support** (required for the DE10-Lite board)
+
+> **Why version 17.1?** It is the last version that bundles ModelSim-Altera for free and has proven stability with the DE10-Lite (MAX 10) device. Newer versions work but require separate ModelSim licensing.
+
+### Step 2: Install Quartus Prime Lite 17.1
+
+1. Run the downloaded installer (`QuartusLiteSetup-17.1.0.590-windows.exe` or similar)
+2. Choose installation directory: **`C:\intelFPGA_lite\17.1\`** (default — keep it)
+3. Select components:
+   - [x] Quartus Prime Lite Edition
+   - [x] ModelSim-Intel FPGA Edition (simulation)
+   - [x] MAX 10 FPGA device support (**required**)
+   - [ ] Other device families — not needed, skip to save space
+4. Click Install and wait (~10–20 minutes depending on your system)
+5. When done, verify these paths exist:
+
+| Tool | Path |
+|------|------|
+| Quartus IDE | `C:\intelFPGA_lite\17.1\quartus\bin64\quartus.exe` |
+| Quartus Shell (CLI) | `C:\intelFPGA_lite\17.1\quartus\bin64\quartus_sh.exe` |
+| Quartus Programmer | `C:\intelFPGA_lite\17.1\quartus\bin64\quartus_pgm.exe` |
+| ModelSim | `C:\intelFPGA_lite\17.1\modelsim_ase\win32aloem\vsim.exe` |
+
+### Step 3: Install the USB-Blaster Driver
+
+The USB-Blaster driver lets your PC communicate with the DE10-Lite over USB for programming. **Without it, you cannot load designs onto the FPGA.**
+
+1. Connect the DE10-Lite to your PC via the USB cable
+2. Windows may show "Unknown device" or "USB-Blaster" in Device Manager — either way, proceed:
+3. Open **Device Manager** (right-click Start → Device Manager)
+4. Find the unrecognized device — it will be under "Other devices" or "Universal Serial Bus controllers"
+5. Right-click → **Update driver** → **Browse my computer for drivers**
+6. Browse to: **`C:\intelFPGA_lite\17.1\quartus\drivers\usb-blaster`**
+7. Click Next → Windows will install the driver
+8. Verify: Device Manager should now show **"Altera USB-Blaster"** under "Universal Serial Bus controllers"
+
+**Alternative (auto-detect):** Open Quartus → Tools → Programmer → Hardware Setup → click "Auto Detect". If it finds the USB-Blaster, the driver is working.
+
+**Troubleshooting driver issues:**
+- If Windows refuses the unsigned driver: temporarily disable "Driver Signature Enforcement" in Windows advanced startup options
+- If the device doesn't appear: try a different USB port (use USB 2.0 if available, avoid USB hubs)
+- If using Windows 11: the driver from 17.1 works — just point to the same folder above
+
+### Step 4: Verify the Full Toolchain
+
+Run these checks to confirm everything is installed:
+
+```powershell
+# Check Quartus
+& "C:\intelFPGA_lite\17.1\quartus\bin64\quartus_sh.exe" --version
+
+# Check ModelSim
+& "C:\intelFPGA_lite\17.1\modelsim_ase\win32aloem\vsim.exe" -version
+
+# Check Programmer can see the board (board must be connected)
+& "C:\intelFPGA_lite\17.1\quartus\bin64\quartus_pgm.exe" --auto
+```
+
+Expected output from `quartus_sh --version`:
+```
+Quartus Prime Shell
+Version 17.1.0 Build 590  ...
+```
+
+### Step 5: Quick Smoke Test — LED Blink
+
+Verify the entire flow (design → compile → program) with a minimal project:
+
+1. Create a folder: `C:\FPGA\led_test\`
+2. Create file **`led_test.sv`**:
+
+```systemverilog
+module led_test (
+    input        MAX10_CLK1_50,
+    input  [9:0] SW,
+    output [9:0] LEDR
+);
+    // Switches directly control LEDs
+    assign LEDR = SW;
+endmodule
+```
+
+3. Create file **`led_test.qpf`**:
+```tcl
+QUARTUS_VERSION = "17.1"
+PROJECT_REVISION = "led_test"
+```
+
+4. Create file **`led_test.qsf`**:
+```tcl
+set_global_assignment -name FAMILY "MAX 10 FPGA"
+set_global_assignment -name DEVICE 10M50DAF484C7G
+set_global_assignment -name TOP_LEVEL_ENTITY led_test
+set_global_assignment -name SYSTEMVERILOG_FILE led_test.sv
+set_global_assignment -name PROJECT_OUTPUT_DIRECTORY output_files
+set_global_assignment -name MIN_CORE_JUNCTION_TEMP 0
+set_global_assignment -name MAX_CORE_JUNCTION_TEMP 85
+
+# Clock
+set_location_assignment PIN_P11 -to MAX10_CLK1_50
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to MAX10_CLK1_50
+
+# Switches
+set_location_assignment PIN_C10 -to SW[0]
+set_location_assignment PIN_C11 -to SW[1]
+set_location_assignment PIN_D12 -to SW[2]
+set_location_assignment PIN_C12 -to SW[3]
+set_location_assignment PIN_A12 -to SW[4]
+set_location_assignment PIN_B12 -to SW[5]
+set_location_assignment PIN_A13 -to SW[6]
+set_location_assignment PIN_A14 -to SW[7]
+set_location_assignment PIN_B14 -to SW[8]
+set_location_assignment PIN_F15 -to SW[9]
+
+# LEDs
+set_location_assignment PIN_A8  -to LEDR[0]
+set_location_assignment PIN_A9  -to LEDR[1]
+set_location_assignment PIN_A10 -to LEDR[2]
+set_location_assignment PIN_B10 -to LEDR[3]
+set_location_assignment PIN_D13 -to LEDR[4]
+set_location_assignment PIN_C13 -to LEDR[5]
+set_location_assignment PIN_E14 -to LEDR[6]
+set_location_assignment PIN_D14 -to LEDR[7]
+set_location_assignment PIN_A11 -to LEDR[8]
+set_location_assignment PIN_B11 -to LEDR[9]
+
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to SW[*]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to LEDR[*]
+```
+
+5. Compile:
+```powershell
+cd C:\FPGA\led_test
+& "C:\intelFPGA_lite\17.1\quartus\bin64\quartus_sh.exe" --flow compile led_test
+```
+
+6. Program the board:
+```powershell
+& "C:\intelFPGA_lite\17.1\quartus\bin64\quartus_pgm.exe" -m jtag -o "P;output_files/led_test.sof@1"
+```
+
+7. **Test:** Flip the slide switches on the DE10-Lite — the corresponding LEDs should light up. If they do, your entire toolchain is working end-to-end.
+
+---
+
 ## DE10-Lite Board Overview & Pin Mapping
 
 **For Future Projects**: Complete reference for the Intel DE10-Lite (MAX 10 FPGA) board — pin assignments, peripherals, and golden top module pattern.
