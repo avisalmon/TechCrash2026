@@ -97,35 +97,81 @@ esp32_test/
 └── test/                 # Unit tests
 ```
 
-### Step 5: Write a Smoke Test — Serial Hello + LED Blink
+### Step 5: Write a Smoke Test — OLED + Button + Buzzer
 
-Replace the contents of `src/main.cpp` with:
+This tests all three peripherals on the kit. Replace the contents of `src/main.cpp` with:
 
 ```cpp
 #include <Arduino.h>
+#include <Wire.h>
+#include <Adafruit_GFX.h>
+#include <Adafruit_SSD1306.h>
 
-#define LED_PIN 2   // Built-in LED on most ESP32 boards
+// --- Pin definitions (CrashTech kit) ---
+#define PIN_BTN       4    // Button (active LOW, internal pull-up)
+#define PIN_BUZZER    23   // Passive buzzer (PWM)
+#define PIN_SDA       21   // I2C SDA (OLED)
+#define PIN_SCL       22   // I2C SCL (OLED)
+#define OLED_ADDR     0x3C
+#define OLED_WIDTH    128
+#define OLED_HEIGHT   64
+
+Adafruit_SSD1306 display(OLED_WIDTH, OLED_HEIGHT, &Wire, -1);
 
 void setup() {
     Serial.begin(115200);
-    delay(2000);  // Wait for serial monitor to connect
-    Serial.println("ESP32 is alive!");
+    delay(2000);
+    Serial.println("CrashTech ESP32 Kit - Smoke Test");
 
-    pinMode(LED_PIN, OUTPUT);
+    // Button
+    pinMode(PIN_BTN, INPUT_PULLUP);
+
+    // Buzzer
+    pinMode(PIN_BUZZER, OUTPUT);
+
+    // OLED
+    Wire.begin(PIN_SDA, PIN_SCL);
+    if (!display.begin(SSD1306_SWITCHCAPVCC, OLED_ADDR)) {
+        Serial.println("OLED init FAILED");
+        while (1);
+    }
+    display.clearDisplay();
+    display.setTextSize(2);
+    display.setTextColor(SSD1306_WHITE);
+    display.setCursor(10, 10);
+    display.println("CrashTech");
+    display.setTextSize(1);
+    display.setCursor(10, 40);
+    display.println("Press the button!");
+    display.display();
+
+    // Quick beep to confirm buzzer works
+    tone(PIN_BUZZER, 1000, 100);
 }
 
 void loop() {
-    digitalWrite(LED_PIN, HIGH);
-    Serial.println("LED ON");
-    delay(500);
+    bool pressed = (digitalRead(PIN_BTN) == LOW);
 
-    digitalWrite(LED_PIN, LOW);
-    Serial.println("LED OFF");
-    delay(500);
+    display.clearDisplay();
+    display.setTextSize(2);
+    display.setCursor(10, 10);
+    display.println("CrashTech");
+    display.setTextSize(1);
+    display.setCursor(10, 40);
+
+    if (pressed) {
+        display.println("Button: PRESSED");
+        tone(PIN_BUZZER, 800, 50);
+        Serial.println("Button pressed!");
+    } else {
+        display.println("Button: released");
+    }
+    display.display();
+    delay(50);
 }
 ```
 
-> **Note:** The built-in LED pin varies by board. Common values: GPIO 2 (most ESP32), GPIO 48 (ESP32-S3). If the LED doesn't blink, check your board's documentation.
+> **What this tests:** OLED display shows text, button press is detected and displayed, buzzer beeps on startup and on each press.
 
 ### Step 6: Configure platformio.ini
 
@@ -139,12 +185,16 @@ framework = arduino
 
 monitor_speed = 115200
 
+lib_deps =
+    adafruit/Adafruit SSD1306@^2.5.7
+    adafruit/Adafruit GFX Library@^1.11.5
+
 ; Set your COM port (check Device Manager)
 ; upload_port = COM5
 ; monitor_port = COM5
 ```
 
-> **Tip:** If you only have one ESP32 connected, PlatformIO auto-detects the port. You can leave `upload_port` and `monitor_port` commented out.
+> **Tip:** If you only have one ESP32 connected, PlatformIO auto-detects the port. You can leave `upload_port` and `monitor_port` commented out. The `lib_deps` lines automatically download the OLED display libraries on first build.
 
 ### Step 7: Build
 
