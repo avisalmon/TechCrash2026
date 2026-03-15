@@ -93,6 +93,18 @@ a:hover { text-decoration: underline; }
     background: rgba(0, 199, 183, 0.1);
 }
 
+/* GitHub nav link */
+.nav-github {
+    border: 1px solid var(--accent) !important;
+    border-radius: 6px;
+    padding: 0.3rem 0.7rem !important;
+    font-size: 0.8rem !important;
+}
+
+.nav-github:hover {
+    background: rgba(0, 199, 183, 0.1);
+}
+
 /* Hamburger for mobile */
 .nav-toggle {
     display: none;
