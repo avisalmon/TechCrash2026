@@ -1,11 +1,12 @@
 # ESP32 Firmware Development Skill
 
-> **Purpose**: Guide for an AI agent to develop, build, flash, and debug ESP32 firmware using PlatformIO + Arduino framework. Covers board bring-up, LVGL UI, peripherals, and production workflows. Includes hard-won lessons from real hardware.
+> **Purpose**: Complete guide to install tools, develop, build, flash, and debug ESP32 firmware using PlatformIO + Arduino framework. Covers installation from scratch, board bring-up, LVGL UI, peripherals, and production workflows.
 
 ---
 
 ## Table of Contents
 
+0. [Complete Installation Guide](#complete-installation-guide)
 1. [Workflow Checklist](#workflow-checklist)
 2. [Environment & Tools](#environment--tools)
 3. [PlatformIO Configuration](#platformio-configuration)
@@ -20,6 +21,226 @@
 12. [Build & Flash Workflow](#build--flash-workflow)
 13. [Serial Monitor Tips](#serial-monitor-tips)
 14. [Lessons Learned](#lessons-learned)
+
+---
+
+## Complete Installation Guide
+
+Everything you need to program the ESP32 from scratch. Follow these steps in order.
+
+---
+
+### Step 1: Install VS Code
+
+1. Download from: **https://code.visualstudio.com/download**
+2. Run the installer, accept defaults
+3. Verify: open VS Code, you should see the Welcome tab
+
+### Step 2: Install PlatformIO Extension
+
+PlatformIO is the development environment for ESP32. It handles compilers, libraries, board definitions, and flashing — all inside VS Code.
+
+1. Open VS Code
+2. Click the **Extensions** icon in the left sidebar (or press `Ctrl+Shift+X`)
+3. Search for **"PlatformIO IDE"**
+4. Click **Install** (publisher: PlatformIO)
+5. Wait for installation to complete — PlatformIO will download its core tools automatically (~2–5 minutes)
+6. Restart VS Code when prompted
+7. Verify: you should see the **PlatformIO alien icon** in the left sidebar
+
+> **Note:** PlatformIO automatically installs Python, the ESP32 toolchain (compiler, linker), and esptool (flasher). You do NOT need to install these separately.
+
+### Step 3: Install USB Driver for ESP32
+
+Most ESP32 boards use one of two USB-to-serial chips. You need the correct driver for your PC to see the board as a COM port.
+
+| Chip | Common on | Driver download |
+|------|-----------|-----------------|
+| **CP2102 / CP2104** | ESP32-DevKitC, many generic boards | https://www.silabs.com/developers/usb-to-uart-bridge-vcp-drivers |
+| **CH340 / CH9102** | ESP32-S3 boards, budget boards | https://www.wch-ic.com/downloads/CH341SER_EXE.html |
+
+**How to know which chip your board uses:**
+1. Connect the ESP32 to your PC via USB
+2. Open **Device Manager** (right-click Start → Device Manager)
+3. Look under **Ports (COM & LPT)**:
+   - If you see "Silicon Labs CP210x" → install the CP2102 driver
+   - If you see "CH340" or "CH9102" → install the CH340 driver
+   - If you see "USB Serial Device" with a COM number → driver is already installed
+   - If you see an unknown device with a yellow triangle → install both drivers and try again
+
+**Install the driver:**
+1. Download from the link above
+2. Run the installer
+3. Unplug and re-plug the ESP32
+4. Check Device Manager → **Ports (COM & LPT)** — you should see a COM port (e.g., `COM3`, `COM5`)
+5. **Note the COM port number** — you'll need it for flashing
+
+### Step 4: Create Your First PlatformIO Project
+
+1. Open VS Code
+2. Click the PlatformIO icon in the left sidebar
+3. Click **"New Project"** (or PlatformIO Home → New Project)
+4. Fill in:
+   - **Name:** `esp32_test`
+   - **Board:** `Espressif ESP32 Dev Module` (or your specific board — search for it)
+   - **Framework:** `Arduino`
+5. Click **Finish** — PlatformIO creates the project structure
+6. The project will have this structure:
+
+```
+esp32_test/
+├── platformio.ini        # Build configuration
+├── src/
+│   └── main.cpp          # Your code goes here
+├── include/              # Header files
+├── lib/                  # Project-specific libraries
+└── test/                 # Unit tests
+```
+
+### Step 5: Write a Smoke Test — Serial Hello + LED Blink
+
+Replace the contents of `src/main.cpp` with:
+
+```cpp
+#include <Arduino.h>
+
+#define LED_PIN 2   // Built-in LED on most ESP32 boards
+
+void setup() {
+    Serial.begin(115200);
+    delay(2000);  // Wait for serial monitor to connect
+    Serial.println("ESP32 is alive!");
+
+    pinMode(LED_PIN, OUTPUT);
+}
+
+void loop() {
+    digitalWrite(LED_PIN, HIGH);
+    Serial.println("LED ON");
+    delay(500);
+
+    digitalWrite(LED_PIN, LOW);
+    Serial.println("LED OFF");
+    delay(500);
+}
+```
+
+> **Note:** The built-in LED pin varies by board. Common values: GPIO 2 (most ESP32), GPIO 48 (ESP32-S3). If the LED doesn't blink, check your board's documentation.
+
+### Step 6: Configure platformio.ini
+
+Open `platformio.ini` and set it to:
+
+```ini
+[env:esp32]
+platform = espressif32
+board = esp32dev
+framework = arduino
+
+monitor_speed = 115200
+
+; Set your COM port (check Device Manager)
+; upload_port = COM5
+; monitor_port = COM5
+```
+
+> **Tip:** If you only have one ESP32 connected, PlatformIO auto-detects the port. You can leave `upload_port` and `monitor_port` commented out.
+
+### Step 7: Build
+
+1. Click the **checkmark icon** (✓) in the PlatformIO toolbar at the bottom of VS Code, OR
+2. Open terminal and run:
+
+```powershell
+cd path\to\esp32_test
+pio run
+```
+
+The first build downloads the ESP32 platform and toolchain (~500 MB). Subsequent builds are fast.
+
+**Expected output:**
+```
+SUCCESS
+RAM:   [=         ]  5.1%  (used 16712 bytes from 327680 bytes)
+Flash: [==        ] 15.3%  (used 200437 bytes from 1310720 bytes)
+```
+
+### Step 8: Flash (Upload to Board)
+
+1. Make sure the ESP32 is connected via USB
+2. Close any Serial Monitor that might be holding the COM port
+3. Click the **right-arrow icon** (→) in the PlatformIO toolbar, OR run:
+
+```powershell
+pio run -t upload
+```
+
+**If upload fails:**
+- Close the Serial Monitor first (it locks the COM port)
+- Some boards require you to **hold the BOOT button** while pressing the EN/RESET button, then release BOOT after upload starts
+- Check the COM port in Device Manager matches what PlatformIO is using
+- Try adding `upload_port = COMx` in `platformio.ini` with your actual port number
+
+### Step 9: Open Serial Monitor
+
+1. Click the **plug icon** in the PlatformIO toolbar, OR run:
+
+```powershell
+pio device monitor
+```
+
+**Expected output:**
+```
+ESP32 is alive!
+LED ON
+LED OFF
+LED ON
+LED OFF
+...
+```
+
+If you see this and the LED is blinking — **your ESP32 toolchain is fully working.**
+
+### Step 10: Install Libraries (As Needed)
+
+Add libraries in `platformio.ini` under `lib_deps`:
+
+```ini
+lib_deps =
+    adafruit/Adafruit NeoPixel@^1.12.0
+    bblanchon/ArduinoJson@^7.0.0
+```
+
+PlatformIO downloads them automatically on next build.
+
+Or install via CLI:
+```powershell
+pio pkg install --library "adafruit/Adafruit NeoPixel"
+```
+
+---
+
+### Quick Reference: Full Command Cheat Sheet
+
+```powershell
+# Build
+pio run
+
+# Upload to board
+pio run -t upload
+
+# Serial monitor
+pio device monitor
+
+# Clean build (forces full recompile)
+pio run -t clean
+
+# List connected boards
+pio device list
+
+# Build + upload in one step
+pio run -t upload && pio device monitor
+```
 
 ---
 
