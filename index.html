@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CrashTech VLSI 2026 — Technion</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<!-- ============ NAVBAR ============ -->
+<nav class="navbar">
+    <div class="navbar-brand">Crash<span>Tech</span> VLSI</div>
+    <ul class="nav-tabs" id="navTabs">
+        <li><a href="#home" class="active" data-page="home">Home</a></li>
+        <li><a href="#event" data-page="event">The Event</a></li>
+        <li><a href="#hardware" data-page="hardware">Hardware</a></li>
+        <li><a href="#getstarted" data-page="getstarted">Get Started</a></li>
+        <li><a href="#challenges" data-page="challenges">Practice Challenges</a></li>
+        <li><a href="#aitools" data-page="aitools">AI Tools</a></li>
+        <li><a href="#eventday" data-page="eventday">Event Day</a></li>
+        <li><a href="#leaderboard" data-page="leaderboard">Leaderboard</a></li>
+        <li><a href="#register" data-page="register">Register</a></li>
+    </ul>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">&#9776;</button>
+</nav>
+
+<!-- ============ HOME ============ -->
+<section class="page-section active" id="home">
+
+    <!-- Hero -->
+    <div class="hero">
+        <div class="hero-content">
+            <div class="hero-badge">24-Hour VLSI Hackathon</div>
+            <h1>Crash<span class="highlight">Tech</span> VLSI 2026</h1>
+            <p class="hero-sub">Where FPGA meets firmware. Build it. Prove it. Win it.</p>
+            <p class="hero-location"><strong>Technion</strong> — Israel Institute of Technology &nbsp;|&nbsp; Date TBA</p>
+
+            <!-- Countdown -->
+            <div class="countdown" id="countdown">
+                <div class="countdown-item">
+                    <span class="countdown-value" id="cd-days">--</span>
+                    <span class="countdown-label">Days</span>
+                </div>
+                <div class="countdown-item">
+                    <span class="countdown-value" id="cd-hours">--</span>
+                    <span class="countdown-label">Hours</span>
+                </div>
+                <div class="countdown-item">
+                    <span class="countdown-value" id="cd-minutes">--</span>
+                    <span class="countdown-label">Minutes</span>
+                </div>
+                <div class="countdown-item">
+                    <span class="countdown-value" id="cd-seconds">--</span>
+                    <span class="countdown-label">Seconds</span>
+                </div>
+            </div>
+
+            <!-- CTA -->
+            <div class="cta-group">
+                <a href="#register" class="btn btn-primary" data-page="register">Register Now</a>
+                <a href="#getstarted" class="btn btn-secondary" data-page="getstarted">Get Started</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Philosophy -->
+    <div class="section-block">
+        <h2>What is CrashTech?</h2>
+        <p class="subtitle">A fast-paced engineering hackathon that crashes together FPGA hardware and embedded software.</p>
+        <div class="card-grid">
+            <div class="card">
+                <div class="card-icon">⚡</div>
+                <h3>24 Hours of Building</h3>
+                <p>Intense, focused engineering. No presentations — only working prototypes count.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon">🔧</div>
+                <h3>Real Hardware</h3>
+                <p>DE10-Lite FPGA + ESP32 controller kit. Design digital circuits and firmware on real silicon.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon">🧭</div>
+                <h3>Self-Discovery</h3>
+                <p>No tutorials, no hand-holding. You learn by doing — using the internet, AI tools, and your own ingenuity.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon">🤖</div>
+                <h3>AI-Assisted Engineering</h3>
+                <p>VS Code + GitHub Copilot are your teammates. Use AI skills to accelerate your development.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Event Flow -->
+    <div class="section-block">
+        <h2>How It Works</h2>
+        <p class="subtitle">From kit pickup to the final leaderboard — here's the journey.</p>
+        <div class="flow-steps">
+            <div class="flow-step">
+                <div class="flow-number">1</div>
+                <h4>Get Your Kit</h4>
+                <p>Receive your DE10-Lite FPGA and ESP32 kit 2 weeks before the event.</p>
+            </div>
+            <div class="flow-step">
+                <div class="flow-number">2</div>
+                <h4>Train &amp; Practice</h4>
+                <p>Install tools, explore skills, and tackle practice challenges on your own.</p>
+            </div>
+            <div class="flow-step">
+                <div class="flow-number">3</div>
+                <h4>Compete</h4>
+                <p>24 hours. Secret challenges revealed on demand. Build fast, score points.</p>
+            </div>
+            <div class="flow-step">
+                <div class="flow-number">4</div>
+                <h4>Win</h4>
+                <p>Judges verify. Points accumulate. Top teams take the crown.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Quick Links -->
+    <div class="section-block">
+        <h2>Explore</h2>
+        <p class="subtitle">Jump to any section to start preparing.</p>
+        <div class="quick-links">
+            <a class="quick-link" href="#event" data-page="event">
+                <span class="quick-link-icon">📋</span>
+                <span class="quick-link-label">The Event</span>
+            </a>
+            <a class="quick-link" href="#hardware" data-page="hardware">
+                <span class="quick-link-icon">🖥️</span>
+                <span class="quick-link-label">Hardware</span>
+            </a>
+            <a class="quick-link" href="#getstarted" data-page="getstarted">
+                <span class="quick-link-icon">🚀</span>
+                <span class="quick-link-label">Get Started</span>
+            </a>
+            <a class="quick-link" href="#challenges" data-page="challenges">
+                <span class="quick-link-icon">🏆</span>
+                <span class="quick-link-label">Practice Challenges</span>
+            </a>
+            <a class="quick-link" href="#aitools" data-page="aitools">
+                <span class="quick-link-icon">🤖</span>
+                <span class="quick-link-label">AI Tools</span>
+            </a>
+            <a class="quick-link" href="#eventday" data-page="eventday">
+                <span class="quick-link-icon">🔥</span>
+                <span class="quick-link-label">Event Day</span>
+            </a>
+        </div>
+    </div>
+
+    <footer class="site-footer">
+        CrashTech VLSI 2026 &mdash; Technion, Israel Institute of Technology
+    </footer>
+</section>
+
+<!-- ============ THE EVENT ============ -->
+<section class="page-section" id="event">
+    <div class="placeholder">
+        <div class="placeholder-icon">📋</div>
+        <h2>The Event</h2>
+        <p>Full event details, rules, scoring system, and timeline — coming soon.</p>
+    </div>
+</section>
+
+<!-- ============ HARDWARE ============ -->
+<section class="page-section" id="hardware">
+    <div class="placeholder">
+        <div class="placeholder-icon">🖥️</div>
+        <h2>Hardware</h2>
+        <p>DE10-Lite FPGA and ESP32 controller kit — specs, photos, and what you'll receive.</p>
+    </div>
+</section>
+
+<!-- ============ GET STARTED ============ -->
+<section class="page-section" id="getstarted">
+    <div class="placeholder">
+        <div class="placeholder-icon">🚀</div>
+        <h2>Get Started</h2>
+        <p>Installation guides, setup checklists, training materials, and downloadable skills.</p>
+    </div>
+</section>
+
+<!-- ============ PRACTICE CHALLENGES ============ -->
+<section class="page-section" id="challenges">
+    <div class="placeholder">
+        <div class="placeholder-icon">🏆</div>
+        <h2>Practice Challenges</h2>
+        <p>Internet Clock, Retro Arcade, Volt Meter — open challenges to sharpen your skills before the event.</p>
+    </div>
+</section>
+
+<!-- ============ AI TOOLS ============ -->
+<section class="page-section" id="aitools">
+    <div class="placeholder">
+        <div class="placeholder-icon">🤖</div>
+        <h2>AI Tools</h2>
+        <p>VS Code, GitHub Copilot, and downloadable skills — your AI-powered engineering toolkit.</p>
+    </div>
+</section>
+
+<!-- ============ EVENT DAY ============ -->
+<section class="page-section" id="eventday">
+    <div class="placeholder">
+        <div class="placeholder-icon">🔥</div>
+        <h2>Event Day</h2>
+        <p>Competition hub — challenges, scoring, and real-time updates. Active only during the 24-hour event.</p>
+    </div>
+</section>
+
+<!-- ============ LEADERBOARD ============ -->
+<section class="page-section" id="leaderboard">
+    <div class="placeholder">
+        <div class="placeholder-icon">📊</div>
+        <h2>Leaderboard</h2>
+        <p>Real-time team standings and points breakdown. Live during the event.</p>
+    </div>
+</section>
+
+<!-- ============ REGISTER ============ -->
+<section class="page-section" id="register">
+    <div class="placeholder">
+        <div class="placeholder-icon">✍️</div>
+        <h2>Register</h2>
+        <p>Team registration form — coming soon.</p>
+    </div>
+</section>
+
+<script src="app.js"></script>
+</body>
+</html>
