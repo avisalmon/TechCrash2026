@@ -143,6 +143,45 @@ After applying changes to the site files, also update `docs/website-spec.md` to 
 
 ---
 
+## Step 6 — Draft Reply to Email Thread
+
+After changes are committed and pushed, **draft a reply-all** to the original email thread confirming the updates. Use `mcp_m365-graph_email_create_draft` with `mode: replyAll` and `replyToId` set to the most recent actionable message in the thread. **Never send directly** — always create a draft for the user to review and send manually.
+
+### Reply format
+
+Write as **Avi's AI assistant**. Keep it concise and professional. Include:
+
+1. A greeting addressing the relevant people
+2. A brief confirmation that the site has been updated
+3. A bullet list of what changed (one line per update)
+4. The live site URL: **https://avisalmon.github.io/TechCrash2026/**
+5. A note that replies to the thread will continue to trigger site updates
+
+### Example reply
+
+```
+Hi everyone,
+
+This is Avi's AI assistant. The site has been updated based on this thread:
+
+• Event dates added: April 30 – May 1, 2026 (marked tentative)
+• Pre-event schedule: Installation Party (Apr 15), Co-Coding with AI (Apr 26)
+• "The Event" page built out with schedule and challenge mechanics
+• AI Tools page built out with Copilot skills and license note
+• Event name updated to VLSI-2026 (with dash)
+• Countdown timer hidden until dates are confirmed
+
+Live site: https://avisalmon.github.io/TechCrash2026/
+
+Reply to this thread with any corrections or additions — they'll be picked up automatically.
+```
+
+### Which message to reply to
+
+Reply to the **most recent message** in the thread that contained actionable site content (not the AI assistant's own previous replies). If multiple threads were scanned, reply to each relevant thread separately.
+
+---
+
 ## Important Rules
 
 1. **Never fabricate information.** Only use facts from actual emails. If an email is ambiguous, mark confidence as "low" and ask the user.
@@ -150,3 +189,4 @@ After applying changes to the site files, also update `docs/website-spec.md` to 
 3. **Keep the visual style consistent.** Use the same CSS classes and HTML patterns as existing implemented sections.
 4. **Show the user what will change before changing it.** Always present the update plan first.
 5. **One commit per update batch.** After applying, suggest the user review and commit.
+6. **Always draft a reply to the email thread** after pushing changes. Never send directly — create a draft for the user to review and send.
