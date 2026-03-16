@@ -313,15 +313,15 @@ Event registration.
 
 ## 6. Open Items (To Be Defined)
 
-- [ ] Exact event date
+- [x] ~~Exact event date~~ → **April 30 – May 1, 2026 (tentative, may shift due to exam schedule)** — Per Tami Sasporta / Rotem Ben-Hur, Mar 16 2026
 - [ ] Registration process details
 - [ ] Number of challenges and point values
 - [ ] Challenge categories / difficulty tiers
 - [ ] Judge panel composition
 - [ ] Team size limits
 - [ ] Prize structure
-- [ ] Branding / visual identity
-- [ ] Hosting and deployment approach
-- [ ] Tech stack for the website
+- [ ] Branding / visual identity — note: event name uses dash: **CrashTech VLSI-2026**
+- [x] ~~Hosting and deployment approach~~ → GitHub Pages (avisalmon.github.io/TechCrash2026)
+- [x] ~~Tech stack for the website~~ → Static HTML/CSS/JS single-page app
 - [ ] Authentication (if needed for challenge access)
 - [ ] Admin panel for judges (challenge reveal, scoring input)

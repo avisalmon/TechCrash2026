@@ -1,0 +1,38 @@
+{
+  "last_scanned_utc": "2026-03-15T18:30:00Z",
+  "processed": [
+    {
+      "id": "2026-03-15-001",
+      "received_utc": "2026-03-15T13:27:54Z",
+      "sender": "avi.salmon@intel.com",
+      "sender_name": "Salmon, Avi",
+      "subject": "RE: VLSI Hackathon - CrashTech 2026",
+      "request_summary": "Add a dash in the home page: VLSI-2026 instead of VLSI 2026",
+      "status": "completed",
+      "change_description": "Changed 'VLSI 2026' to 'VLSI-2026' in title, hero h1, and all footers across index.html",
+      "processed_utc": "2026-03-15T18:30:00Z"
+    },
+    {
+      "id": "2026-03-15-002",
+      "received_utc": "2026-03-15T12:43:00Z",
+      "sender": "shimon.bitton@intel.com",
+      "sender_name": "Bitton, Shimon",
+      "subject": "Re: VLSI Hackathon - CrashTech 2026",
+      "request_summary": "Date is TBD but countdown timer is still showing",
+      "status": "completed",
+      "change_description": "Hidden countdown timer, replaced with 'Date coming soon' message. Countdown auto-shows when EVENT_DATE is set in app.js",
+      "processed_utc": "2026-03-15T18:30:00Z"
+    },
+    {
+      "id": "2026-03-15-003",
+      "received_utc": "2026-03-15T12:43:00Z",
+      "sender": "shimon.bitton@intel.com",
+      "sender_name": "Bitton, Shimon",
+      "subject": "Re: VLSI Hackathon - CrashTech 2026",
+      "request_summary": "When are we expected to receive the kit?",
+      "status": "skipped",
+      "change_description": "Question, not a site change request. No action taken.",
+      "processed_utc": "2026-03-15T18:30:00Z"
+    }
+  ]
+}

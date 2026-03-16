@@ -1,4 +1,4 @@
-/* CrashTech VLSI-2026 -- Navigation & Countdown */
+/* CrashTech VLSI 2026 — Navigation & Countdown */
 
 (function () {
     // ---- Tab Navigation ----
@@ -44,25 +44,20 @@
     });
 
     // ---- Countdown Timer ----
-    // Set EVENT_DATE to null when date is TBA; set to a Date when confirmed
-    // Example: new Date(2026, 5, 15, 9, 0, 0) for June 15, 2026, 09:00
-    const EVENT_DATE = null; // TBA -- set date here when confirmed
+    // Tentative event date: April 30, 2026, 18:00 (may shift due to exam schedule)
+    // Set DATE_CONFIRMED to true once the date is final — this unhides the countdown
+    const EVENT_DATE = new Date(2026, 3, 30, 18, 0, 0); // April 30, 2026, 18:00
+    const DATE_CONFIRMED = false; // flip to true when date is locked
+
+    const countdownEl = document.getElementById('countdown');
+    if (!DATE_CONFIRMED && countdownEl) {
+        countdownEl.classList.add('hidden');
+    } else if (DATE_CONFIRMED && countdownEl) {
+        countdownEl.classList.remove('hidden');
+    }
 
     function updateCountdown() {
-        const countdownEl = document.getElementById('countdown');
-        const tbaEl = document.getElementById('countdown-tba');
-
-        if (!EVENT_DATE) {
-            // Date not set -- show TBA message, hide countdown
-            if (countdownEl) countdownEl.style.display = 'none';
-            if (tbaEl) tbaEl.style.display = '';
-            return;
-        }
-
-        // Date is set -- show countdown, hide TBA
-        if (countdownEl) countdownEl.style.display = '';
-        if (tbaEl) tbaEl.style.display = 'none';
-
+        if (!DATE_CONFIRMED) return;
         const now = new Date();
         const diff = EVENT_DATE - now;
 

@@ -32,6 +32,3 @@ simulation/
 
 # Secret challenges — NOT published until competition starts
 challenges/secret/
-
-# Local Copilot skills and tracking (not shared)
-.copilot/
