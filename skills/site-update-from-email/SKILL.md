@@ -145,7 +145,24 @@ After applying changes to the site files, also update `docs/website-spec.md` to 
 
 ## Step 6 — Draft Reply to Email Thread
 
-After changes are committed and pushed, **draft a reply-all** to the original email thread confirming the updates. Use `mcp_m365-graph_email_create_draft` with `mode: replyAll` and `replyToId` set to the most recent actionable message in the thread. **Never send directly** — always create a draft for the user to review and send manually.
+After changes are committed and pushed, **draft a reply-all** to the original email thread confirming the updates. Use `mcp_m365-graph_email_create_draft` with `mode: replyAll` and `replyToId` set to the most recent actionable message in the thread. **Never send directly.**
+
+### Open the draft in Outlook desktop
+
+After creating the draft via M365 Graph, pop it open in Outlook using PowerShell COM (see `outlook-powershell` skill in `~/.copilot/skills/`):
+
+```powershell
+$ol = New-Object -ComObject Outlook.Application
+$ns = $ol.GetNamespace("MAPI")
+$drafts = $ns.GetDefaultFolder(16)  # 16 = Drafts
+$items = $drafts.Items
+$items.Sort("[ReceivedTime]", $true)
+$draft = $items.GetFirst()
+Write-Host "Subject: $($draft.Subject)"
+$draft.Display()  # NEVER use .Send() — always .Display()
+```
+
+This opens the draft in Outlook for the user to review and send manually.
 
 ### Reply format
 
