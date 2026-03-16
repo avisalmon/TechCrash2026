@@ -45,19 +45,9 @@
 
     // ---- Countdown Timer ----
     // Tentative event date: April 30, 2026, 18:00 (may shift due to exam schedule)
-    // Set DATE_CONFIRMED to true once the date is final — this unhides the countdown
     const EVENT_DATE = new Date(2026, 3, 30, 18, 0, 0); // April 30, 2026, 18:00
-    const DATE_CONFIRMED = false; // flip to true when date is locked
-
-    const countdownEl = document.getElementById('countdown');
-    if (!DATE_CONFIRMED && countdownEl) {
-        countdownEl.classList.add('hidden');
-    } else if (DATE_CONFIRMED && countdownEl) {
-        countdownEl.classList.remove('hidden');
-    }
 
     function updateCountdown() {
-        if (!DATE_CONFIRMED) return;
         const now = new Date();
         const diff = EVENT_DATE - now;
 
