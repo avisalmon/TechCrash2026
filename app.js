@@ -44,8 +44,8 @@
     });
 
     // ---- Countdown Timer ----
-    // Tentative event date: April 30, 2026, 18:00 (may shift due to exam schedule)
-    const EVENT_DATE = new Date(2026, 3, 30, 18, 0, 0); // April 30, 2026, 18:00
+    // Event date: June 4, 2026, 09:00
+    const EVENT_DATE = new Date(2026, 5, 4, 9, 0, 0); // June 4, 2026, 09:00
 
     function updateCountdown() {
         const now = new Date();
