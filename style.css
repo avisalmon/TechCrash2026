@@ -277,6 +277,20 @@ a:hover { text-decoration: underline; }
     text-decoration: none;
 }
 
+.btn-disabled {
+    background: rgba(255, 255, 255, 0.05);
+    color: var(--text-dim);
+    border: 1px solid var(--border);
+    cursor: not-allowed;
+    opacity: 0.75;
+}
+
+.btn-disabled:hover {
+    background: rgba(255, 255, 255, 0.05);
+    text-decoration: none;
+    box-shadow: none;
+}
+
 /* ---- Philosophy Cards ---- */
 
 .section-block {
