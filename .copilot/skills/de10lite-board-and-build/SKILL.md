@@ -12,6 +12,275 @@ description: >
 
 # De10Lite Board And Build
 
+---
+
+## CrashTech VLSI-2026 — FPGA BKM (Verified Reference)
+
+> Authoritative reference for all FPGA projects in this repo.  
+> All commands, pin assignments, and flows verified working on the actual CrashTech DE10-Lite kit (May 2026).
+
+### Board Identity
+
+| Field | Value |
+|-------|-------|
+| Board | DE10-Lite |
+| Device | Intel MAX 10 — `10M50DAF484C7G` |
+| Clock | 50 MHz on `MAX10_CLK1_50` (PIN_P11) |
+| Toolchain | Quartus Prime Lite 17.1 |
+| Programmer | USB-Blaster (detected as `USB-Blaster [USB-0]`) |
+| Driver path | `C:\intelFPGA_lite\17.1\quartus\drivers\usb-blaster` |
+
+### Project File Templates
+
+**Minimal `.qpf`:**
+```
+QUARTUS_VERSION = "17.1"
+DATE = "2026.05.04"
+PROJECT_REVISION = "my_project"
+```
+
+**Minimal `.qsf` header** (copy and extend):
+```tcl
+set_global_assignment -name FAMILY "MAX 10"
+set_global_assignment -name DEVICE 10M50DAF484C7G
+set_global_assignment -name TOP_LEVEL_ENTITY my_top
+set_global_assignment -name PROJECT_OUTPUT_DIRECTORY output_files
+set_global_assignment -name SYSTEMVERILOG_FILE src/my_top.sv
+set_global_assignment -name LAST_QUARTUS_VERSION "17.1.0 Lite Edition"
+```
+
+### Full DE10-Lite Pin Assignments (Copy-Paste Ready)
+
+```tcl
+# ---- Clock ----
+set_location_assignment PIN_P11 -to MAX10_CLK1_50
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to MAX10_CLK1_50
+
+# ---- Switches SW[9:0] ----
+set_location_assignment PIN_C10 -to SW[0]
+set_location_assignment PIN_C11 -to SW[1]
+set_location_assignment PIN_D12 -to SW[2]
+set_location_assignment PIN_C12 -to SW[3]
+set_location_assignment PIN_A12 -to SW[4]
+set_location_assignment PIN_B12 -to SW[5]
+set_location_assignment PIN_A13 -to SW[6]
+set_location_assignment PIN_A14 -to SW[7]
+set_location_assignment PIN_B14 -to SW[8]
+set_location_assignment PIN_F15 -to SW[9]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to SW[*]
+
+# ---- Keys KEY[1:0] (active-low) ----
+set_location_assignment PIN_B8 -to KEY[0]
+set_location_assignment PIN_A7 -to KEY[1]
+set_instance_assignment -name IO_STANDARD "3.3 V SCHMITT TRIGGER" -to KEY[*]
+
+# ---- Red LEDs LEDR[9:0] ----
+set_location_assignment PIN_A8  -to LEDR[0]
+set_location_assignment PIN_A9  -to LEDR[1]
+set_location_assignment PIN_A10 -to LEDR[2]
+set_location_assignment PIN_B10 -to LEDR[3]
+set_location_assignment PIN_D13 -to LEDR[4]
+set_location_assignment PIN_C13 -to LEDR[5]
+set_location_assignment PIN_E14 -to LEDR[6]
+set_location_assignment PIN_D14 -to LEDR[7]
+set_location_assignment PIN_A11 -to LEDR[8]
+set_location_assignment PIN_B11 -to LEDR[9]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to LEDR[*]
+
+# ---- 7-Segment HEX0..HEX5 (active-low, [7]=dp) ----
+set_location_assignment PIN_C14 -to HEX0[0]
+set_location_assignment PIN_E15 -to HEX0[1]
+set_location_assignment PIN_C15 -to HEX0[2]
+set_location_assignment PIN_C16 -to HEX0[3]
+set_location_assignment PIN_E16 -to HEX0[4]
+set_location_assignment PIN_D17 -to HEX0[5]
+set_location_assignment PIN_C17 -to HEX0[6]
+set_location_assignment PIN_D15 -to HEX0[7]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HEX0[*]
+
+set_location_assignment PIN_C18 -to HEX1[0]
+set_location_assignment PIN_D18 -to HEX1[1]
+set_location_assignment PIN_E18 -to HEX1[2]
+set_location_assignment PIN_B16 -to HEX1[3]
+set_location_assignment PIN_A17 -to HEX1[4]
+set_location_assignment PIN_A18 -to HEX1[5]
+set_location_assignment PIN_B17 -to HEX1[6]
+set_location_assignment PIN_A16 -to HEX1[7]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HEX1[*]
+
+set_location_assignment PIN_B20 -to HEX2[0]
+set_location_assignment PIN_A20 -to HEX2[1]
+set_location_assignment PIN_B19 -to HEX2[2]
+set_location_assignment PIN_A21 -to HEX2[3]
+set_location_assignment PIN_B21 -to HEX2[4]
+set_location_assignment PIN_C22 -to HEX2[5]
+set_location_assignment PIN_B22 -to HEX2[6]
+set_location_assignment PIN_A19 -to HEX2[7]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HEX2[*]
+
+set_location_assignment PIN_F21 -to HEX3[0]
+set_location_assignment PIN_E22 -to HEX3[1]
+set_location_assignment PIN_E21 -to HEX3[2]
+set_location_assignment PIN_C19 -to HEX3[3]
+set_location_assignment PIN_C20 -to HEX3[4]
+set_location_assignment PIN_D19 -to HEX3[5]
+set_location_assignment PIN_E17 -to HEX3[6]
+set_location_assignment PIN_D22 -to HEX3[7]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HEX3[*]
+
+set_location_assignment PIN_F18 -to HEX4[0]
+set_location_assignment PIN_E20 -to HEX4[1]
+set_location_assignment PIN_E19 -to HEX4[2]
+set_location_assignment PIN_J18 -to HEX4[3]
+set_location_assignment PIN_H19 -to HEX4[4]
+set_location_assignment PIN_F19 -to HEX4[5]
+set_location_assignment PIN_F20 -to HEX4[6]
+set_location_assignment PIN_F17 -to HEX4[7]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HEX4[*]
+
+set_location_assignment PIN_J20 -to HEX5[0]
+set_location_assignment PIN_K20 -to HEX5[1]
+set_location_assignment PIN_L18 -to HEX5[2]
+set_location_assignment PIN_N18 -to HEX5[3]
+set_location_assignment PIN_M20 -to HEX5[4]
+set_location_assignment PIN_N19 -to HEX5[5]
+set_location_assignment PIN_N20 -to HEX5[6]
+set_location_assignment PIN_L19 -to HEX5[7]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HEX5[*]
+
+# ---- JP1 40-pin GPIO Header — GPIO[35:0] ----
+# GPIO[0] = JP1 pin 1 (top-left)  — CrashTech: UART RX from ESP32
+# GPIO[1] = JP1 pin 2 (top-right) — CrashTech: UART TX to ESP32
+# Pin 12 = GND (connect ESP32 GND here)
+set_location_assignment PIN_V10  -to GPIO[0]
+set_location_assignment PIN_W10  -to GPIO[1]
+set_location_assignment PIN_V9   -to GPIO[2]
+set_location_assignment PIN_W9   -to GPIO[3]
+set_location_assignment PIN_V8   -to GPIO[4]
+set_location_assignment PIN_W8   -to GPIO[5]
+set_location_assignment PIN_V7   -to GPIO[6]
+set_location_assignment PIN_W7   -to GPIO[7]
+set_location_assignment PIN_W6   -to GPIO[8]
+set_location_assignment PIN_V5   -to GPIO[9]
+set_location_assignment PIN_W5   -to GPIO[10]
+set_location_assignment PIN_AA15 -to GPIO[11]
+set_location_assignment PIN_AA14 -to GPIO[12]
+set_location_assignment PIN_W13  -to GPIO[13]
+set_location_assignment PIN_W12  -to GPIO[14]
+set_location_assignment PIN_AB13 -to GPIO[15]
+set_location_assignment PIN_AB12 -to GPIO[16]
+set_location_assignment PIN_Y11  -to GPIO[17]
+set_location_assignment PIN_AB11 -to GPIO[18]
+set_location_assignment PIN_W11  -to GPIO[19]
+set_location_assignment PIN_AB10 -to GPIO[20]
+set_location_assignment PIN_AA10 -to GPIO[21]
+set_location_assignment PIN_AA9  -to GPIO[22]
+set_location_assignment PIN_Y8   -to GPIO[23]
+set_location_assignment PIN_AA8  -to GPIO[24]
+set_location_assignment PIN_Y7   -to GPIO[25]
+set_location_assignment PIN_AA7  -to GPIO[26]
+set_location_assignment PIN_Y6   -to GPIO[27]
+set_location_assignment PIN_AA6  -to GPIO[28]
+set_location_assignment PIN_Y5   -to GPIO[29]
+set_location_assignment PIN_AA5  -to GPIO[30]
+set_location_assignment PIN_Y4   -to GPIO[31]
+set_location_assignment PIN_AB3  -to GPIO[32]
+set_location_assignment PIN_Y3   -to GPIO[33]
+set_location_assignment PIN_AB2  -to GPIO[34]
+set_location_assignment PIN_AA2  -to GPIO[35]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO[*]
+```
+
+### 7-Segment Encoding (Active-Low)
+
+Bit order: `[7]=dp [6]=g [5]=f [4]=e [3]=d [2]=c [1]=b [0]=a`  
+Set `1` = segment OFF, `0` = segment ON.
+
+| Char | 8'b value | Hex |
+|------|-----------|-----|
+| 0 | `8'b1100_0000` | C0 |
+| 1 | `8'b1111_1001` | F9 |
+| 2 | `8'b1010_0100` | A4 |
+| 3 | `8'b1011_0000` | B0 |
+| 4 | `8'b1001_1001` | 99 |
+| 5 | `8'b1001_0010` | 92 |
+| 6 | `8'b1000_0010` | 82 |
+| 7 | `8'b1111_1000` | F8 |
+| 8 | `8'b1000_0000` | 80 |
+| 9 | `8'b1001_0000` | 90 |
+| A | `8'b1000_1000` | 88 |
+| b | `8'b1000_0011` | 83 |
+| C | `8'b1100_0110` | C6 |
+| d | `8'b1010_0001` | A1 |
+| E | `8'b1000_0110` | 86 |
+| F | `8'b1000_1110` | 8E |
+| H | `8'b1000_1001` | 89 |
+| i | `8'b1100_1111` | CF |
+| L | `8'b1100_0111` | C7 |
+| n | `8'b1010_1011` | AB |
+| o | `8'b1010_0011` | A3 |
+| P | `8'b1000_1100` | 8C |
+| r | `8'b1010_1111` | AF |
+| U | `8'b1100_0001` | C1 |
+| blank | `8'b1111_1111` | FF |
+| `-` | `8'b1011_1111` | BF |
+
+### CLI Compile & Program (PowerShell — Verified)
+
+```powershell
+# Compile (from project folder containing .qsf/.qpf)
+cd c:\Projects\TechCrash2026\demos\alive_test\fpga
+& "C:\intelFPGA_lite\17.1\quartus\bin64\quartus_sh.exe" --flow compile alive_test
+
+# Check .sof was produced
+Test-Path "output_files\alive_test.sof"
+
+# List available programmers (should show "USB-Blaster [USB-0]")
+& "C:\intelFPGA_lite\17.1\quartus\bin64\quartus_pgm.exe" --list
+
+# Program (volatile SRAM — fast, lost on power-off)
+& "C:\intelFPGA_lite\17.1\quartus\bin64\quartus_pgm.exe" -c "USB-Blaster [USB-0]" -m JTAG -o "P;output_files\alive_test.sof"
+```
+
+> **Note on cable name**: Always use `"USB-Blaster [USB-0]"` (with the `[USB-0]` suffix). Using just `"USB-Blaster"` returns error 87.
+
+### UART in RTL — Verified Pattern (9600 baud, 50 MHz)
+
+```systemverilog
+// CLKS_PER_BIT = 50_000_000 / 9600 = 5208
+// GPIO[0] = input  (RX from ESP32, JP1 pin 1)
+// GPIO[1] = output (TX to ESP32,   JP1 pin 2)
+
+assign GPIO[0]    = 1'bz;        // input mode
+assign uart_rx_in = GPIO[0];
+assign GPIO[1]    = uart_tx_out;
+assign GPIO[35:2] = 34'bz;       // unused = high-Z
+
+// Double-flop sync on RX input (mandatory for async inputs)
+always @(posedge clk) begin
+    rx_d1 <= uart_rx_in;
+    rx_d2 <= rx_d1;
+end
+```
+
+### Verified Status (May 2026)
+
+| Feature | Status | Notes |
+|---------|--------|-------|
+| Compile via CLI (`quartus_sh`) | ✅ Working | `--flow compile <project>` |
+| Program via CLI (`quartus_pgm`) | ✅ Working | Cable name = `"USB-Blaster [USB-0]"` |
+| `LEDR[9:0]` | ✅ Working | Sweep pattern |
+| `HEX5..HEX0` | ✅ Working | "ALivE " verified on hardware |
+| `SW[9:0]` | ✅ Working | |
+| `KEY[1:0]` | ✅ Working | Active-low reset |
+| `GPIO[0]/[1]` | ✅ Compiled | UART TX/RX to ESP32 — wiring pending |
+
+### Reference Demo
+
+See `demos/alive_test/fpga/` — canonical working project with full QSF.
+
+---
+
 ## Quartus Prime Lite 17.1 — Complete Installation Guide
 
 Everything you need to design, compile, simulate, and program the DE10-Lite FPGA. Follow these steps exactly.

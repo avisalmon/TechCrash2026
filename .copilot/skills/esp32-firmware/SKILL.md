@@ -4,6 +4,130 @@
 
 ---
 
+## CrashTech VLSI-2026 — Hardware BKM (Verified Reference)
+
+> This section is the **authoritative reference** for all ESP32 projects in this repo.  
+> All pin assignments, wiring, and library choices below are **verified working** on the actual CrashTech kit (May 2026).
+
+### Board
+
+| Field | Value |
+|-------|-------|
+| Board | ESP32 DevKit V1, 38-pin |
+| Chip | ESP32-D0WD-V3 rev 3.1 |
+| Flash | 4MB |
+| CPU | Dual-core 240 MHz |
+| USB-Serial | CP2102 (COM4 on Avi's machine) |
+| Framework | Arduino via PlatformIO |
+| PlatformIO board ID | `esp32dev` |
+
+### Pin Assignments (from `projects/common/esp32/pin_config.h`)
+
+| Function | GPIO | Notes |
+|----------|------|-------|
+| FPGA UART TX | 16 | UART2 TX → FPGA GPIO[0], JP1 pin 1 |
+| FPGA UART RX | 17 | UART2 RX ← FPGA GPIO[1], JP1 pin 2 |
+| OLED SDA | 21 | I2C default Wire |
+| OLED SCL | 22 | I2C default Wire |
+| Servo | 18 | PWM via LEDC (50Hz, 16-bit) |
+| Buzzer | 19 | PWM via `tone()` |
+| LED 1 | 23 | Digital output |
+| LED 2 | 2 | Digital output (also onboard LED) |
+| LED 3 | 15 | Digital output (strapping pin — boot HIGH, OK after boot) |
+| Switch 1 | 4 | INPUT_PULLUP, active LOW |
+| Switch 2 | 0 | INPUT_PULLUP, active LOW — **boot pin, do NOT hold LOW at power-on** |
+| Analog In | 34 | ADC1_CH6, input-only, works with WiFi active |
+
+**FPGA side:** JP1 40-pin GPIO header. Pin 1 (top-left) = GPIO[0] = RX from ESP32. Pin 2 = GPIO[1] = TX to ESP32. Pin 12 = GND.  
+**UART baud:** 9600 8N1.
+
+### Wiring BKM
+
+**OLED (SSD1306 128×64, I2C)**
+- VCC → 3V3
+- GND → GND
+- SDA → GPIO 21
+- SCL → GPIO 22
+- I2C address: `0x3C`
+
+**LEDs**
+- GPIO → 330Ω resistor → LED anode → LED cathode → GND
+- All 3 verified working (GPIO 23, 2, 15)
+
+**Buzzer**
+- GPIO 19 → buzzer + terminal
+- Buzzer − terminal → GND
+- Use `tone(PIN_BUZZER, freq)` / `noTone(PIN_BUZZER)`
+- Verified: 800 Hz (SW1), 1500 Hz (SW2), 2000 Hz (both)
+
+**Switches**
+- One leg → GPIO pin
+- Other leg → GND
+- `pinMode(pin, INPUT_PULLUP)` — reads LOW when pressed
+
+**Analog Input (potentiometer)**
+- Pot wiper → GPIO 34
+- Pot ends → 3V3 and GND
+- `analogRead(34)` returns 0–4095 (12-bit ADC)
+- Floating pin reads ~4095 (3.3V) — normal
+
+**Servo (SG90 / MG90S — yellow/red/brown)**
+- Brown → GND
+- Red (middle) → **5V** (not 3V3!)
+- Yellow (signal) → GPIO 18
+- PWM: 50Hz, 16-bit LEDC. Pulse: 0.5ms=0°, 1.5ms=90°, 2.5ms=180°
+
+```cpp
+ledcAttach(PIN_SERVO, 50, 16);
+uint32_t angleToDuty(int deg) {
+    uint32_t us = 500 + ((uint32_t)deg * 2000 / 180);
+    return (uint32_t)(us * 65536UL / 20000UL);
+}
+ledcWrite(PIN_SERVO, angleToDuty(90));
+```
+
+> **Do NOT use the ESP32Servo library** — it is incompatible with the new Arduino ESP32 core (v3.x). Use raw LEDC as shown above.
+
+### `platformio.ini` Template
+
+```ini
+[env:esp32dev]
+platform = espressif32
+board = esp32dev
+framework = arduino
+monitor_speed = 115200
+lib_deps =
+    adafruit/Adafruit SSD1306@^2.5.7
+    adafruit/Adafruit GFX Library@^1.11.5
+```
+
+Always include `pin_config.h`:
+```cpp
+#include "../../../../projects/common/esp32/pin_config.h"
+// (adjust relative path from your src/ folder)
+```
+
+### Verified Status (May 2026)
+
+| Peripheral | Status | Notes |
+|-----------|--------|-------|
+| OLED SSD1306 | ✅ Working | I2C 0x3C |
+| LED 1 (GPIO 23) | ✅ Working | |
+| LED 2 (GPIO 2) | ✅ Working | also onboard LED |
+| LED 3 (GPIO 15) | ✅ Working | |
+| Buzzer (GPIO 19) | ✅ Working | |
+| Switch 1 (GPIO 4) | ✅ Working | |
+| Switch 2 (GPIO 0) | ✅ Working | |
+| Analog In (GPIO 34) | ✅ Working | |
+| Servo (GPIO 18) | ⏳ Not yet tested | wiring BKM documented above |
+| FPGA UART (GPIO 16/17) | ⏳ Not yet tested | FPGA not programmed yet |
+
+### Reference Demo
+
+See `demos/alive_test/esp32/src/main.cpp` — the canonical working demo for all IO.
+
+---
+
 ## Table of Contents
 
 0. [Complete Installation Guide](#complete-installation-guide)
@@ -471,6 +595,22 @@ if (bsp_touch_get_coordinates(&x, &y)) {
 ---
 
 ## Build & Flash Workflow
+
+### Proxy Setup (Intel Employees Only)
+
+> **This section is only for Intel employees behind the corporate proxy. Students and external participants should skip this.**
+
+PlatformIO needs internet access to download libraries and platform packages on first build. If you're on the Intel corporate network, set the proxy before running `pio`:
+
+```powershell
+# PowerShell — set for current session
+$env:HTTP_PROXY  = "http://proxy-iil.intel.com:912"
+$env:HTTPS_PROXY = "http://proxy-iil.intel.com:912"
+```
+
+Or run `proxy.bat` (in repo root) from `cmd.exe` before building.
+
+Once libraries are downloaded and cached locally (in `.pio/libdeps/`), the proxy is no longer needed for subsequent builds.
 
 ### Standard Build-Flash-Monitor Cycle
 

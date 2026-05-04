@@ -1238,6 +1238,48 @@ a:hover { text-decoration: underline; }
     width: 120px;
 }
 
+/* Pin map table */
+.pin-map-table thead th {
+    text-align: left;
+    color: var(--accent);
+    font-weight: 600;
+    padding: 0.5rem 0.75rem;
+    border-bottom: 2px solid var(--accent);
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.pin-map-table td:first-child {
+    font-family: 'Fira Code', 'Cascadia Code', monospace;
+    color: var(--text-bright);
+    text-align: center;
+    width: 60px;
+}
+
+.pin-map-divider td {
+    padding: 0 !important;
+    height: 4px;
+    border-bottom: none !important;
+}
+
+/* Pin map diagram */
+.pinmap-diagram {
+    margin-top: 2rem;
+    background: #0d0d1a;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1.5rem;
+    overflow: hidden;
+}
+
+.pinmap-diagram img {
+    width: 100%;
+    max-width: 960px;
+    margin: 0 auto;
+    display: block;
+}
+
 .hw-tools {
     background: var(--bg-card);
     border: 1px solid var(--border);
