@@ -1,9 +1,9 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CrashTech VLSI-2026 &mdash; Technion</title>
+    <title>Hackathon VLSI-2026 &mdash; ECE Faculty, Technion</title>
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -12,7 +12,7 @@
 
 <!-- ============ NAVBAR ============ -->
 <nav class="navbar">
-    <div class="navbar-brand">Crash<span>Tech</span> VLSI</div>
+    <div class="navbar-brand">Hackathon VLSI</div>
     <ul class="nav-tabs" id="navTabs">
         <li><a href="#home" class="active" data-page="home">Home</a></li>
         <li><a href="#event" data-page="event">The Event</a></li>
@@ -34,10 +34,10 @@
     <div class="hero">
         <div class="hero-content">
             <div class="hero-badge">24-Hour VLSI Hackathon</div>
-            <h1>Crash<span class="highlight">Tech</span> VLSI-2026</h1>
+            <h1>Hackathon VLSI-2026</h1>
             <p class="hero-sub">Where FPGA meets firmware. Build it. Prove it. Win it.</p>
             <p class="hero-tagline">Solve as many hardware challenges as you can in 24 hours. Fastest team wins.</p>
-            <p class="hero-location"><strong>Technion</strong> &mdash; Israel Institute of Technology &nbsp;|&nbsp; June 4 &ndash; 5, 2026</p>
+            <p class="hero-location"><strong>ECE Faculty, Technion</strong> &nbsp;|&nbsp; June 4 &ndash; 5, 2026</p>
 
             <!-- Countdown -->
             <div class="countdown" id="countdown">
@@ -158,6 +158,14 @@
                 <span class="quick-link-icon" data-icon="*"></span>
                 <span class="quick-link-label">Practice Challenges</span>
             </a>
+            <a class="quick-link" href="demos/alive_test/index.html" target="_blank">
+                <span class="quick-link-icon" data-icon="TX"></span>
+                <span class="quick-link-label">Alive Test Demo</span>
+            </a>
+            <a class="quick-link" href="demos/internet_clock/index.html" target="_blank">
+                <span class="quick-link-icon" data-icon="&#x1F552;"></span>
+                <span class="quick-link-label">Internet Clock Demo</span>
+            </a>
             <a class="quick-link" href="#aitools" data-page="aitools">
                 <span class="quick-link-icon" data-icon="AI"></span>
                 <span class="quick-link-label">AI Tools</span>
@@ -170,7 +178,7 @@
     </div>
 
     <footer class="site-footer">
-        CrashTech VLSI-2026 &mdash; Technion, Israel Institute of Technology
+        Hackathon VLSI-2026 &mdash; ECE Faculty, Technion
     </footer>
 </section>
 
@@ -180,7 +188,7 @@
     <!-- Overview -->
     <div class="section-block">
         <h2>The Event</h2>
-        <p class="subtitle">CrashTech VLSI-2026 is a 24-hour chip-design hackathon at the Technion. Teams combine FPGA hardware and ESP32 firmware to solve real engineering challenges &mdash; fast.</p>
+        <p class="subtitle">Hackathon VLSI-2026 is a 24-hour chip-design hackathon at the ECE Faculty, Technion. Teams combine FPGA hardware and ESP32 firmware to solve real engineering challenges &mdash; fast.</p>
     </div>
 
     <!-- Schedule -->
@@ -202,7 +210,7 @@
             </div>
             <div class="card">
                 <div class="card-icon" data-icon="24h"></div>
-                <h3>Chip Design Hackathon</h3>
+                <h3>Hackathon</h3>
                 <p><strong>June 4 (09:00) &ndash; June 5 (13:00)</strong></p>
                 <p>The main event. 24 hours of secret challenges, real hardware, and intense building. Points accumulate &mdash; top teams win.</p>
             </div>
@@ -237,7 +245,7 @@
     </div>
 
     <footer class="site-footer">
-        CrashTech VLSI-2026 &mdash; Technion, Israel Institute of Technology
+        Hackathon VLSI-2026 &mdash; ECE Faculty, Technion
     </footer>
 </section>
 
@@ -302,7 +310,7 @@
             <div class="hw-info">
                 <div class="hw-badge">Controller Kit</div>
                 <h3>ESP32 Controller Kit</h3>
-                <p class="hw-desc">A breadboard-based kit built around the ESP32-WROOM-32 DevKit, featuring an OLED display, a push button, and a passive buzzer. Simple, hackable, and perfect for rapid prototyping.</p>
+                <p class="hw-desc">A breadboard-based kit built around the ESP32-WROOM-32 DevKit with an OLED display, switches, LEDs, buzzer, servo, and analog input. Simple, hackable, and ready to connect to the FPGA.</p>
 
                 <table class="spec-table">
                     <tr><td class="spec-label">MCU</td><td>ESP32-WROOM-32 (dual-core Xtensa LX6, 240 MHz)</td></tr>
@@ -310,10 +318,13 @@
                     <tr><td class="spec-label">Flash</td><td>4 MB</td></tr>
                     <tr><td class="spec-label">WiFi</td><td>802.11 b/g/n (2.4 GHz)</td></tr>
                     <tr><td class="spec-label">Bluetooth</td><td>BLE 4.2 + Classic</td></tr>
-                    <tr><td class="spec-label">Display</td><td>SSD1306 OLED 128×64 (I2C, address 0x3C)</td></tr>
-                    <tr><td class="spec-label">Button</td><td>Push button on GPIO 4 (active LOW, internal pull-up)</td></tr>
-                    <tr><td class="spec-label">Buzzer</td><td>Passive buzzer on GPIO 23 (PWM tone output)</td></tr>
-                    <tr><td class="spec-label">I2C</td><td>SDA: GPIO 21, SCL: GPIO 22</td></tr>
+                    <tr><td class="spec-label">Display</td><td>SSD1306 OLED 128&times;64 (I2C, address 0x3C)</td></tr>
+                    <tr><td class="spec-label">Switches</td><td>2&times; push buttons (active LOW, internal pull-up)</td></tr>
+                    <tr><td class="spec-label">LEDs</td><td>3&times; LEDs (active HIGH)</td></tr>
+                    <tr><td class="spec-label">Buzzer</td><td>Passive buzzer (PWM tone output)</td></tr>
+                    <tr><td class="spec-label">Servo</td><td>Standard hobby servo (PWM control)</td></tr>
+                    <tr><td class="spec-label">Analog In</td><td>1&times; analog input (ADC1, 12-bit, 0&ndash;3.3V)</td></tr>
+                        <tr><td class="spec-label">FPGA Link</td><td>UART (TX + RX) via DE10-Lite JP1 40-pin GPIO header</td></tr>
                     <tr><td class="spec-label">Logic</td><td>3.3V logic, powered via USB 5V through onboard regulator</td></tr>
                     <tr><td class="spec-label">USB</td><td>Micro-USB for programming and power</td></tr>
                 </table>
@@ -333,28 +344,66 @@
     <!-- How They Connect -->
     <div class="section-block">
         <h2>How They Connect</h2>
-        <p class="subtitle">The two boards communicate through wired interfaces &mdash; this is the core engineering challenge.</p>
+        <p class="subtitle">The ESP32 and DE10-Lite communicate over UART (serial) via the JP1 40-pin GPIO header. Two wires + GND, bidirectional, 9600 baud.</p>
         <div class="card-grid">
             <div class="card">
                 <div class="card-icon" data-icon="TX"></div>
-                <h3>UART (Serial)</h3>
-                <p>TX/RX serial communication. Simple, proven, bidirectional. Connect FPGA GPIO pins to ESP32 UART pins.</p>
+                <h3>ESP32 &rarr; FPGA</h3>
+                <p>ESP32 GPIO 16 (UART2 TX) connects to FPGA GPIO[0] (JP1 pin 1, top-left). The ESP32 sends data to the FPGA.</p>
             </div>
             <div class="card">
-                <div class="card-icon" data-icon="SPI"></div>
-                <h3>SPI</h3>
-                <p>High-speed synchronous bus. FPGA as master or slave, ESP32 on the other end. Great for fast data transfer.</p>
+                <div class="card-icon" data-icon="RX"></div>
+                <h3>FPGA &rarr; ESP32</h3>
+                <p>FPGA GPIO[1] (JP1 pin 2, top-right) connects to ESP32 GPIO 17 (UART2 RX). The FPGA sends data back to the ESP32.</p>
             </div>
             <div class="card">
-                <div class="card-icon" data-icon="I2C"></div>
-                <h3>I2C</h3>
-                <p>Two-wire bus with addressing. Good for multi-device setups and sensor-like data exchange.</p>
+                <div class="card-icon" data-icon="&#9207;"></div>
+                <h3>Common Ground &mdash; JP1</h3>
+                <p>Connect ESP32 GND to JP1 pin 12 (GND). Both boards must share a common ground for UART to work.</p>
             </div>
             <div class="card">
-                <div class="card-icon" data-icon="IO"></div>
-                <h3>GPIO Direct</h3>
-                <p>Simple parallel wires &mdash; bit-bang your own protocol. Maximum flexibility, minimum abstraction.</p>
+                <div class="card-icon" data-icon="VGA"></div>
+                <h3>Ground via VGA Port</h3>
+                <p>No spare jumper wire? Grab GND from the DE10-Lite VGA connector (DE-15). Pins <strong>5, 6, 7, 8, and 10</strong> are all ground &mdash; all connected together. Pins 6, 7, 8 (middle row, left side) are easiest to reach. Use a female-to-female jumper or poke a bare wire into any of those sockets.</p>
+                <div style="margin-top:0.8rem; text-align:center;">
+                    <img src="images/vga-gnd.svg" alt="VGA DE-15 female connector ground pins" style="max-width:100%; border-radius:6px; background:#fff; padding:6px;">
+                </div>
             </div>
+        </div>
+    </div>
+
+    <!-- ESP32 Pin Map -->
+    <div class="section-block">
+        <h2>ESP32 Kit Pin Map</h2>
+        <p class="subtitle">Every GPIO assignment in the kit. This is the single source of truth for all projects and challenges.</p>
+        <table class="spec-table pin-map-table">
+            <thead>
+                <tr><th>GPIO</th><th>Function</th><th>Direction</th><th>Notes</th></tr>
+            </thead>
+            <tbody>
+                <tr><td><strong>16</strong></td><td>UART TX &rarr; FPGA</td><td>Output</td><td>UART2 &rarr; FPGA GPIO[0] (JP1 pin 1)</td></tr>
+                <tr><td><strong>17</strong></td><td>UART RX &larr; FPGA</td><td>Input</td><td>UART2 &larr; FPGA GPIO[1] (JP1 pin 2)</td></tr>
+                <tr class="pin-map-divider"><td colspan="4"></td></tr>
+                <tr><td><strong>21</strong></td><td>OLED SDA</td><td>I/O</td><td>I2C data (SSD1306, addr 0x3C)</td></tr>
+                <tr><td><strong>22</strong></td><td>OLED SCL</td><td>Output</td><td>I2C clock</td></tr>
+                <tr class="pin-map-divider"><td colspan="4"></td></tr>
+                <tr><td><strong>18</strong></td><td>Servo</td><td>Output</td><td>PWM (LEDC)</td></tr>
+                <tr><td><strong>19</strong></td><td>Buzzer</td><td>Output</td><td>PWM (LEDC), passive buzzer</td></tr>
+                <tr class="pin-map-divider"><td colspan="4"></td></tr>
+                <tr><td><strong>23</strong></td><td>LED 1</td><td>Output</td><td></td></tr>
+                <tr><td><strong>2</strong></td><td>LED 2</td><td>Output</td><td>Also onboard LED on most DevKits</td></tr>
+                <tr><td><strong>15</strong></td><td>LED 3</td><td>Output</td><td></td></tr>
+                <tr class="pin-map-divider"><td colspan="4"></td></tr>
+                <tr><td><strong>4</strong></td><td>Switch 1</td><td>Input</td><td>Active LOW, use INPUT_PULLUP</td></tr>
+                <tr><td><strong>0</strong></td><td>Switch 2</td><td>Input</td><td>Active LOW, boot pin &mdash; do not hold LOW at power-on</td></tr>
+                <tr class="pin-map-divider"><td colspan="4"></td></tr>
+                <tr><td><strong>34</strong></td><td>Analog In</td><td>Input</td><td>ADC1_CH6, input-only, 0&ndash;3.3V, works with WiFi</td></tr>
+            </tbody>
+        </table>
+
+        <!-- Visual Pin Map Diagram -->
+        <div class="pinmap-diagram">
+            <img src="images/esp32-pinmap.svg" alt="ESP32 Kit Pin Map and FPGA Connection Diagram">
         </div>
     </div>
 
@@ -363,17 +412,21 @@
         <h2>What You Receive</h2>
         <p class="subtitle">Each team gets the following kit, 2 weeks before the event.</p>
         <div class="kit-checklist">
-            <div class="kit-item"> DE10-Lite FPGA board</div>
-            <div class="kit-item"> ESP32 controller kit with LCD</div>
-            <div class="kit-item"> USB cables for both boards</div>
-            <div class="kit-item"> Jumper wires for FPGA ↔ ESP32 connection</div>
-            <div class="kit-item"> Breadboard</div>
+            <div class="kit-item"> DE10-Lite FPGA board + USB cable</div>
+            <div class="kit-item"> ESP32 DevKit (30-pin) + USB cable</div>
+            <div class="kit-item"> SSD1306 OLED display (128&times;64, I2C)</div>
+            <div class="kit-item"> 2&times; push-button switches</div>
+            <div class="kit-item"> 3&times; LEDs + resistors</div>
+            <div class="kit-item"> Passive buzzer</div>
+            <div class="kit-item"> Hobby servo motor</div>
+            <div class="kit-item"> Potentiometer (for analog input)</div>
+            <div class="kit-item"> Breadboard + jumper wires</div>
             <div class="kit-item"> VGA monitor and cable &mdash; bring your own or use lab equipment</div>
         </div>
     </div>
 
     <footer class="site-footer">
-        CrashTech VLSI-2026 &mdash; Technion, Israel Institute of Technology
+        Hackathon VLSI-2026 &mdash; ECE Faculty, Technion
     </footer>
 </section>
 
@@ -485,6 +538,7 @@
                     <p>Wire the two boards together using jumper cables (UART, SPI, I2C, or direct GPIO). Send data from one to the other. This is the core skill for every challenge.</p>
                     <div class="step-details">
                         <p class="step-tip">Tip: Start simple: UART TX from FPGA GPIO → ESP32 RX pin. One wire + ground.</p>
+                        <p class="step-tip"><strong>Working demo:</strong> <a href="demos/alive_test/index.html" target="_blank">Alive Test</a> &mdash; bidirectional UART with full source code, wiring diagram, and block diagram.</p>
                     </div>
                 </div>
             </div>
@@ -511,31 +565,31 @@
                 <div class="card-icon" data-icon="FPGA"></div>
                 <h3>DE10-Lite Board &amp; Build</h3>
                 <p>Board overview, pin mapping, Quartus build flow, programming, simulation, design patterns, IP blocks.</p>
-                <a href="skills/de10lite-board-and-build/SKILL.md" target="_blank" class="card-link">Download Skill →</a>
+                <a href=".copilot/skills/de10lite-board-and-build/SKILL.md" target="_blank" class="card-link">Download Skill →</a>
             </div>
             <div class="card">
                 <div class="card-icon" data-icon="VGA"></div>
                 <h3>DE10-Lite VGA Graphics</h3>
                 <p>VGA 640×480 display, sprite engine, text screen, priority compositing, frame sync.</p>
-                <a href="skills/de10lite-vga-graphics/SKILL.md" target="_blank" class="card-link">Download Skill →</a>
+                <a href=".copilot/skills/de10lite-vga-graphics/SKILL.md" target="_blank" class="card-link">Download Skill →</a>
             </div>
             <div class="card">
                 <div class="card-icon" data-icon="ADC"></div>
                 <h3>DE10-Lite Addon Peripherals</h3>
                 <p>ADC joystick, buttons, wheel potentiometer, LCD screen via Arduino header.</p>
-                <a href="skills/de10lite-addon-peripherals/SKILL.md" target="_blank" class="card-link">Download Skill →</a>
+                <a href=".copilot/skills/de10lite-addon-peripherals/SKILL.md" target="_blank" class="card-link">Download Skill →</a>
             </div>
             <div class="card">
                 <div class="card-icon" data-icon="ESP"></div>
                 <h3>ESP32 Firmware</h3>
                 <p>PlatformIO setup, OLED display, button input, buzzer, WiFi, I2C, build &amp; flash workflow.</p>
-                <a href="skills/esp32-firmware/SKILL.md" target="_blank" class="card-link">Download Skill →</a>
+                <a href=".copilot/skills/esp32-firmware/SKILL.md" target="_blank" class="card-link">Download Skill →</a>
             </div>
             <div class="card">
                 <div class="card-icon" data-icon="PCB"></div>
                 <h3>KiCad Board Design</h3>
                 <p>PCB design from schematic to Gerber production files. Bonus skill for custom hardware.</p>
-                <a href="skills/kicad-board-design/SKILL.md" target="_blank" class="card-link">Download Skill →</a>
+                <a href=".copilot/skills/kicad-board-design/SKILL.md" target="_blank" class="card-link">Download Skill →</a>
             </div>
         </div>
     </div>
@@ -583,7 +637,7 @@
     </div>
 
     <footer class="site-footer">
-        CrashTech VLSI-2026 &mdash; Technion, Israel Institute of Technology
+        Hackathon VLSI-2026 &mdash; ECE Faculty, Technion
     </footer>
 </section>
 
@@ -745,7 +799,7 @@
     </div>
 
     <footer class="site-footer">
-        CrashTech VLSI-2026 &mdash; Technion, Israel Institute of Technology
+        Hackathon VLSI-2026 &mdash; ECE Faculty, Technion
     </footer>
 </section>
 
@@ -899,31 +953,31 @@
                 <div class="card-icon" data-icon="FPGA"></div>
                 <h3>DE10-Lite Board &amp; Build</h3>
                 <p>Board overview, pin mapping, Quartus build flow, programming, simulation, design patterns, IP blocks.</p>
-                <a href="skills/de10lite-board-and-build/SKILL.md" target="_blank" class="card-link">Download Skill →</a>
+                <a href=".copilot/skills/de10lite-board-and-build/SKILL.md" target="_blank" class="card-link">Download Skill →</a>
             </div>
             <div class="card">
                 <div class="card-icon" data-icon="VGA"></div>
                 <h3>DE10-Lite VGA Graphics</h3>
                 <p>VGA 640×480 display, sprite engine, text screen, priority compositing, frame sync.</p>
-                <a href="skills/de10lite-vga-graphics/SKILL.md" target="_blank" class="card-link">Download Skill →</a>
+                <a href=".copilot/skills/de10lite-vga-graphics/SKILL.md" target="_blank" class="card-link">Download Skill →</a>
             </div>
             <div class="card">
                 <div class="card-icon" data-icon="ADC"></div>
                 <h3>DE10-Lite Addon Peripherals</h3>
                 <p>ADC joystick, buttons, wheel potentiometer, LCD screen via Arduino header.</p>
-                <a href="skills/de10lite-addon-peripherals/SKILL.md" target="_blank" class="card-link">Download Skill →</a>
+                <a href=".copilot/skills/de10lite-addon-peripherals/SKILL.md" target="_blank" class="card-link">Download Skill →</a>
             </div>
             <div class="card">
                 <div class="card-icon" data-icon="ESP"></div>
                 <h3>ESP32 Firmware</h3>
                 <p>PlatformIO setup, OLED display, button input, buzzer, WiFi, I2C, build &amp; flash workflow.</p>
-                <a href="skills/esp32-firmware/SKILL.md" target="_blank" class="card-link">Download Skill →</a>
+                <a href=".copilot/skills/esp32-firmware/SKILL.md" target="_blank" class="card-link">Download Skill →</a>
             </div>
             <div class="card">
                 <div class="card-icon" data-icon="PCB"></div>
                 <h3>KiCad Board Design</h3>
                 <p>PCB design from schematic to Gerber production files. Bonus skill for custom hardware.</p>
-                <a href="skills/kicad-board-design/SKILL.md" target="_blank" class="card-link">Download Skill →</a>
+                <a href=".copilot/skills/kicad-board-design/SKILL.md" target="_blank" class="card-link">Download Skill →</a>
             </div>
         </div>
     </div>
@@ -968,7 +1022,7 @@
     </div>
 
     <footer class="site-footer">
-        CrashTech VLSI-2026 &mdash; Technion, Israel Institute of Technology
+        Hackathon VLSI-2026 &mdash; ECE Faculty, Technion
     </footer>
 </section>
 
@@ -995,10 +1049,11 @@
     <div class="placeholder">
         <div class="placeholder-icon" data-icon="+"></div>
         <h2>Registration Closed</h2>
-        <p>All spots are filled. Thanks for the overwhelming interest &mdash; see you at CrashTech VLSI-2026.</p>
+        <p>All spots are filled. Thanks for the overwhelming interest &mdash; see you at Hackathon VLSI-2026.</p>
     </div>
 </section>
 
 <script src="app.js"></script>
 </body>
 </html>
+
