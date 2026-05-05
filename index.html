@@ -421,7 +421,6 @@
             <div class="kit-item"> Hobby servo motor</div>
             <div class="kit-item"> Potentiometer (for analog input)</div>
             <div class="kit-item"> Breadboard + jumper wires</div>
-            <div class="kit-item"> VGA monitor and cable &mdash; bring your own or use lab equipment</div>
         </div>
     </div>
 
@@ -500,7 +499,7 @@
                         <ul>
                             <li>Install: search "GitHub Copilot" in VS Code Extensions</li>
                             <li>Sign in with your GitHub account</li>
-                            <li>Free for students: <a href="https://education.github.com/pack" target="_blank" rel="noopener">GitHub Student Developer Pack</a></li>
+                            <li>Licence will be provided by the organizing team before the event</li>
                         </ul>
                     </div>
                 </div>
@@ -513,7 +512,7 @@
                     <h4>Test Your FPGA &mdash; LED Smoke Test</h4>
                     <p>Create a minimal Quartus project that maps the 10 slide switches to the 10 LEDs. Compile, program the board, and flip switches. LEDs light up = your FPGA toolchain works.</p>
                     <div class="step-details">
-                        <p class="step-tip">See the step-by-step project files in the <strong>de10lite-board-and-build</strong> skill → "Quick Smoke Test"</p>
+                        <p class="step-tip">Working example: <a href="demos/alive_test/index.html" target="_blank">Alive Test demo</a> in the repo (<code>demos/alive_test/fpga/</code>) includes a complete Quartus project you can compile and program.</p>
                     </div>
                 </div>
             </div>
@@ -525,7 +524,7 @@
                     <h4>Test Your ESP32 &mdash; OLED + Button + Buzzer</h4>
                     <p>Create a PlatformIO project that displays "CrashTech" on the OLED, detects button presses, and beeps the buzzer. Build, flash, and verify all three peripherals work.</p>
                     <div class="step-details">
-                        <p class="step-tip">See the complete smoke test code in the <strong>esp32-firmware</strong> skill → "Smoke Test"</p>
+                        <p class="step-tip">Working example: the <a href="demos/alive_test/index.html" target="_blank">Alive Test demo</a> ESP32 code (<code>demos/alive_test/esp32/</code>) shows how to set up PlatformIO and communicate with the FPGA.</p>
                     </div>
                 </div>
             </div>
@@ -535,10 +534,10 @@
                 <div class="step-number">7</div>
                 <div class="step-content">
                     <h4>Connect FPGA ↔ ESP32</h4>
-                    <p>Wire the two boards together using jumper cables (UART, SPI, I2C, or direct GPIO). Send data from one to the other. This is the core skill for every challenge.</p>
+                    <p>Wire the two boards together using jumper cables (UART). Send data from one to the other. This is the core skill for every challenge.</p>
                     <div class="step-details">
-                        <p class="step-tip">Tip: Start simple: UART TX from FPGA GPIO → ESP32 RX pin. One wire + ground.</p>
-                        <p class="step-tip"><strong>Working demo:</strong> <a href="demos/alive_test/index.html" target="_blank">Alive Test</a> &mdash; bidirectional UART with full source code, wiring diagram, and block diagram.</p>
+                        <p class="step-tip">Tip: Start simple: UART TX from ESP32 GPIO16 → FPGA Arduino IO0. One wire + ground.</p>
+                        <p class="step-tip"><strong>Working demo:</strong> <a href="demos/alive_test/index.html" target="_blank">Alive Test</a> &mdash; bidirectional UART with full source code, wiring diagram, and block diagram. Clone the repo and open <code>demos/alive_test/</code> to see both the FPGA and ESP32 projects side by side.</p>
                     </div>
                 </div>
             </div>
@@ -549,6 +548,9 @@
                 <div class="step-content">
                     <h4>Try a Practice Challenge</h4>
                     <p>Head to the <a href="#challenges" data-page="challenges">Practice Challenges</a> tab and take on the Internet Clock, Retro Arcade, or Volt Meter. No solutions provided &mdash; figure it out.</p>
+                    <div class="step-details">
+                        <p class="step-tip">The <a href="demos/internet_clock/index.html" target="_blank">Internet Clock demo</a> (<code>demos/internet_clock/</code>) has a working FPGA + ESP32 project you can study for inspiration. Use GitHub Copilot to help you build the rest.</p>
+                    </div>
                 </div>
             </div>
 
@@ -979,31 +981,24 @@
         </div>
     </div>
 
-    <!-- Free Access for Students -->
+    <!-- Copilot Access -->
     <div class="section-block">
-        <h3 class="section-heading">Free Access for Students</h3>
-        <p class="subtitle">GitHub Copilot is free for verified students. Here's how to get it.</p>
+        <h3 class="section-heading">GitHub Copilot Access</h3>
+        <p class="subtitle">A GitHub Copilot licence will be provided by the organizing team before the event.</p>
 
         <div class="steps-list">
             <div class="step-card">
                 <div class="step-number">1</div>
                 <div class="step-content">
-                    <h4>GitHub Student Developer Pack</h4>
-                    <p>Apply at <a href="https://education.github.com/pack" target="_blank" rel="noopener">education.github.com/pack</a> using your university email. You'll get GitHub Copilot, GitHub Pro, and 50+ other developer tools &mdash; all free.</p>
+                    <h4>Get Your Licence</h4>
+                    <p>The organizing team will send you a GitHub Copilot licence invitation before the event. Accept it via your GitHub account.</p>
                 </div>
             </div>
             <div class="step-card">
                 <div class="step-number">2</div>
                 <div class="step-content">
-                    <h4>Technion Students &mdash; Check for Credits</h4>
-                    <p>The Technion may offer GitHub or cloud credits through academic programs. Check with your faculty, the CS department, or the Technion IT services for any available student benefits or Azure/GitHub credits.</p>
-                </div>
-            </div>
-            <div class="step-card">
-                <div class="step-number">3</div>
-                <div class="step-content">
                     <h4>Sign In to VS Code</h4>
-                    <p>Once approved, open VS Code → click the Accounts icon (bottom-left) → Sign in with GitHub. Copilot activates automatically.</p>
+                    <p>Open VS Code → click the Accounts icon (bottom-left) → Sign in with GitHub. Copilot activates automatically.</p>
                 </div>
             </div>
         </div>
