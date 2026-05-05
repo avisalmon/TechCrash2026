@@ -154,7 +154,7 @@
             <!-- FPGA -->
             <rect x="440" y="70" width="160" height="60" rx="8" fill="#1a2332" stroke="#0071c5" stroke-width="2"/>
             <text x="520" y="95" text-anchor="middle" fill="#e2e8f0" font-size="12" font-weight="600" font-family="Inter">DE10-Lite FPGA</text>
-            <text x="520" y="112" text-anchor="middle" fill="#94a3b8" font-size="9" font-family="Inter">GPIO[0] RX (JP1 Pin 1)</text>
+            <text x="520" y="112" text-anchor="middle" fill="#94a3b8" font-size="9" font-family="Inter">Arduino IO0 (GPIO[0] RX)</text>
 
             <!-- 7seg arrow -->
             <line x1="600" y1="100" x2="660" y2="100" stroke="#00c7b7" stroke-width="2" marker-end="url(#arrow)"/>
@@ -186,10 +186,10 @@
     <h2>Wiring</h2>
     <table>
         <tr><th>ESP32 Pin</th><th>Wire</th><th>DE10-Lite Pin</th><th>Function</th></tr>
-        <tr><td>GPIO16</td><td>&rarr;</td><td>JP1 Pin 1 (GPIO[0])</td><td>UART TX &rarr; RX</td></tr>
-        <tr><td>GND</td><td>&mdash;</td><td>JP1 Pin 12 (GND)</td><td>Common ground</td></tr>
+        <tr><td>GPIO16</td><td>&rarr;</td><td>Arduino IO0 (GPIO[0])</td><td>UART TX &rarr; RX</td></tr>
+        <tr><td>GND</td><td>&mdash;</td><td>Arduino GND</td><td>Common ground</td></tr>
     </table>
-    <p><strong>Note:</strong> Only 2 wires needed for this demo (TX + GND). Both boards run at 3.3V logic, no level shifter required.</p>
+    <p><strong>Note:</strong> Only 2 wires needed for this demo (TX + GND). The Arduino header has male pins, so use simple male-male jumper wires. Both boards run at 3.3V logic, no level shifter required.</p>
 
     <h2>Reset</h2>
     <p>Flip <code>SW[9]</code> down (0) then up (1) to reset the FPGA parser. All displays will blank until the next valid time string arrives.</p>

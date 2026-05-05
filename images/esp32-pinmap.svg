@@ -201,90 +201,52 @@
   <text fill="#e0e0e0" font-size="17" font-weight="700" text-anchor="middle" x="1090" y="78">DE10-Lite FPGA</text>
   <text fill="#888" font-size="10" text-anchor="middle" x="1090" y="92">Intel MAX 10 · 50 MHz</text>
 
-  <!-- ===== JP1 40-pin header — LEFT side, pin 1 at BOTTOM ===== -->
+  <!-- ===== Arduino Header — LEFT side ===== -->
   <rect x="828" y="128" width="96" height="400" fill="#111120" stroke="#555" stroke-width="1.5" rx="5"/>
-  <text fill="#aaa" font-size="10" font-weight="700" text-anchor="middle" x="876" y="118">JP1  40-pin GPIO</text>
-  <text fill="#555" font-size="7" text-anchor="middle" x="854" y="143">odd</text>
-  <text fill="#555" font-size="7" text-anchor="middle" x="899" y="143">even</text>
+  <text fill="#aaa" font-size="10" font-weight="700" text-anchor="middle" x="876" y="118">Arduino Header</text>
+  <text fill="#555" font-size="7" text-anchor="middle" x="876" y="143">Digital IO</text>
 
-  <!-- Rows from BOTTOM (row 0 = pins 1,2) upward -->
-  <!-- y_top for row i (from bottom) = 128 + 400 - 20 - i*20 = 508 - i*20 -->
+  <!-- Arduino pins from bottom up -->
+  <!-- Row 0 (bottom): IO0 and IO1 — the UART pins -->
+  <rect x="842" y="506" width="70" height="20" fill="#2e2010" stroke="#aa4400" stroke-width="2" rx="3"/>
+  <text font-size="10" font-family="monospace" text-anchor="middle" font-weight="bold" x="877" y="521" fill="#cc6633">IO0  RX</text>
 
-  <!-- Row 0 (bottom): PIN 1 and PIN 2 — large clear labels -->
-  <rect x="832" y="506" width="34" height="20" fill="#2e2010" stroke="#aa4400" stroke-width="2" rx="3"/>
-  <text font-size="10" font-family="monospace" text-anchor="middle" font-weight="bold" x="849" y="521" fill="#cc6633">P1</text>
-  <rect x="878" y="506" width="34" height="20" fill="#3a2000" stroke="#ff6b35" stroke-width="3" rx="3"/>
-  <text font-size="10" font-family="monospace" text-anchor="middle" font-weight="bold" x="895" y="521" fill="#ff6b35">P2</text>
+  <rect x="842" y="484" width="70" height="20" fill="#3a2000" stroke="#ff6b35" stroke-width="3" rx="3"/>
+  <text font-size="10" font-family="monospace" text-anchor="middle" font-weight="bold" x="877" y="499" fill="#ff6b35">IO1  TX</text>
 
-  <!-- Drop-down callout ticks below the JP1 body -->
-  <line x1="849" y1="526" x2="849" y2="556" stroke="#aa4400" stroke-width="1.5" stroke-dasharray="3,2"/>
-  <line x1="895" y1="526" x2="895" y2="556" stroke="#ff6b35" stroke-width="2"/>
-  <text font-size="8" font-family="monospace" text-anchor="middle" x="849" y="567" fill="#664422">IO[0]</text>
-  <text font-size="8" font-family="monospace" text-anchor="middle" x="895" y="567" fill="#ff6b35">IO[1]</text>
-  <text font-size="8" font-family="monospace" text-anchor="middle" font-weight="bold" x="895" y="578" fill="#ff8844">FPGA TX</text>
-  <!-- corner dot = pin 1 location marker -->
-  <circle cx="832" cy="526" r="5" fill="#ff6b35"/>
+  <!-- Drop-down callout below -->
+  <line x1="877" y1="526" x2="877" y2="556" stroke="#aa4400" stroke-width="1.5" stroke-dasharray="3,2"/>
+  <text font-size="8" font-family="monospace" text-anchor="middle" x="877" y="567" fill="#664422">GPIO[0] from ESP32</text>
+  <text font-size="8" font-family="monospace" text-anchor="middle" font-weight="bold" x="877" y="578" fill="#ff8844">GPIO[1] FPGA TX</text>
 
-  <!-- Row 1: pins 3,4 -->
-  <rect x="832" y="488" width="34" height="18" fill="#1a1a28" stroke="#333" rx="3"/>
-  <text font-size="7" font-family="monospace" text-anchor="middle" x="849" y="501" fill="#444">IO[2]</text>
-  <rect x="878" y="488" width="34" height="18" fill="#1a1a28" stroke="#333" rx="3"/>
-  <text font-size="7" font-family="monospace" text-anchor="middle" x="895" y="501" fill="#444">IO[3]</text>
+  <!-- IO2..IO7 -->
+  <rect x="842" y="462" width="70" height="18" fill="#1a1a28" stroke="#333" rx="3"/>
+  <text font-size="7" font-family="monospace" text-anchor="middle" x="877" y="475" fill="#444">IO2</text>
+  <rect x="842" y="442" width="70" height="18" fill="#1a1a28" stroke="#333" rx="3"/>
+  <text font-size="7" font-family="monospace" text-anchor="middle" x="877" y="455" fill="#444">IO3</text>
+  <rect x="842" y="422" width="70" height="18" fill="#1a1a28" stroke="#333" rx="3"/>
+  <text font-size="7" font-family="monospace" text-anchor="middle" x="877" y="435" fill="#444">IO4</text>
+  <rect x="842" y="402" width="70" height="18" fill="#1a1a28" stroke="#333" rx="3"/>
+  <text font-size="7" font-family="monospace" text-anchor="middle" x="877" y="415" fill="#444">IO5</text>
+  <rect x="842" y="382" width="70" height="18" fill="#1a1a28" stroke="#2a2a2a" rx="3"/>
+  <text font-size="7" font-family="monospace" text-anchor="middle" x="877" y="395" fill="#333">IO6</text>
+  <rect x="842" y="362" width="70" height="18" fill="#1a1a28" stroke="#2a2a2a" rx="3"/>
+  <text font-size="7" font-family="monospace" text-anchor="middle" x="877" y="375" fill="#333">IO7</text>
 
-  <!-- Row 2: pins 5,6 -->
-  <rect x="832" y="468" width="34" height="18" fill="#1a1a28" stroke="#333" rx="3"/>
-  <text font-size="7" font-family="monospace" text-anchor="middle" x="849" y="481" fill="#444">IO[4]</text>
-  <rect x="878" y="468" width="34" height="18" fill="#1a1a28" stroke="#333" rx="3"/>
-  <text font-size="7" font-family="monospace" text-anchor="middle" x="895" y="481" fill="#444">IO[5]</text>
+  <!-- IO8..IO13 compressed -->
+  <text font-size="9" text-anchor="middle" x="877" y="345" fill="#2a2a40">... IO8..IO13 ...</text>
 
-  <!-- Row 3: pins 7,8 -->
-  <rect x="832" y="448" width="34" height="18" fill="#1a1a28" stroke="#333" rx="3"/>
-  <text font-size="7" font-family="monospace" text-anchor="middle" x="849" y="461" fill="#444">IO[6]</text>
-  <rect x="878" y="448" width="34" height="18" fill="#1a1a28" stroke="#333" rx="3"/>
-  <text font-size="7" font-family="monospace" text-anchor="middle" x="895" y="461" fill="#444">IO[7]</text>
+  <!-- GND + 5V power pins -->
+  <rect x="842" y="300" width="70" height="18" fill="#1a1800" stroke="#f0c040" stroke-width="2.5" rx="3"/>
+  <text font-size="7" font-family="monospace" text-anchor="middle" font-weight="bold" x="877" y="313" fill="#f0c040">GND</text>
+  <rect x="842" y="278" width="70" height="18" fill="#2a1a1a" stroke="#b71c1c" stroke-width="1.5" rx="3"/>
+  <text font-size="7" font-family="monospace" text-anchor="middle" x="877" y="291" fill="#e53935">5V</text>
+  <rect x="842" y="256" width="70" height="18" fill="#2a1a1a" stroke="#b71c1c" stroke-width="1.5" rx="3"/>
+  <text font-size="7" font-family="monospace" text-anchor="middle" x="877" y="269" fill="#e53935">3V3</text>
 
-  <!-- Row 4: pins 9,10 -->
-  <rect x="832" y="428" width="34" height="18" fill="#1a1a28" stroke="#333" rx="3"/>
-  <text font-size="7" font-family="monospace" text-anchor="middle" x="849" y="441" fill="#444">IO[8]</text>
-  <rect x="878" y="428" width="34" height="18" fill="#1a1a28" stroke="#333" rx="3"/>
-  <text font-size="7" font-family="monospace" text-anchor="middle" x="895" y="441" fill="#444">IO[9]</text>
-
-  <!-- Row 5: pin 11=3V3, pin 12=GND STAR -->
-  <rect x="832" y="408" width="34" height="18" fill="#2a1a1a" stroke="#b71c1c" stroke-width="1.5" rx="3"/>
-  <text font-size="7" font-family="monospace" text-anchor="middle" x="849" y="421" fill="#e53935">3V3</text>
-  <rect x="878" y="408" width="34" height="18" fill="#1a1800" stroke="#f0c040" stroke-width="2.5" rx="3"/>
-  <text font-size="7" font-family="monospace" text-anchor="middle" font-weight="bold" x="895" y="418" fill="#f0c040">GND</text>
-  <text font-size="5" font-family="monospace" text-anchor="middle" x="895" y="425" fill="#f0c040">p12</text>
-
-  <!-- Rows 6-9 -->
-  <rect x="832" y="388" width="34" height="18" fill="#1a1a28" stroke="#2a2a2a" rx="3"/>
-  <text font-size="7" font-family="monospace" text-anchor="middle" x="849" y="401" fill="#333">IO[13]</text>
-  <rect x="878" y="388" width="34" height="18" fill="#1a1a28" stroke="#2a2a2a" rx="3"/>
-  <text font-size="7" font-family="monospace" text-anchor="middle" x="895" y="401" fill="#333">IO[14]</text>
-
-  <rect x="832" y="368" width="34" height="18" fill="#1a1a28" stroke="#2a2a2a" rx="3"/>
-  <text font-size="7" font-family="monospace" text-anchor="middle" x="849" y="381" fill="#333">IO[15]</text>
-  <rect x="878" y="368" width="34" height="18" fill="#1a1a28" stroke="#2a2a2a" rx="3"/>
-  <text font-size="7" font-family="monospace" text-anchor="middle" x="895" y="381" fill="#333">IO[16]</text>
-
-  <rect x="832" y="348" width="34" height="18" fill="#1a1a28" stroke="#2a2a2a" rx="3"/>
-  <text font-size="7" font-family="monospace" text-anchor="middle" x="849" y="361" fill="#333">IO[17]</text>
-  <rect x="878" y="348" width="34" height="18" fill="#1a1a28" stroke="#2a2a2a" rx="3"/>
-  <text font-size="7" font-family="monospace" text-anchor="middle" x="895" y="361" fill="#333">IO[18]</text>
-
-  <rect x="832" y="328" width="34" height="18" fill="#1a1a28" stroke="#2a2a2a" rx="3"/>
-  <text font-size="7" font-family="monospace" text-anchor="middle" x="849" y="341" fill="#333">IO[19]</text>
-  <rect x="878" y="328" width="34" height="18" fill="#1a1a28" stroke="#2a2a2a" rx="3"/>
-  <text font-size="7" font-family="monospace" text-anchor="middle" x="895" y="341" fill="#333">IO[20]</text>
-
-  <!-- Compressed middle rows -->
-  <text font-size="9" text-anchor="middle" x="876" y="308" fill="#2a2a40">... IO[21..35] ...</text>
-
-  <!-- Top rows hint -->
-  <rect x="832" y="148" width="34" height="18" fill="#1a1a28" stroke="#1a1a28" rx="3"/>
-  <text font-size="7" font-family="monospace" text-anchor="middle" x="849" y="161" fill="#222">IO[35]</text>
-  <rect x="878" y="148" width="34" height="18" fill="#1a1a28" stroke="#1a1a28" rx="3"/>
-  <text font-size="7" font-family="monospace" text-anchor="middle" x="895" y="161" fill="#222">GND</text>
+  <!-- Note about male pins -->
+  <text font-size="8" text-anchor="middle" x="877" y="240" fill="#6b8" font-style="italic">male pins</text>
+  <text font-size="7" text-anchor="middle" x="877" y="252" fill="#6b8">(use M-M wires)</text>
 
   <!-- ===== 7-SEGMENT DISPLAYS — RIGHT side, vertical stack, lower portion ===== -->
   <!-- 6 digits stacked top-to-bottom: HEX5 ... HEX0 -->
@@ -358,23 +320,23 @@
   <!-- housing outline -->
   <rect x="1290" y="354" width="44" height="258" fill="none" stroke="#1a3a1a" stroke-width="1.5" rx="4"/>
 
-  <!-- ===== WIRES: JP1 ↔ ESP32 ===== -->
+  <!-- ===== WIRES: Arduino Header ↔ ESP32 ===== -->
 
-  <!-- FPGA TX: JP1 pin 2 → ESP32 GPIO17. Track x=686, exits JP1 at y=513 -->
+  <!-- FPGA TX: Arduino IO1 → ESP32 GPIO17. Track x=686, exits at y=491 -->
   <path fill="none" stroke-linecap="round"
         d="M 828,513 L 700,513 Q 686,513 686,498 L 686,344 L 600,344"
         stroke="#ff6b35" stroke-width="3"/>
   <polygon fill="#ff6b35" points="600,344 613,339 613,349"/>
 
-  <!-- ESP32 TX: GPIO16 → JP1 pin 1 (FPGA RX). Track x=710, exits JP1 at y=521 -->
+  <!-- ESP32 TX: GPIO16 → Arduino IO0 (FPGA RX). Track x=710, exits at y=516 -->
   <path fill="none" stroke-linecap="round"
         d="M 600,368 L 710,368 Q 724,368 724,445 L 724,521 L 828,521"
         stroke="#ff9955" stroke-width="2" stroke-dasharray="8,4"/>
   <polygon fill="#ff9955" points="828,521 816,516 816,526"/>
 
   <!-- Wire labels only (no boxes) -->
-  <text fill="#ff6b35" font-size="9" text-anchor="middle" x="694" y="332">pin 2 → GPIO17</text>
-  <text fill="#ff9955" font-size="9" text-anchor="middle" x="694" y="376">GPIO16 → pin 1</text>
+  <text fill="#ff6b35" font-size="9" text-anchor="middle" x="694" y="332">IO1 → GPIO17</text>
+  <text fill="#ff9955" font-size="9" text-anchor="middle" x="694" y="376">GPIO16 → IO0</text>
 
   <!-- GND wire: separate x-track=652, well away from UART wire -->
   <path fill="none" stroke-linecap="round"
@@ -383,7 +345,7 @@
   <polygon fill="#f0c040" points="600,104 613,99 613,109"/>
   <!-- GND badge — above the GND pin -->
   <rect x="612" y="118" width="104" height="22" fill="#1a1800" stroke="#f0c040" stroke-width="1.5" rx="4"/>
-  <text fill="#f0c040" font-size="10" font-weight="bold" text-anchor="middle" x="664" y="132">GND: JP1 pin 12</text>
+  <text fill="#f0c040" font-size="10" font-weight="bold" text-anchor="middle" x="664" y="132">GND: Arduino GND</text>
 
   <!-- ==================== LEGEND ==================== -->
   <rect x="48" y="490" width="240" height="120" fill="#0d0d1a" stroke="#333" stroke-width="1" rx="6"/>
@@ -392,7 +354,7 @@
   <circle cx="72" cy="528" r="5" fill="#ff6b35"/>
   <text fill="#bbb" font-size="9" x="82" y="532">FPGA UART (9600 baud)</text>
   <circle cx="72" cy="544" r="5" fill="#f0c040"/>
-  <text fill="#bbb" font-size="9" x="82" y="548">GND (JP1 pin 12)</text>
+  <text fill="#bbb" font-size="9" x="82" y="548">GND (Arduino GND)</text>
   <circle cx="72" cy="560" r="5" fill="#4fc3f7"/>
   <text fill="#bbb" font-size="9" x="82" y="564">I2C (OLED)</text>
   <circle cx="72" cy="576" r="5" fill="#66bb6a"/>

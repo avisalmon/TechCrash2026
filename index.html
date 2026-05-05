@@ -324,7 +324,7 @@
                     <tr><td class="spec-label">Buzzer</td><td>Passive buzzer (PWM tone output)</td></tr>
                     <tr><td class="spec-label">Servo</td><td>Standard hobby servo (PWM control)</td></tr>
                     <tr><td class="spec-label">Analog In</td><td>1&times; analog input (ADC1, 12-bit, 0&ndash;3.3V)</td></tr>
-                        <tr><td class="spec-label">FPGA Link</td><td>UART (TX + RX) via DE10-Lite JP1 40-pin GPIO header</td></tr>
+                        <tr><td class="spec-label">FPGA Link</td><td>UART (TX + RX) via DE10-Lite Arduino header</td></tr>
                     <tr><td class="spec-label">Logic</td><td>3.3V logic, powered via USB 5V through onboard regulator</td></tr>
                     <tr><td class="spec-label">USB</td><td>Micro-USB for programming and power</td></tr>
                 </table>
@@ -344,22 +344,22 @@
     <!-- How They Connect -->
     <div class="section-block">
         <h2>How They Connect</h2>
-        <p class="subtitle">The ESP32 and DE10-Lite communicate over UART (serial) via the JP1 40-pin GPIO header. Two wires + GND, bidirectional, 9600 baud.</p>
+        <p class="subtitle">The ESP32 and DE10-Lite communicate over UART (serial) via the Arduino header. Two wires + GND, bidirectional, 9600 baud. Use male-to-male jumper wires.</p>
         <div class="card-grid">
             <div class="card">
                 <div class="card-icon" data-icon="TX"></div>
                 <h3>ESP32 &rarr; FPGA</h3>
-                <p>ESP32 GPIO 16 (UART2 TX) connects to FPGA GPIO[0] (JP1 pin 1, top-left). The ESP32 sends data to the FPGA.</p>
+                <p>ESP32 GPIO 16 (UART2 TX) connects to FPGA GPIO[0] (Arduino IO0). The ESP32 sends data to the FPGA.</p>
             </div>
             <div class="card">
                 <div class="card-icon" data-icon="RX"></div>
                 <h3>FPGA &rarr; ESP32</h3>
-                <p>FPGA GPIO[1] (JP1 pin 2, top-right) connects to ESP32 GPIO 17 (UART2 RX). The FPGA sends data back to the ESP32.</p>
+                <p>FPGA GPIO[1] (Arduino IO1) connects to ESP32 GPIO 17 (UART2 RX). The FPGA sends data back to the ESP32.</p>
             </div>
             <div class="card">
                 <div class="card-icon" data-icon="&#9207;"></div>
-                <h3>Common Ground &mdash; JP1</h3>
-                <p>Connect ESP32 GND to JP1 pin 12 (GND). Both boards must share a common ground for UART to work.</p>
+                <h3>Common Ground</h3>
+                <p>Connect ESP32 GND to Arduino header GND. Both boards must share a common ground for UART to work.</p>
             </div>
             <div class="card">
                 <div class="card-icon" data-icon="VGA"></div>
@@ -381,8 +381,8 @@
                 <tr><th>GPIO</th><th>Function</th><th>Direction</th><th>Notes</th></tr>
             </thead>
             <tbody>
-                <tr><td><strong>16</strong></td><td>UART TX &rarr; FPGA</td><td>Output</td><td>UART2 &rarr; FPGA GPIO[0] (JP1 pin 1)</td></tr>
-                <tr><td><strong>17</strong></td><td>UART RX &larr; FPGA</td><td>Input</td><td>UART2 &larr; FPGA GPIO[1] (JP1 pin 2)</td></tr>
+                <tr><td><strong>16</strong></td><td>UART TX &rarr; FPGA</td><td>Output</td><td>UART2 &rarr; FPGA GPIO[0] (Arduino IO0)</td></tr>
+                <tr><td><strong>17</strong></td><td>UART RX &larr; FPGA</td><td>Input</td><td>UART2 &larr; FPGA GPIO[1] (Arduino IO1)</td></tr>
                 <tr class="pin-map-divider"><td colspan="4"></td></tr>
                 <tr><td><strong>21</strong></td><td>OLED SDA</td><td>I/O</td><td>I2C data (SSD1306, addr 0x3C)</td></tr>
                 <tr><td><strong>22</strong></td><td>OLED SCL</td><td>Output</td><td>I2C clock</td></tr>

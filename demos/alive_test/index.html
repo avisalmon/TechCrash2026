@@ -239,12 +239,12 @@
     <h2>Wiring</h2>
     <table>
         <thead>
-            <tr><th>FPGA (DE10-Lite JP1)</th><th>Wire</th><th>ESP32 DevKit</th><th>Function</th></tr>
+            <tr><th>FPGA (DE10-Lite Arduino Header)</th><th>Wire</th><th>ESP32 DevKit</th><th>Function</th></tr>
         </thead>
         <tbody>
-            <tr><td>Pin 1 &mdash; GPIO[0]</td><td>&larr;</td><td>GPIO16</td><td>ESP32 TX &rarr; FPGA RX</td></tr>
-            <tr><td>Pin 2 &mdash; GPIO[1]</td><td>&rarr;</td><td>GPIO17</td><td>FPGA TX &rarr; ESP32 RX</td></tr>
-            <tr><td>Pin 12 &mdash; GND</td><td>&mdash;</td><td>GND</td><td>Common ground</td></tr>
+            <tr><td>IO0 &mdash; GPIO[0]</td><td>&larr;</td><td>GPIO16</td><td>ESP32 TX &rarr; FPGA RX</td></tr>
+            <tr><td>IO1 &mdash; GPIO[1]</td><td>&rarr;</td><td>GPIO17</td><td>FPGA TX &rarr; ESP32 RX</td></tr>
+            <tr><td>GND</td><td>&mdash;</td><td>GND</td><td>Common ground</td></tr>
         </tbody>
     </table>
     <p><strong>Protocol:</strong> 9600 baud, 8N1, 3.3V logic levels (no level shifter needed).</p>
