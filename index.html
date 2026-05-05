@@ -753,36 +753,33 @@
     <div class="section-block">
         <div class="challenge-card">
             <div class="challenge-header">
-                <div class="challenge-badge badge-medium">Medium</div>
+                <div class="challenge-badge badge-easy">Easy</div>
                 <h3 class="challenge-title">Volt Meter</h3>
-                <p class="challenge-subtitle">FPGA ADC → ESP32 Display &mdash; measure and show real voltage</p>
+                <p class="challenge-subtitle">ESP32 ADC → OLED + FPGA Seven-Segment &mdash; measure and display real voltage</p>
             </div>
             <div class="challenge-body">
-                <p>Turn your hardware kit into a digital volt meter. The DE10-Lite FPGA uses its onboard ADC to probe an external voltage source (e.g., a battery, a potentiometer divider, or a power supply output). It measures the voltage and sends the reading to the ESP32, which displays the voltage value on its OLED screen.</p>
+                <p>Turn your hardware kit into a digital volt meter. The ESP32 reads the potentiometer voltage through its ADC, displays it on the OLED screen, and transmits the reading to the FPGA which shows it on the seven-segment displays with an LED bar graph.</p>
 
                 <div class="challenge-requirements">
                     <h4>Requirements</h4>
                     <ul>
-                        <li>FPGA reads voltage through its onboard ADC (MAX 10 ADC, channels available via GPIO/Arduino header)</li>
-                        <li>Measured voltage is transmitted from FPGA to ESP32 over a wired interface</li>
-                        <li>ESP32 displays the voltage on its OLED screen (e.g., "3.27 V") with at least 2 decimal places</li>
-                        <li>Display updates in real time (at least 2 updates per second)</li>
-                        <li>Measurement range: 0-3.3 V (the ADC reference voltage)</li>
+                        <li>ESP32 reads the potentiometer voltage via ADC (GPIO34, 0-3.3V range)</li>
+                        <li>Voltage is displayed on the OLED screen in large text (e.g., "1.65V")</li>
+                        <li>ESP32 transmits voltage value to FPGA over UART (9600 baud, GPIO16 TX)</li>
+                        <li>FPGA displays the voltage on seven-segment displays as X.XX (with decimal point)</li>
+                        <li>FPGA LED bar graph (LEDR[9:0]) shows voltage level proportionally</li>
+                        <li>Display updates smoothly when the potentiometer knob is turned (at least 5 Hz)</li>
                     </ul>
-                </div>
-
-                <div class="challenge-safety">
-                    <h4>Safety</h4>
-                    <p>Do <strong>NOT</strong> connect voltages above 3.3 V to the ADC input. Doing so will permanently damage the FPGA.</p>
                 </div>
 
                 <div class="challenge-skills">
                     <h4>What You'll Learn</h4>
                     <div class="skill-tags">
-                        <span class="skill-tag">MAX 10 Onboard ADC</span>
-                        <span class="skill-tag">Analog Measurement</span>
-                        <span class="skill-tag">FPGA → ESP32 Data TX</span>
-                        <span class="skill-tag">Formatted Numeric Display</span>
+                        <span class="skill-tag">ESP32 ADC Reading</span>
+                        <span class="skill-tag">OLED Graphics</span>
+                        <span class="skill-tag">ESP32 → FPGA UART</span>
+                        <span class="skill-tag">Seven-Segment with Decimal Point</span>
+                        <span class="skill-tag">LED Bar Graph</span>
                     </div>
                 </div>
             </div>
