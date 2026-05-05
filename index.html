@@ -83,7 +83,7 @@
 
     <!-- Philosophy -->
     <div class="section-block">
-        <h2>What is CrashTech?</h2>
+        <h2>What is the Hackathon?</h2>
         <p class="subtitle">A fast-paced engineering hackathon that crashes together FPGA hardware and embedded software.</p>
         <div class="card-grid">
             <div class="card">
@@ -522,7 +522,7 @@
                 <div class="step-number">6</div>
                 <div class="step-content">
                     <h4>Test Your ESP32 &mdash; OLED + Button + Buzzer</h4>
-                    <p>Create a PlatformIO project that displays "CrashTech" on the OLED, detects button presses, and beeps the buzzer. Build, flash, and verify all three peripherals work.</p>
+                    <p>Create a PlatformIO project that displays text on the OLED, detects button presses, and beeps the buzzer. Build, flash, and verify all three peripherals work.</p>
                     <div class="step-details">
                         <p class="step-tip">Working example: the <a href="demos/alive_test/index.html" target="_blank">Alive Test demo</a> ESP32 code (<code>demos/alive_test/esp32/</code>) shows how to set up PlatformIO and communicate with the FPGA.</p>
                     </div>
@@ -547,52 +547,13 @@
                 <div class="step-number">8</div>
                 <div class="step-content">
                     <h4>Try a Practice Challenge</h4>
-                    <p>Head to the <a href="#challenges" data-page="challenges">Practice Challenges</a> tab and take on the Internet Clock, Retro Arcade, or Volt Meter. No solutions provided &mdash; figure it out.</p>
+                    <p>Head to the <a href="#challenges" data-page="challenges">Practice Demos</a> tab and study the working demos. Then try to build your own variation or extend them.</p>
                     <div class="step-details">
                         <p class="step-tip">The <a href="demos/internet_clock/index.html" target="_blank">Internet Clock demo</a> (<code>demos/internet_clock/</code>) has a working FPGA + ESP32 project you can study for inspiration. Use GitHub Copilot to help you build the rest.</p>
                     </div>
                 </div>
             </div>
 
-        </div>
-    </div>
-
-    <!-- Skills Downloads -->
-    <div class="section-block">
-        <h3 class="section-heading">Download Skills</h3>
-        <p class="subtitle">Copilot Skills are knowledge packs that supercharge GitHub Copilot for specific tasks. Download and use them in VS Code.</p>
-
-        <div class="card-grid">
-            <div class="card">
-                <div class="card-icon" data-icon="FPGA"></div>
-                <h3>DE10-Lite Board &amp; Build</h3>
-                <p>Board overview, pin mapping, Quartus build flow, programming, simulation, design patterns, IP blocks.</p>
-                <a href=".copilot/skills/de10lite-board-and-build/SKILL.md" target="_blank" class="card-link">Download Skill →</a>
-            </div>
-            <div class="card">
-                <div class="card-icon" data-icon="VGA"></div>
-                <h3>DE10-Lite VGA Graphics</h3>
-                <p>VGA 640×480 display, sprite engine, text screen, priority compositing, frame sync.</p>
-                <a href=".copilot/skills/de10lite-vga-graphics/SKILL.md" target="_blank" class="card-link">Download Skill →</a>
-            </div>
-            <div class="card">
-                <div class="card-icon" data-icon="ADC"></div>
-                <h3>DE10-Lite Addon Peripherals</h3>
-                <p>ADC joystick, buttons, wheel potentiometer, LCD screen via Arduino header.</p>
-                <a href=".copilot/skills/de10lite-addon-peripherals/SKILL.md" target="_blank" class="card-link">Download Skill →</a>
-            </div>
-            <div class="card">
-                <div class="card-icon" data-icon="ESP"></div>
-                <h3>ESP32 Firmware</h3>
-                <p>PlatformIO setup, OLED display, button input, buzzer, WiFi, I2C, build &amp; flash workflow.</p>
-                <a href=".copilot/skills/esp32-firmware/SKILL.md" target="_blank" class="card-link">Download Skill →</a>
-            </div>
-            <div class="card">
-                <div class="card-icon" data-icon="PCB"></div>
-                <h3>KiCad Board Design</h3>
-                <p>PCB design from schematic to Gerber production files. Bonus skill for custom hardware.</p>
-                <a href=".copilot/skills/kicad-board-design/SKILL.md" target="_blank" class="card-link">Download Skill →</a>
-            </div>
         </div>
     </div>
 
@@ -643,157 +604,89 @@
     </footer>
 </section>
 
-<!-- ============ PRACTICE CHALLENGES ============ -->
+<!-- ============ PRACTICE DEMOS ============ -->
 <section class="page-section" id="challenges">
 
     <!-- Header -->
     <div class="section-block">
-        <h2>Practice Challenges</h2>
-        <p class="subtitle">Three open challenges to sharpen your skills before the event. No solutions provided &mdash; self-discovery applies here too. Pick one, wire up your boards, and build it.</p>
+        <h2>Practice Demos</h2>
+        <p class="subtitle">Two working demo projects with full source code. Study them, flash them onto your boards, and use them as a starting point for your own builds.</p>
     </div>
 
-    <!-- How It Works -->
+    <!-- Demo 1: Alive Test -->
     <div class="section-block">
-        <h3 class="section-heading">How Scoring Works</h3>
-        <p class="subtitle">Every challenge uses <strong>Completion + Time</strong> scoring. You earn points for meeting each requirement, plus a speed bonus for finishing faster.</p>
-        <div class="scoring-breakdown">
-            <div class="scoring-item">
-                <div class="scoring-icon" data-icon="ok"></div>
-                <div>
-                    <strong>Completion Points</strong>
-                    <p>Each requirement met = points. Meet all requirements for full marks.</p>
-                </div>
+        <div class="challenge-card">
+            <div class="challenge-header">
+                <div class="challenge-badge badge-easy">Starter</div>
+                <h3 class="challenge-title">Alive Test</h3>
+                <p class="challenge-subtitle">Bidirectional UART between ESP32 and FPGA &mdash; prove your wiring works</p>
             </div>
-            <div class="scoring-item">
-                <div class="scoring-icon" data-icon=">>"></div>
-                <div>
-                    <strong>Speed Bonus</strong>
-                    <p>Faster completion = higher bonus. First team done gets maximum time bonus.</p>
+            <div class="challenge-body">
+                <p>The simplest end-to-end demo: ESP32 sends a byte to the FPGA over UART, the FPGA echoes it back. Includes a wiring diagram, block diagram, and full source for both boards. Flash it to confirm your toolchain and wiring are correct.</p>
+
+                <div class="challenge-requirements">
+                    <h4>What's Included</h4>
+                    <ul>
+                        <li>Complete Quartus project (<code>demos/alive_test/fpga/</code>)</li>
+                        <li>Complete PlatformIO project (<code>demos/alive_test/esp32/</code>)</li>
+                        <li>Wiring diagram and block diagram on the <a href="demos/alive_test/index.html" target="_blank">demo page</a></li>
+                        <li>UART at 9600 baud, Arduino header IO0/IO1 + GND</li>
+                    </ul>
                 </div>
-            </div>
-            <div class="scoring-item">
-                <div class="scoring-icon" data-icon="++"></div>
-                <div>
-                    <strong>Creativity Bonus</strong>
-                    <p>Some challenges award extra points for creative solutions and polish.</p>
+
+                <div class="challenge-skills">
+                    <h4>What You'll Learn</h4>
+                    <div class="skill-tags">
+                        <span class="skill-tag">FPGA ↔ ESP32 UART</span>
+                        <span class="skill-tag">Quartus Compilation</span>
+                        <span class="skill-tag">PlatformIO Build &amp; Flash</span>
+                        <span class="skill-tag">Pin Assignment</span>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Challenge 1: Internet Clock -->
+    <!-- Demo 2: Internet Clock -->
     <div class="section-block">
         <div class="challenge-card">
             <div class="challenge-header">
-                <div class="challenge-badge badge-medium">Medium</div>
+                <div class="challenge-badge badge-medium">Intermediate</div>
                 <h3 class="challenge-title">Internet Clock</h3>
                 <p class="challenge-subtitle">ESP32 + FPGA + WiFi &mdash; real-time clock on seven-segment displays</p>
             </div>
             <div class="challenge-body">
-                <p>Build a real-time clock powered by the internet. The ESP32 connects to a public time API over WiFi, retrieves the current time, and continuously transmits it to the DE10-Lite FPGA. The FPGA displays the live hours, minutes, and seconds on its six seven-segment displays.</p>
+                <p>A complete working project: ESP32 fetches the current time from a public NTP server over WiFi, transmits it to the FPGA over UART, and the FPGA displays hours, minutes, and seconds on the six seven-segment displays.</p>
 
                 <div class="challenge-requirements">
-                    <h4>Requirements</h4>
+                    <h4>What's Included</h4>
                     <ul>
-                        <li>ESP32 fetches the current time from a web API (e.g., WorldTimeAPI, NTP server)</li>
-                        <li>ESP32 transmits time data to the FPGA over a wired interface (UART, SPI, or I2C via GPIO/Arduino header)</li>
-                        <li>FPGA displays the time on HEX5-HEX0 in <code>HH.MM.SS</code> format</li>
-                        <li>Clock updates in real time (at least once per second)</li>
-                        <li>System works autonomously after power-on (no PC required after programming)</li>
+                        <li>Complete Quartus project (<code>demos/internet_clock/fpga/</code>)</li>
+                        <li>Complete PlatformIO project (<code>demos/internet_clock/esp32/</code>)</li>
+                        <li>Architecture diagram and wiring on the <a href="demos/internet_clock/index.html" target="_blank">demo page</a></li>
+                        <li>WiFi connection, NTP time fetch, UART protocol, seven-segment driving</li>
                     </ul>
                 </div>
 
                 <div class="challenge-skills">
                     <h4>What You'll Learn</h4>
                     <div class="skill-tags">
-                        <span class="skill-tag">FPGA ↔ ESP32 Communication</span>
-                        <span class="skill-tag">WiFi &amp; HTTP/NTP</span>
-                        <span class="skill-tag">Serial Data on FPGA</span>
-                        <span class="skill-tag">Seven-Segment Driving</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Challenge 2: Retro Arcade -->
-    <div class="section-block">
-        <div class="challenge-card">
-            <div class="challenge-header">
-                <div class="challenge-badge badge-hard">Hard</div>
-                <h3 class="challenge-title">Retro Arcade</h3>
-                <p class="challenge-subtitle">FPGA Controls → ESP32 Game Engine &mdash; play on the OLED screen</p>
-            </div>
-            <div class="challenge-body">
-                <p>Create a playable retro-style game that runs on the ESP32 kit's OLED screen, where the game controls (movement, actions) come from the DE10-Lite FPGA's buttons and switches. The FPGA reads the physical inputs and sends control commands to the ESP32, which renders the game.</p>
-
-                <div class="challenge-requirements">
-                    <h4>Requirements</h4>
-                    <ul>
-                        <li>Game runs on the ESP32 kit's OLED screen (any retro game: Pong, Snake, Breakout, Space Invaders, etc.)</li>
-                        <li>Player controls are physically on the FPGA: buttons (KEY[0], KEY[1]), switches, or addon joystick</li>
-                        <li>FPGA reads inputs and transmits control commands to ESP32 over a wired interface</li>
-                        <li>Game must be playable &mdash; responsive controls, visible graphics, win/lose condition</li>
-                        <li>Bonus points for creativity, polish, and fun factor</li>
-                    </ul>
-                </div>
-
-                <div class="challenge-skills">
-                    <h4>What You'll Learn</h4>
-                    <div class="skill-tags">
-                        <span class="skill-tag">FPGA → ESP32 Communication</span>
-                        <span class="skill-tag">Button &amp; Switch Input</span>
-                        <span class="skill-tag">Game Loop &amp; Graphics</span>
-                        <span class="skill-tag">Real-Time Input Handling</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Challenge 3: Volt Meter -->
-    <div class="section-block">
-        <div class="challenge-card">
-            <div class="challenge-header">
-                <div class="challenge-badge badge-easy">Easy</div>
-                <h3 class="challenge-title">Volt Meter</h3>
-                <p class="challenge-subtitle">ESP32 ADC → OLED + FPGA Seven-Segment &mdash; measure and display real voltage</p>
-            </div>
-            <div class="challenge-body">
-                <p>Turn your hardware kit into a digital volt meter. The ESP32 reads the potentiometer voltage through its ADC, displays it on the OLED screen, and transmits the reading to the FPGA which shows it on the seven-segment displays with an LED bar graph.</p>
-
-                <div class="challenge-requirements">
-                    <h4>Requirements</h4>
-                    <ul>
-                        <li>ESP32 reads the potentiometer voltage via ADC (GPIO34, 0-3.3V range)</li>
-                        <li>Voltage is displayed on the OLED screen in large text (e.g., "1.65V")</li>
-                        <li>ESP32 transmits voltage value to FPGA over UART (9600 baud, GPIO16 TX)</li>
-                        <li>FPGA displays the voltage on seven-segment displays as X.XX (with decimal point)</li>
-                        <li>FPGA LED bar graph (LEDR[9:0]) shows voltage level proportionally</li>
-                        <li>Display updates smoothly when the potentiometer knob is turned (at least 5 Hz)</li>
-                    </ul>
-                </div>
-
-                <div class="challenge-skills">
-                    <h4>What You'll Learn</h4>
-                    <div class="skill-tags">
-                        <span class="skill-tag">ESP32 ADC Reading</span>
-                        <span class="skill-tag">OLED Graphics</span>
+                        <span class="skill-tag">WiFi &amp; NTP</span>
                         <span class="skill-tag">ESP32 → FPGA UART</span>
-                        <span class="skill-tag">Seven-Segment with Decimal Point</span>
-                        <span class="skill-tag">LED Bar Graph</span>
+                        <span class="skill-tag">Seven-Segment Driving</span>
+                        <span class="skill-tag">Full System Integration</span>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Self-Discovery Reminder -->
+    <!-- Getting Started -->
     <div class="section-block" style="text-align: center; padding-bottom: 4rem;">
         <div style="max-width: 600px; margin: 0 auto; background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); padding: 2rem;">
-            <div style="font-size: 3rem; margin-bottom: 0.5rem;">&#x2731;</div>
-            <h3 style="color: var(--accent); margin-bottom: 0.5rem;">No Solutions Provided</h3>
-            <p style="color: var(--text-muted);">These challenges are open-ended by design. You have the requirements, the hardware, the skills, and AI. Explore, experiment, break things, and figure it out. That's how engineers learn.</p>
+            <div style="font-size: 3rem; margin-bottom: 0.5rem;">&#x1F680;</div>
+            <h3 style="color: var(--accent); margin-bottom: 0.5rem;">How to Use These Demos</h3>
+            <p style="color: var(--text-muted);">Clone the repo, open the demo folder in VS Code, compile the FPGA project with Quartus, flash the ESP32 with PlatformIO, wire the boards together, and watch it work. Then modify the code and make it your own.</p>
         </div>
     </div>
 
@@ -808,11 +701,7 @@
     <!-- Header -->
     <div class="section-block">
         <h2>AI Tools</h2>
-        <p class="subtitle">In CrashTech, AI isn't a shortcut &mdash; it's a core tool. You're expected to use it. The best teams will be the ones who learn to work <em>with</em> AI the fastest. Here's your toolkit.</p>
-
-        <div class="info-box warning">
-            <strong>&#x26a0;&#xfe0f; Copilot License Note:</strong> GitHub has recently reduced free Copilot access for student accounts (as of March 2026). We are working with Microsoft to secure full Copilot access for all hackathon participants during the event. Details will be updated here.
-        </div>
+        <p class="subtitle">In this hackathon, AI isn't a shortcut &mdash; it's a core tool. You're expected to use it. The best teams will be the ones who learn to work <em>with</em> AI the fastest. Here's your toolkit.</p>
     </div>
 
     <!-- Why AI -->
@@ -925,91 +814,12 @@
         </div>
     </div>
 
-    <!-- Copilot Skills -->
-    <div class="section-block">
-        <h3 class="section-heading">Copilot Skills</h3>
-        <p class="subtitle">Skills are downloadable knowledge packs that supercharge Copilot for specific hardware tasks. They teach Copilot about your exact boards, pinouts, and workflows.</p>
-
-        <div class="ai-skills-explain">
-            <div class="ai-skills-what">
-                <h4>What Are Skills?</h4>
-                <p>A Copilot Skill is a Markdown file (<code>SKILL.md</code>) containing structured domain knowledge -- pin mappings, code patterns, build commands, and design recipes. When placed in your workspace, Copilot reads it and becomes an expert on that topic.</p>
-            </div>
-            <div class="ai-skills-how">
-                <h4>How to Use Them</h4>
-                <ol>
-                    <li>Download the <code>SKILL.md</code> file from the links below</li>
-                    <li>Place it in your VS Code workspace (e.g., in a <code>skills/</code> folder or <code>.github/copilot/</code>)</li>
-                    <li>Open Copilot Chat and ask questions &mdash; Copilot automatically uses the skill as context</li>
-                    <li>Example: "Using the de10lite-board-and-build skill, create a new Quartus project with LED output"</li>
-                </ol>
-            </div>
-        </div>
-
-        <h4 class="ai-skills-available-title">Available Skills for CrashTech</h4>
-        <div class="card-grid">
-            <div class="card">
-                <div class="card-icon" data-icon="FPGA"></div>
-                <h3>DE10-Lite Board &amp; Build</h3>
-                <p>Board overview, pin mapping, Quartus build flow, programming, simulation, design patterns, IP blocks.</p>
-                <a href=".copilot/skills/de10lite-board-and-build/SKILL.md" target="_blank" class="card-link">Download Skill →</a>
-            </div>
-            <div class="card">
-                <div class="card-icon" data-icon="VGA"></div>
-                <h3>DE10-Lite VGA Graphics</h3>
-                <p>VGA 640×480 display, sprite engine, text screen, priority compositing, frame sync.</p>
-                <a href=".copilot/skills/de10lite-vga-graphics/SKILL.md" target="_blank" class="card-link">Download Skill →</a>
-            </div>
-            <div class="card">
-                <div class="card-icon" data-icon="ADC"></div>
-                <h3>DE10-Lite Addon Peripherals</h3>
-                <p>ADC joystick, buttons, wheel potentiometer, LCD screen via Arduino header.</p>
-                <a href=".copilot/skills/de10lite-addon-peripherals/SKILL.md" target="_blank" class="card-link">Download Skill →</a>
-            </div>
-            <div class="card">
-                <div class="card-icon" data-icon="ESP"></div>
-                <h3>ESP32 Firmware</h3>
-                <p>PlatformIO setup, OLED display, button input, buzzer, WiFi, I2C, build &amp; flash workflow.</p>
-                <a href=".copilot/skills/esp32-firmware/SKILL.md" target="_blank" class="card-link">Download Skill →</a>
-            </div>
-            <div class="card">
-                <div class="card-icon" data-icon="PCB"></div>
-                <h3>KiCad Board Design</h3>
-                <p>PCB design from schematic to Gerber production files. Bonus skill for custom hardware.</p>
-                <a href=".copilot/skills/kicad-board-design/SKILL.md" target="_blank" class="card-link">Download Skill →</a>
-            </div>
-        </div>
-    </div>
-
-    <!-- Copilot Access -->
-    <div class="section-block">
-        <h3 class="section-heading">GitHub Copilot Access</h3>
-        <p class="subtitle">A GitHub Copilot licence will be provided by the organizing team before the event.</p>
-
-        <div class="steps-list">
-            <div class="step-card">
-                <div class="step-number">1</div>
-                <div class="step-content">
-                    <h4>Get Your Licence</h4>
-                    <p>The organizing team will send you a GitHub Copilot licence invitation before the event. Accept it via your GitHub account.</p>
-                </div>
-            </div>
-            <div class="step-card">
-                <div class="step-number">2</div>
-                <div class="step-content">
-                    <h4>Sign In to VS Code</h4>
-                    <p>Open VS Code → click the Accounts icon (bottom-left) → Sign in with GitHub. Copilot activates automatically.</p>
-                </div>
-            </div>
-        </div>
-    </div>
-
     <!-- AI is Expected -->
     <div class="section-block" style="text-align: center; padding-bottom: 4rem;">
         <div style="max-width: 640px; margin: 0 auto; background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); padding: 2rem;">
             <div style="font-size: 3rem; margin-bottom: 0.5rem;">&#x2731;</div>
             <h3 style="color: var(--accent); margin-bottom: 0.5rem;">AI Is Expected, Not Optional</h3>
-            <p style="color: var(--text-muted);">Using AI tools is not just allowed in CrashTech &mdash; it's encouraged and expected. The challenges are designed to be solved faster with AI assistance. The teams that learn to collaborate with Copilot effectively will have a serious edge. Embrace it.</p>
+            <p style="color: var(--text-muted);">Using AI tools is not just allowed &mdash; it's encouraged and expected. The challenges are designed to be solved faster with AI assistance. The teams that learn to collaborate with Copilot effectively will have a serious edge. Embrace it.</p>
         </div>
     </div>
 
