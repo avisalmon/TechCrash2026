@@ -483,11 +483,6 @@
     <div class="section-block">
         <h2>Get Started</h2>
         <p class="subtitle">Everything you need to go from unboxing to building. Complete the installation before May 13 and arrive with a working laptop.</p>
-        <div class="ai-install-box" style="margin-top: 1.25rem; background: rgba(0, 113, 197, 0.08); border-color: rgba(0, 113, 197, 0.25);">
-            <strong>Mandatory before May 13:</strong> install Quartus 17.1, VS Code, PlatformIO, GitHub, and Copilot in advance. The May 13 meeting is for board pickup and final verification, not first-time setup from scratch.
-            <br>
-            <strong>Direct link:</strong> use this section as the install landing page when sharing the site with participants.
-        </div>
     </div>
 
     <div class="section-block">
@@ -500,7 +495,7 @@
             </div>
             <div class="card">
                 <h3>2. Install VS Code and PlatformIO</h3>
-                <p>Install Visual Studio Code, add PlatformIO IDE, and make sure you can open an ESP32 project in the editor.</p>
+                <p>Install Visual Studio Code and add PlatformIO IDE so the software environment is ready before kit pickup. The actual ESP32 build and flash steps happen after you have the hardware in hand.</p>
             </div>
             <div class="card">
                 <h3>3. Prepare GitHub and Copilot</h3>
@@ -572,7 +567,7 @@
                 <div class="step-number">3</div>
                 <div class="step-content">
                     <h4>Install VS Code + PlatformIO (ESP32)</h4>
-                    <p>Install Visual Studio Code, then add the PlatformIO extension. PlatformIO automatically downloads the ESP32 toolchain, compiler, and flasher.</p>
+                    <p>Install Visual Studio Code, then add the PlatformIO extension. PlatformIO prepares the ESP32 software toolchain in advance, but the actual board build, flash, and hardware verification steps happen only after you receive the ESP32 kit.</p>
                     <div class="step-details">
                         <ul>
                             <li>Download VS Code: <a href="https://code.visualstudio.com/download" target="_blank" rel="noopener">code.visualstudio.com</a></li>
@@ -618,7 +613,7 @@
                 <div class="step-number">6</div>
                 <div class="step-content">
                     <h4>Test Your ESP32 &mdash; OLED + Button + Buzzer</h4>
-                    <p>Create a PlatformIO project that displays text on the OLED, detects button presses, and beeps the buzzer. Build, flash, and verify all three peripherals work.</p>
+                    <p>After kit pickup, create a PlatformIO project that displays text on the OLED, detects button presses, and beeps the buzzer. Build, flash, and verify all three peripherals work only once the ESP32 kit is in your hands.</p>
                     <div class="step-details">
                         <p class="step-tip">Working example: the <a href="demos/alive_test/index.html" target="_blank">Alive Test demo</a> ESP32 code (<code>demos/alive_test/esp32/</code>) shows how to set up PlatformIO and communicate with the FPGA.</p>
                     </div>
