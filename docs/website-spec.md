@@ -9,13 +9,21 @@
 **Domain:** VLSI / Digital Design  
 **Hardware platform:** DE10-Lite FPGA + ESP32 Controller Kit  
 
+**Current confirmed timeline:**
+
+- May 13, 2026, 12:30-14:30 - mandatory installation and kit pickup session
+- May 26, 2026, 18:00-20:00 - mandatory AI tools / Copilot prep session
+- June 4, 2026, 09:00 - hackathon kickoff
+- June 5, 2026, 08:00 - submissions close
+- June 5, 2026, morning - final presentations
+
 ---
 
 ## 2. Event Structure
 
-### 2.1 Pre-Event Phase (2 Weeks Before)
+### 2.1 Pre-Event Phase
 
-- Participants receive the DE10-Lite FPGA board and ESP32 kit
+- Participants receive the DE10-Lite FPGA board and ESP32 kit at the May 13 installation session
 - Website opens with:
   - Example practice challenges (open, non-secret)
   - Downloadable skills and tools
@@ -23,11 +31,16 @@
   - Hardware setup references
 - **Self-discovery model:** No tutorials, no live support, no instructions. Participants learn independently using the website, the internet, and AI tools
 - VS Code + GitHub Copilot are recommended and encouraged
+- Teams must be exactly two participants
+- Participants are expected to have passed Lab 1A
+- Both prep sessions are mandatory
+- Registration is capped by available hardware kits, with a waiting list when full
 
 ### 2.2 Competition Day (24 Hours)
 
 - A pool of **secret challenges** — not revealed in advance
 - Challenges are exposed **on demand** when a team requests one
+- Official event-day challenges are published on the website, not on Moodle
 - Many small challenges (not one large project)
 - Teams accumulate points across completed challenges
 - Judges validate completion and measure time
@@ -138,11 +151,33 @@ How to prepare for the event. The self-guided training hub.
   - Datasheets and pinout references
 - Downloadable skills files (tools, utilities, starter templates)
 - Links to external resources (vendor docs, community forums, datasheets)
+- GitHub Education sign-up guidance, including the note to apply early because approval may take several days
+- Organizing-team Copilot access note for the event itself
 - Reminder: self-discovery — explore, experiment, learn
+
+### 4.4.1 Participant Constraints
+
+- Teams are exactly two people
+- Attendance is required at the May 13 and May 26 prep sessions
+- Lab 1A is required
+- Unclaimed kits may be reassigned to waiting-list teams after 13:00 on May 13
 
 ---
 
 ### 4.5 Practice Challenges
+
+### Sponsor List
+
+Current sponsor names to show on the site:
+
+- Mobileye
+- Amazon
+- Cadence
+- Intel
+- SCD
+- NVIDIA
+- Marvell
+- Apple
 
 Open practice challenges available before the event. These are **not secret** — they are meant for training. Solutions are not provided — self-discovery applies here too.
 

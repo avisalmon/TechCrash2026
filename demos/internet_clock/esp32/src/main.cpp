@@ -8,8 +8,9 @@
 #include <time.h>
 
 // ---- WiFi credentials ----
-const char* WIFI_SSID     = "AviRedmi";
-const char* WIFI_PASSWORD = "aviaviavi";
+// Replace these placeholders with your local network credentials before flashing.
+const char* WIFI_SSID     = "YOUR_WIFI_SSID";
+const char* WIFI_PASSWORD = "YOUR_WIFI_PASSWORD";
 
 // ---- NTP settings ----
 const char* NTP_SERVER   = "pool.ntp.org";
