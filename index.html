@@ -573,7 +573,8 @@
                         <ul>
                             <li>Download VS Code: <a href="https://code.visualstudio.com/download" target="_blank" rel="noopener">code.visualstudio.com</a></li>
                             <li>Install extension: search "PlatformIO IDE" in Extensions</li>
-                            <li>Install USB driver: CP2102 or CH340 (check Device Manager)</li>
+                            <li>Install USB driver (Windows): download and install <a href="https://www.silabs.com/developers/usb-to-uart-bridge-vcp-drivers" target="_blank" rel="noopener">CP210x Universal Windows Driver</a> from Silicon Labs. Most ESP32 DevKit boards use the CP2102 chip.</li>
+                            <li>Verify driver: plug in the ESP32 via USB, open <strong>Device Manager</strong> (Win+X → Device Manager), and look under <strong>Ports (COM &amp; LPT)</strong>. You should see <em>Silicon Labs CP210x USB to UART Bridge (COM#)</em>. If it shows up with a COM number, the driver is working.</li>
                         </ul>
                         <p class="step-tip">See the full guide in the <strong>esp32-firmware</strong> skill</p>
                     </div>
