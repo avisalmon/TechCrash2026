@@ -1,6 +1,6 @@
 // Internet Clock Top Module -- DE10-Lite
 // Receives "HH:MM:SS\r\n" via UART from ESP32 and displays on 6x 7-segment.
-// UART input: GPIO[0] via JP1 header (9600 baud)
+// UART input: ARDUINO_IO[0] via Arduino header (9600 baud)
 // Display: HEX5:HEX4 = hours, HEX3:HEX2 = minutes, HEX1:HEX0 = seconds
 // Reset: SW[9] active-low
 
@@ -10,7 +10,7 @@ module internet_clock_top (
     input   [1:0]   KEY,
     output  [9:0]   LEDR,
     output  [7:0]   HEX0, HEX1, HEX2, HEX3, HEX4, HEX5,
-    inout   [35:0]  GPIO
+    inout   [15:0]  ARDUINO_IO
 );
 
     // ---- Wiring ----
@@ -18,13 +18,13 @@ module internet_clock_top (
     wire rst_n = SW[9];
     wire uart_rx_pin;
 
-    // GPIO[0] is our UART RX input from ESP32 (JP1 pin 1)
-    // GPIO[1] available for UART TX to ESP32 (JP1 pin 2) -- unused in this project
-    // Drive unused GPIO pins as high-Z
-    assign GPIO[35:2] = 34'bz;
-    assign GPIO[1]    = 1'bz;  // Reserved for TX (unused)
-    assign GPIO[0]    = 1'bz;  // Input mode
-    assign uart_rx_pin = GPIO[0];
+    // ARDUINO_IO[0] is our UART RX input from ESP32 (Arduino header IO0)
+    // ARDUINO_IO[1] available for UART TX to ESP32 (Arduino header IO1) -- unused in this project
+    // Drive unused pins as high-Z
+    assign ARDUINO_IO[15:2] = 14'bz;
+    assign ARDUINO_IO[1]    = 1'bz;  // Reserved for TX (unused)
+    assign ARDUINO_IO[0]    = 1'bz;  // Input mode
+    assign uart_rx_pin = ARDUINO_IO[0];
 
     // Unused LEDs off
     assign LEDR = 10'b0;

@@ -154,7 +154,7 @@
             <!-- FPGA -->
             <rect x="440" y="70" width="160" height="60" rx="8" fill="#1a2332" stroke="#0071c5" stroke-width="2"/>
             <text x="520" y="95" text-anchor="middle" fill="#e2e8f0" font-size="12" font-weight="600" font-family="Inter">DE10-Lite FPGA</text>
-            <text x="520" y="112" text-anchor="middle" fill="#94a3b8" font-size="9" font-family="Inter">Arduino IO0 (GPIO[0] RX)</text>
+            <text x="520" y="112" text-anchor="middle" fill="#94a3b8" font-size="9" font-family="Inter">ARDUINO_IO[0] (RX)</text>
 
             <!-- 7seg arrow -->
             <line x1="600" y1="100" x2="660" y2="100" stroke="#00c7b7" stroke-width="2" marker-end="url(#arrow)"/>
@@ -177,7 +177,7 @@
     <ol style="margin: 0.5rem 0 1rem 1.5rem;">
         <li>ESP32 connects to WiFi hotspot and syncs with an NTP time server</li>
         <li>Every second, ESP32 sends the current time as ASCII <code>"HH:MM:SS\r\n"</code> over UART2 (GPIO16)</li>
-        <li>FPGA receives the serial stream on GPIO[0] at 9600 baud</li>
+        <li>FPGA receives the serial stream on ARDUINO_IO[0] at 9600 baud</li>
         <li>An ASCII parser extracts the 6 digit values from the time string</li>
         <li>On newline, the parsed digits commit to the 7-segment display drivers</li>
         <li>HEX5:HEX4 = hours, HEX3:HEX2 = minutes, HEX1:HEX0 = seconds</li>
@@ -186,7 +186,7 @@
     <h2>Wiring</h2>
     <table>
         <tr><th>ESP32 Pin</th><th>Wire</th><th>DE10-Lite Pin</th><th>Function</th></tr>
-        <tr><td>GPIO16</td><td>&rarr;</td><td>Arduino IO0 (GPIO[0])</td><td>UART TX &rarr; RX</td></tr>
+        <tr><td>GPIO16</td><td>&rarr;</td><td>ARDUINO_IO[0]</td><td>UART TX &rarr; RX</td></tr>
         <tr><td>GND</td><td>&mdash;</td><td>Arduino GND</td><td>Common ground</td></tr>
     </table>
     <p><strong>Note:</strong> Only 2 wires needed for this demo (TX + GND). The Arduino header has male pins, so use simple male-male jumper wires. Both boards run at 3.3V logic, no level shifter required.</p>

@@ -7,9 +7,9 @@
 //   HEX2-5 = 4-digit BCD seconds counter
 //   LEDR  = LED sweep XOR switches
 //
-// GPIO[0] = UART RX (from ESP32 GPIO16)  JP1 pin 1
-// GPIO[1] = UART TX (to ESP32 GPIO17)    JP1 pin 2
-// JP1 pin 12 = GND
+// ARDUINO_IO[0] = UART RX (from ESP32 GPIO16)  Arduino header IO0
+// ARDUINO_IO[1] = UART TX (to ESP32 GPIO17)    Arduino header IO1
+// Arduino header GND pin
 // 9600 baud 8N1, 50 MHz clock
 // ============================================================
 
@@ -19,18 +19,18 @@ module alive_test_top (
     input   [1:0]   KEY,
     output  [9:0]   LEDR,
     output  [7:0]   HEX0, HEX1, HEX2, HEX3, HEX4, HEX5,
-    inout   [35:0]  GPIO
+    inout   [15:0]  ARDUINO_IO
 );
 
     wire clk   = MAX10_CLK1_50;
     wire rst_n = KEY[0];
 
-    // ---- GPIO ----
+    // ---- Arduino Header IO ----
     wire uart_tx_out;
-    wire uart_rx_in = GPIO[0];
-    assign GPIO[0]    = 1'bz;       // explicit input (tri-state driver)
-    assign GPIO[1]    = uart_tx_out;
-    assign GPIO[35:2] = 34'bz;
+    wire uart_rx_in = ARDUINO_IO[0];
+    assign ARDUINO_IO[0]    = 1'bz;       // explicit input (tri-state driver)
+    assign ARDUINO_IO[1]    = uart_tx_out;
+    assign ARDUINO_IO[15:2] = 14'bz;
 
     localparam CLKS_PER_BIT = 13'd5208;  // 50_000_000 / 9600
 
@@ -111,7 +111,7 @@ module alive_test_top (
         end
     end
     // Debug LEDs:
-    // LEDR[9] = raw GPIO[0] level (should toggle when ESP32 sends)
+    // LEDR[9] = raw ARDUINO_IO[0] level (should toggle when ESP32 sends)
     // LEDR[8] = toggles on each valid rx_done pulse
     // LEDR[7:4] = rx_digit value
     // LEDR[3:0] = LED sweep

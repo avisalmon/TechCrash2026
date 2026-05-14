@@ -8,17 +8,17 @@
 // RXD/TXD (GPIO1/3) reserved for USB serial debug.
 // CLK/SDO/SDI (GPIO6/7/8) are flash pins — do NOT use.
 //
-// FPGA side: JP1 40-pin GPIO header
-//            Pin 1 (top-left)  = GPIO[0] = UART RX from ESP32
-//            Pin 2 (top-right) = GPIO[1] = UART TX to ESP32
-//            Pin 12 = GND (connect ESP32 GND here)
+// FPGA side: Arduino header on DE10-Lite
+//            ARDUINO_IO[0] = UART RX from ESP32
+//            ARDUINO_IO[1] = UART TX to ESP32
+//            GND pin on Arduino header = connect ESP32 GND here
 // ============================================================
 
 #pragma once
 
 // ---- UART to FPGA (bidirectional) ----
-#define PIN_FPGA_TX         16      // ESP32 UART2 TX  -> FPGA GPIO[0] (JP1 pin 1)
-#define PIN_FPGA_RX         17      // ESP32 UART2 RX  <- FPGA GPIO[1] (JP1 pin 2)
+#define PIN_FPGA_TX         16      // ESP32 UART2 TX  -> FPGA ARDUINO_IO[0]
+#define PIN_FPGA_RX         17      // ESP32 UART2 RX  <- FPGA ARDUINO_IO[1]
 #define FPGA_BAUD           9600    // 9600 8N1
 
 // ---- OLED Display (I2C, SSD1306 128x64) ----

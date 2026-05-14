@@ -212,14 +212,14 @@
             <text x="700" y="225" text-anchor="middle" fill="#e2e8f0" font-size="11">Buttons/Buzzer</text>
 
             <!-- UART wires -->
-            <!-- TX: FPGA GPIO[1] -> ESP32 GPIO17 RX -->
+            <!-- TX: FPGA ARDUINO_IO[1] -> ESP32 GPIO17 RX -->
             <line x1="330" y1="165" x2="470" y2="220" stroke="#0071c5" stroke-width="2.5" stroke-dasharray="6 3"/>
-            <text x="400" y="182" text-anchor="middle" fill="#0071c5" font-size="10" font-weight="600">GPIO[1] &rarr; GPIO17</text>
+            <text x="400" y="182" text-anchor="middle" fill="#0071c5" font-size="10" font-weight="600">IO1 &rarr; GPIO17</text>
             <text x="400" y="196" text-anchor="middle" fill="#94a3b8" font-size="9">FPGA TX &rarr; ESP RX</text>
 
-            <!-- RX: ESP32 GPIO16 TX -> FPGA GPIO[0] -->
+            <!-- RX: ESP32 GPIO16 TX -> FPGA ARDUINO_IO[0] -->
             <line x1="470" y1="165" x2="330" y2="220" stroke="#00c7b7" stroke-width="2.5" stroke-dasharray="6 3"/>
-            <text x="400" y="240" text-anchor="middle" fill="#00c7b7" font-size="10" font-weight="600">GPIO16 &rarr; GPIO[0]</text>
+            <text x="400" y="240" text-anchor="middle" fill="#00c7b7" font-size="10" font-weight="600">GPIO16 &rarr; IO0</text>
             <text x="400" y="254" text-anchor="middle" fill="#94a3b8" font-size="9">ESP TX &rarr; FPGA RX</text>
 
             <!-- GND wire -->
@@ -242,8 +242,8 @@
             <tr><th>FPGA (DE10-Lite Arduino Header)</th><th>Wire</th><th>ESP32 DevKit</th><th>Function</th></tr>
         </thead>
         <tbody>
-            <tr><td>IO0 &mdash; GPIO[0]</td><td>&larr;</td><td>GPIO16</td><td>ESP32 TX &rarr; FPGA RX</td></tr>
-            <tr><td>IO1 &mdash; GPIO[1]</td><td>&rarr;</td><td>GPIO17</td><td>FPGA TX &rarr; ESP32 RX</td></tr>
+            <tr><td>Arduino IO0 &mdash; ARDUINO_IO[0]</td><td>&larr;</td><td>GPIO16</td><td>ESP32 TX &rarr; FPGA RX</td></tr>
+            <tr><td>Arduino IO1 &mdash; ARDUINO_IO[1]</td><td>&rarr;</td><td>GPIO17</td><td>FPGA TX &rarr; ESP32 RX</td></tr>
             <tr><td>GND</td><td>&mdash;</td><td>GND</td><td>Common ground</td></tr>
         </tbody>
     </table>

@@ -397,12 +397,12 @@
             <div class="card">
                 <div class="card-icon" data-icon="TX"></div>
                 <h3>ESP32 &rarr; FPGA</h3>
-                <p>ESP32 GPIO 16 (UART2 TX) connects to FPGA GPIO[0] (Arduino IO0). The ESP32 sends data to the FPGA.</p>
+                <p>ESP32 GPIO 16 (UART2 TX) connects to FPGA ARDUINO_IO[0] (Arduino IO0). The ESP32 sends data to the FPGA.</p>
             </div>
             <div class="card">
                 <div class="card-icon" data-icon="RX"></div>
                 <h3>FPGA &rarr; ESP32</h3>
-                <p>FPGA GPIO[1] (Arduino IO1) connects to ESP32 GPIO 17 (UART2 RX). The FPGA sends data back to the ESP32.</p>
+                <p>FPGA ARDUINO_IO[1] (Arduino IO1) connects to ESP32 GPIO 17 (UART2 RX). The FPGA sends data back to the ESP32.</p>
             </div>
             <div class="card">
                 <div class="card-icon" data-icon="&#9207;"></div>
@@ -429,8 +429,8 @@
                 <tr><th>GPIO</th><th>Function</th><th>Direction</th><th>Notes</th></tr>
             </thead>
             <tbody>
-                <tr><td><strong>16</strong></td><td>UART TX &rarr; FPGA</td><td>Output</td><td>UART2 &rarr; FPGA GPIO[0] (Arduino IO0)</td></tr>
-                <tr><td><strong>17</strong></td><td>UART RX &larr; FPGA</td><td>Input</td><td>UART2 &larr; FPGA GPIO[1] (Arduino IO1)</td></tr>
+                <tr><td><strong>16</strong></td><td>UART TX &rarr; FPGA</td><td>Output</td><td>UART2 &rarr; FPGA ARDUINO_IO[0]</td></tr>
+                <tr><td><strong>17</strong></td><td>UART RX &larr; FPGA</td><td>Input</td><td>UART2 &larr; FPGA ARDUINO_IO[1]</td></tr>
                 <tr class="pin-map-divider"><td colspan="4"></td></tr>
                 <tr><td><strong>21</strong></td><td>OLED SDA</td><td>I/O</td><td>I2C data (SSD1306, addr 0x3C)</td></tr>
                 <tr><td><strong>22</strong></td><td>OLED SCL</td><td>Output</td><td>I2C clock</td></tr>
