@@ -148,47 +148,29 @@ set_location_assignment PIN_N20 -to HEX5[6]
 set_location_assignment PIN_L19 -to HEX5[7]
 set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HEX5[*]
 
-# ---- JP1 40-pin GPIO Header — GPIO[35:0] ----
-# GPIO[0] = JP1 pin 1 (top-left)  — CrashTech: UART RX from ESP32
-# GPIO[1] = JP1 pin 2 (top-right) — CrashTech: UART TX to ESP32
-# Pin 12 = GND (connect ESP32 GND here)
-set_location_assignment PIN_V10  -to GPIO[0]
-set_location_assignment PIN_W10  -to GPIO[1]
-set_location_assignment PIN_V9   -to GPIO[2]
-set_location_assignment PIN_W9   -to GPIO[3]
-set_location_assignment PIN_V8   -to GPIO[4]
-set_location_assignment PIN_W8   -to GPIO[5]
-set_location_assignment PIN_V7   -to GPIO[6]
-set_location_assignment PIN_W7   -to GPIO[7]
-set_location_assignment PIN_W6   -to GPIO[8]
-set_location_assignment PIN_V5   -to GPIO[9]
-set_location_assignment PIN_W5   -to GPIO[10]
-set_location_assignment PIN_AA15 -to GPIO[11]
-set_location_assignment PIN_AA14 -to GPIO[12]
-set_location_assignment PIN_W13  -to GPIO[13]
-set_location_assignment PIN_W12  -to GPIO[14]
-set_location_assignment PIN_AB13 -to GPIO[15]
-set_location_assignment PIN_AB12 -to GPIO[16]
-set_location_assignment PIN_Y11  -to GPIO[17]
-set_location_assignment PIN_AB11 -to GPIO[18]
-set_location_assignment PIN_W11  -to GPIO[19]
-set_location_assignment PIN_AB10 -to GPIO[20]
-set_location_assignment PIN_AA10 -to GPIO[21]
-set_location_assignment PIN_AA9  -to GPIO[22]
-set_location_assignment PIN_Y8   -to GPIO[23]
-set_location_assignment PIN_AA8  -to GPIO[24]
-set_location_assignment PIN_Y7   -to GPIO[25]
-set_location_assignment PIN_AA7  -to GPIO[26]
-set_location_assignment PIN_Y6   -to GPIO[27]
-set_location_assignment PIN_AA6  -to GPIO[28]
-set_location_assignment PIN_Y5   -to GPIO[29]
-set_location_assignment PIN_AA5  -to GPIO[30]
-set_location_assignment PIN_Y4   -to GPIO[31]
-set_location_assignment PIN_AB3  -to GPIO[32]
-set_location_assignment PIN_Y3   -to GPIO[33]
-set_location_assignment PIN_AB2  -to GPIO[34]
-set_location_assignment PIN_AA2  -to GPIO[35]
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO[*]
+# ---- Arduino Header — ARDUINO_IO[15:0] ----
+# ARDUINO_IO[0] — CrashTech: UART RX from ESP32 (GPIO16)
+# ARDUINO_IO[1] — CrashTech: UART TX to ESP32 (GPIO17)
+# GND pin on Arduino header — connect ESP32 GND here
+set_location_assignment PIN_AB5  -to ARDUINO_IO[0]
+set_location_assignment PIN_AB6  -to ARDUINO_IO[1]
+set_location_assignment PIN_AB7  -to ARDUINO_IO[2]
+set_location_assignment PIN_AB8  -to ARDUINO_IO[3]
+set_location_assignment PIN_AB9  -to ARDUINO_IO[4]
+set_location_assignment PIN_Y10  -to ARDUINO_IO[5]
+set_location_assignment PIN_AA11 -to ARDUINO_IO[6]
+set_location_assignment PIN_AA12 -to ARDUINO_IO[7]
+set_location_assignment PIN_AB17 -to ARDUINO_IO[8]
+set_location_assignment PIN_AA17 -to ARDUINO_IO[9]
+set_location_assignment PIN_AB19 -to ARDUINO_IO[10]
+set_location_assignment PIN_AA19 -to ARDUINO_IO[11]
+set_location_assignment PIN_Y19  -to ARDUINO_IO[12]
+set_location_assignment PIN_AB20 -to ARDUINO_IO[13]
+set_location_assignment PIN_AB21 -to ARDUINO_IO[14]
+set_location_assignment PIN_AA20 -to ARDUINO_IO[15]
+set_location_assignment PIN_F16  -to ARDUINO_RESET_N
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to ARDUINO_IO[*]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to ARDUINO_RESET_N
 ```
 
 ### 7-Segment Encoding (Active-Low)
@@ -248,13 +230,13 @@ Test-Path "output_files\alive_test.sof"
 
 ```systemverilog
 // CLKS_PER_BIT = 50_000_000 / 9600 = 5208
-// GPIO[0] = input  (RX from ESP32, JP1 pin 1)
-// GPIO[1] = output (TX to ESP32,   JP1 pin 2)
+// ARDUINO_IO[0] = input  (RX from ESP32)
+// ARDUINO_IO[1] = output (TX to ESP32)
 
-assign GPIO[0]    = 1'bz;        // input mode
-assign uart_rx_in = GPIO[0];
-assign GPIO[1]    = uart_tx_out;
-assign GPIO[35:2] = 34'bz;       // unused = high-Z
+assign ARDUINO_IO[0]  = 1'bz;            // input mode
+assign uart_rx_in     = ARDUINO_IO[0];
+assign ARDUINO_IO[1]  = uart_tx_out;
+assign ARDUINO_IO[15:2] = 14'bz;         // unused = high-Z
 
 // Double-flop sync on RX input (mandatory for async inputs)
 always @(posedge clk) begin
@@ -273,7 +255,7 @@ end
 | `HEX5..HEX0` | ✅ Working | "ALivE " verified on hardware |
 | `SW[9:0]` | ✅ Working | |
 | `KEY[1:0]` | ✅ Working | Active-low reset |
-| `GPIO[0]/[1]` | ✅ Compiled | UART TX/RX to ESP32 — wiring pending |
+| `GPIO[0]/[1]` | ✅ Working | UART TX/RX to ESP32 via Arduino header (ARDUINO_IO[0]/[1]) |
 
 ### Reference Demo
 
@@ -478,9 +460,6 @@ module top (
     inout   [15:0]  ARDUINO_IO,
     inout           ARDUINO_RESET_N
 );
-```
-
-## Proven Switch Assignments
 
 From working projects:
 - `SW[9]` → `resetN` (active-low reset via slide switch)

@@ -25,8 +25,8 @@
 
 | Function | GPIO | Notes |
 |----------|------|-------|
-| FPGA UART TX | 16 | UART2 TX → FPGA GPIO[0], JP1 pin 1 |
-| FPGA UART RX | 17 | UART2 RX ← FPGA GPIO[1], JP1 pin 2 |
+| FPGA UART TX | 16 | UART2 TX → FPGA ARDUINO_IO[0] |
+| FPGA UART RX | 17 | UART2 RX ← FPGA ARDUINO_IO[1] |
 | OLED SDA | 21 | I2C default Wire |
 | OLED SCL | 22 | I2C default Wire |
 | Servo | 18 | PWM via LEDC (50Hz, 16-bit) |
@@ -38,7 +38,7 @@
 | Switch 2 | 0 | INPUT_PULLUP, active LOW — **boot pin, do NOT hold LOW at power-on** |
 | Analog In | 34 | ADC1_CH6, input-only, works with WiFi active |
 
-**FPGA side:** JP1 40-pin GPIO header. Pin 1 (top-left) = GPIO[0] = RX from ESP32. Pin 2 = GPIO[1] = TX to ESP32. Pin 12 = GND.  
+**FPGA side:** Arduino header on DE10-Lite. ARDUINO_IO[0] = RX from ESP32. ARDUINO_IO[1] = TX to ESP32. GND pin on Arduino header.  
 **UART baud:** 9600 8N1.
 
 ### Wiring BKM
@@ -120,7 +120,7 @@ Always include `pin_config.h`:
 | Switch 2 (GPIO 0) | ✅ Working | |
 | Analog In (GPIO 34) | ✅ Working | |
 | Servo (GPIO 18) | ⏳ Not yet tested | wiring BKM documented above |
-| FPGA UART (GPIO 16/17) | ⏳ Not yet tested | FPGA not programmed yet |
+| FPGA UART (GPIO 16/17) | ✅ Working | ARDUINO_IO[0] RX, ARDUINO_IO[1] TX |
 
 ### Reference Demo
 
