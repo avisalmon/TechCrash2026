@@ -24,15 +24,36 @@ const unsigned long DISPLAY_INTERVAL_MS = 100; // Update display every 100ms
 void setup() {
     // Debug serial output
     Serial.begin(115200);
-    delay(500);
+    delay(1000);
     Serial.println("Challenge 1: Volt-Meter ESP32 Setup...");
 
     // OLED I2C Bus setup
     Wire.begin(PIN_OLED_SDA, PIN_OLED_SCL);
-    oledOk = oled.begin(SSD1306_SWITCHCAPVCC, OLED_I2C_ADDR);
+
+    // Scan I2C bus for the OLED address
+    byte discoveredAddr = 0;
+    Serial.println("Scanning I2C bus...");
+    for (byte address = 1; address < 127; address++) {
+        Wire.beginTransmission(address);
+        byte error = Wire.endTransmission();
+        if (error == 0) {
+            Serial.printf("I2C device found at address 0x%02X\n", address);
+            if (address == 0x3C || address == 0x3D) {
+                discoveredAddr = address;
+            }
+        }
+    }
+
+    if (discoveredAddr == 0) {
+        Serial.println("[!] No I2C display discovered! Trying default 0x3C...");
+        discoveredAddr = OLED_I2C_ADDR;
+    }
+
+    oledOk = oled.begin(SSD1306_SWITCHCAPVCC, discoveredAddr);
     if (!oledOk) {
-        Serial.println("[!] OLED initialization failed!");
+        Serial.printf("[!] OLED initialization failed at address 0x%02X!\n", discoveredAddr);
     } else {
+        Serial.printf("[+] OLED successfully initialized at address 0x%02X\n", discoveredAddr);
         oled.clearDisplay();
         oled.setTextColor(SSD1306_WHITE);
         oled.setTextSize(1);
