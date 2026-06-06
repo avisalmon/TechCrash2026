@@ -1346,3 +1346,60 @@ a:hover { text-decoration: underline; }
     border: 1px solid rgba(245, 158, 11, 0.3);
     color: var(--text);
 }
+
+/* ---- Feedback Page ---- */
+.feedback-topic {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 2rem;
+    margin-bottom: 1.5rem;
+}
+.feedback-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 0.75rem;
+}
+.feedback-percent {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 56px;
+    padding: 0.3rem 0.7rem;
+    background: linear-gradient(135deg, var(--primary), var(--accent));
+    color: white;
+    font-weight: 800;
+    font-size: 1.1rem;
+    border-radius: 8px;
+}
+.feedback-header h3 {
+    color: var(--text-bright);
+    font-size: 1.2rem;
+}
+.feedback-summary {
+    color: var(--text-muted);
+    line-height: 1.7;
+    margin-bottom: 1rem;
+}
+.feedback-quotes {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+.feedback-quotes blockquote {
+    background: rgba(0, 199, 183, 0.05);
+    border-left: 3px solid var(--accent);
+    padding: 0.75rem 1rem;
+    border-radius: 0 8px 8px 0;
+    color: var(--text);
+    font-style: italic;
+    line-height: 1.6;
+}
+.feedback-footer {
+    text-align: center;
+    color: var(--text-muted);
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border);
+}
