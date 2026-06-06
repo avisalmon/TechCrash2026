@@ -4,6 +4,10 @@ challenges/
 # Published challenge files -- event concluded
 challenges_public/
 
+# Survey data (private)
+Crash Tech*.csv
+Crash Tech*.zip
+
 # Event Day challenges file -- remove this line to reveal on competition day
 eventday-challenges.html
 
